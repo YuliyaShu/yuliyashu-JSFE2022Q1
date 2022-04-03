@@ -1,0 +1,228 @@
+@font-face {
+	font-family: 'Arial';
+	src: url('../../assets/fonts/arial.ttf');
+	src: local('Arial Regular'), local('Arial-Regular'),
+		url('../../assets/fonts/arial.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Georgia';
+	src: url('../../assets/fonts/georgia.ttf');
+	src: local('Georgia Regular'), local('Georgia-Regular'),
+		url('../../assets/fonts/georgia.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+html {
+    box-sizing: border-box;
+	scroll-behavior: smooth; 
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+	max-width: 1280px;
+	justify-content: center;
+	margin: 0 auto;
+}
+
+img {
+    
+    height: auto;
+    vertical-align: middle;
+}
+
+p, h1, h2, h3, h5 {
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+  }
+  
+.wrapper {
+	max-width: 1280px;
+	
+}
+
+:root {
+	--color-light-xl: #FFFFFF;
+	--color-light-l:#F6F6F6;
+	--color-light-s:#FAFAFA;
+	--color-dark-s:#CDCDCD;
+	--color-dark-m:#B2B2B2;
+	--color-dark-l:#545454;
+	--color-dark-xl:#4C4C4C;
+	--color-dark-2xl:#444444;
+	--color-dark-3xl:#292929;
+	--color-primary:#F1CDB3;
+	--color-primary-light:#FDDCC4;
+}
+
+/* HEADER */
+
+.header {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content:space-between;
+	margin: 0px 40px 0px 40px;
+    height: 120px;
+    align-items: center;
+    position: sticky;
+    top: 0px;
+    background-color: var(--color-light-xl);
+}
+
+h1 {
+	margin-bottom: 10px;
+	font-family: 'Georgia';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 32px;
+	line-height: 110%;
+	letter-spacing: 0.06em;
+	color: var(--color-dark-l);
+}
+
+.logo-header-description {
+	font-family: 'Arial';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 13px;
+	line-height: 15px;
+	letter-spacing: 0.1em;
+	color: var(--color-dark-3xl);
+	margin-left: 4px;
+    background-color: var(--color-light-xl);
+    position: sticky;
+}
+
+.nav-header {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+.nav-header-link {
+	font-family: 'Arial';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 15px;
+	line-height: 160%;
+	color: var(--color-dark-l);
+	margin-left: 36px;
+	text-decoration: none;
+	margin-bottom: 3px;
+	transition-duration: 0.5s;
+}
+
+.nav-header-link:hover, .nav-header-link:focus, .nav-header-link:active {
+	color: var(--color-dark-3xl);
+	transition-duration: 0.5s;
+
+}
+
+.nav-header-link-active {
+	font-family: 'Arial';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 15px;
+	line-height: 160%;
+	color: var(--color-dark-3xl);
+	text-decoration: none;
+	margin-left: 36px;
+	margin-bottom: 3px;
+	border-bottom: solid var(--color-primary) 3px;
+	
+}
+
+
+/* MAIN */
+.main {
+    width: 100%;
+    height: 1342px;
+}
+
+h4 {
+	font-family: 'Georgia';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 35px;
+	line-height: 130%;
+	letter-spacing: 0.06em;
+	color: var(--color-dark-l);
+	margin-bottom: 60px;
+	text-align: center;
+	/* margin-top: 110px; */
+}
+
+
+
+
+/* FOOTER */
+
+.footer {
+	width: 100%;
+	height: 350px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	background-image: url(../../assets/images/footer-gradient-background.jpg);
+
+}
+
+.footer-block {
+	display: flex;
+	flex-direction: column;
+	width: 302px;
+	height: 234px;
+	margin-bottom: 18px;
+	margin-right: 75px;
+	justify-content: center;
+}
+
+.footer-block1 {
+	width: 280px;
+	
+}
+
+h6 {
+	font-family: 'Georgia';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 35px;
+	line-height: 130%;
+	letter-spacing: 0.06em;
+	color: var(--color-light-xl);
+	margin-bottom: 34px;
+	margin-top: 40px;
+}
+
+.footer-contact {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-start;
+	cursor: pointer;
+	margin-bottom: 32px;
+}
+
+.footer-text {
+	font-family: 'Georgia';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 115%;
+	letter-spacing: 0.06em;
+	color: var(--color-primary);
+	margin-left: 20px;
+	text-decoration: none;
+}
+
+
+.footer-img {
+	margin-top: 40px;
+}
