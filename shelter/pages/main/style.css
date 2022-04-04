@@ -26,9 +26,9 @@ html {
 }
 
 body {
-	max-width: 1280px;
-	justify-content: center;
-	margin: 0 auto;
+	margin: 0;
+	position: relative;
+	
 }
 
 img {
@@ -41,13 +41,17 @@ p, h1, h2, h3, h5, h6 {
     margin-block-end: 0px;
   }
   
-.wrapper {
-	max-width: 1280px;
+.container {
+	max-width: 1230px;
+	margin: 0 auto;
+	padding: 0 15px;
 }
 
 a {
 	text-decoration: none;
 }
+
+
 
 :root {
 	--color-light-xl: #FFFFFF;
@@ -65,12 +69,18 @@ a {
 
 /* HEADER */
 
-.header {
+.header-main {
+	background-size: cover;
+}
+
+.header-wrapper {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
 	justify-content:space-between;
-	margin: 60px 40px 0px 40px;
+	padding-top: 60px;
+	max-width: 1200px;
+	
 }
 
 h1 {
@@ -136,9 +146,13 @@ h1 {
 /* NOT ONLY */
 
 .not-only {
-	width: 100%;
-	height: 908px;
-	background: url(../../assets/images/start-screen-gradient-background.jpg);
+	background-image: url(../../assets/images/start-screen-gradient-background.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 0 0;
+}
+
+.not-only-wrapper {
 	margin-top: -120px;
 	display: flex;
 	flex-direction: row;
@@ -149,7 +163,6 @@ h1 {
 	display: flex;
 	flex-direction: column;
 	justify-content:flex-start;
-	margin-left: 40px;
 	margin-top: 343px;
 	margin-right: 43px;
 }
@@ -199,29 +212,29 @@ h2 {
 
 .not-only-img {
 	margin-top: 180px;
-	margin-right: 35px;
-	width: 130%;
+	
 }
 
 /* ABOUT */
 
 .about {
-	width: 100%;
-	height: 588px;
+	padding-top: 82px;
+	padding-bottom: 83px;
+}
+
+.about-wrapper {
 	display: flex;
 	flex-direction: row;
-	align-content: space-between;
+	justify-content: space-evenly;
 	align-items: center;
-	
 }
 
 .about-img {
-	width: 50%;
 	justify-items: center;
 	display: flex;
 	justify-content: center;
 	margin-bottom: 15px;
-	padding-left: 90px;
+	
 }
 
 .about-text-block {
@@ -230,7 +243,7 @@ h2 {
 	width: 430px;
 	height: 380px;
 	margin-bottom: 16px;
-	margin-left: -5px;
+	margin-left: -54px;
 	
 }
 
@@ -257,12 +270,14 @@ h3 {
 
 /* OUR FRIENDS */
 .our-friends {
-	width: 100%;
-	height: 877px;
+	padding-bottom: 100px;
+	background-color: var(--color-light-l);
+}
+
+.our-friends-wrapper {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	background-color: var(--color-light-l);
 }
 
 h4 {
@@ -273,7 +288,7 @@ h4 {
 	line-height: 130%;
 	letter-spacing: 0.06em;
 	color: var(--color-dark-l);
-	margin-bottom: 60px;
+	margin-bottom: 58px;
 	text-align: center;
 	margin-top: 80px;
 }
@@ -281,12 +296,9 @@ h4 {
 .our-friends-slider {
 	display: flex;
 	flex-direction: row;
-	padding-right: 40px;
-	padding-left: 40px;
-	margin-bottom: 60px;
-	height: 435px;
+	margin-bottom: 59px;
 	align-items:center;
-	justify-content: space-between;
+	justify-content: center;
 	width: 100%;
 	
 }
@@ -422,12 +434,13 @@ h4 {
 /* HELP */
 
 .help {
-	width: 100%;
-	height: 611px;
+	padding-bottom: 100px;
+}
+
+.help-wrapper{
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-
 }
 
 .help-img1 {
@@ -477,8 +490,6 @@ h4 {
 
 .help-grid {
 	width: 100%;
-	padding-left: 40px;
-	padding-right: 40px;
 	display: grid;
 	justify-content: center;
 	grid-row-gap: 55px;
@@ -511,14 +522,18 @@ h4 {
 /* IN ADDITION */
 
 .in-addition {
-	width: 100%;
-	height: 462px;
+	padding-bottom: 82px;
+	background-color: var(--color-light-l);
+	
+}
+
+.in-addition-wrapper {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
-	background-color: var(--color-light-l);
 	gap: 30px;
+	padding-top: 82px;
 }
 
 .in-addition-img {
@@ -595,14 +610,17 @@ h5 {
 /* FOOTER */
 
 .footer {
-	width: 100%;
-	height: 350px;
+	background-repeat: no-repeat;
+	background-image: url(../../assets/images/footer-gradient-background.jpg);
+	background-size: cover;
+	background-position: 0 0;
+}
+
+.footer-wrapper {
 	display: flex;
 	flex-direction: row;
-	justify-content: space-around;
+	justify-content: space-between;
 	align-items: center;
-	background-image: url(../../assets/images/footer-gradient-background.jpg);
-
 }
 
 .footer-block {
@@ -617,7 +635,10 @@ h5 {
 
 .footer-block1 {
 	width: 280px;
-	
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    height: 309px;
 }
 
 h6 {
