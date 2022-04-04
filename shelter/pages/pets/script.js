@@ -141,7 +141,7 @@ const sliderButton3 = document.createElement('button');
 sliderPagination.append(sliderButton3);
 sliderButton3.classList.add('slider-button3');
 sliderButton3.textContent = '1';
-sliderButton3.style.cursor = 'pointer';
+sliderButton3.disabled;
 
 const sliderButton4 = document.createElement('button');
 sliderPagination.append(sliderButton4);
