@@ -325,6 +325,7 @@ h4 {
 
 .our-friends-block:hover {
 	background-color: var(--color-light-xl);
+	
 }
 
 .our-friends-name  {
@@ -361,6 +362,12 @@ h4 {
 	transition-duration: 0.5s;
 	border: 2px solid transparent;
 	
+}
+
+.our-friends-block:hover .our-friends-click {
+	background-color : var(--color-primary-light);
+	transition-duration: 0.5s;
+	border: 2px solid transparent;
 }
 
 .our-friends-arrow2 {
