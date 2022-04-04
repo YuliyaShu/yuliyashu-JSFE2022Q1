@@ -224,6 +224,12 @@ h4 {
 	border: 2px solid transparent;
 }
 
+.slider-item:hover .slider-button {
+	background-color : var(--color-primary-light);
+	transition-duration: 0.5s;
+	border: 2px solid transparent;
+}
+
 .slider-buttons {
 	display: flex;
 	flex-direction: row;
