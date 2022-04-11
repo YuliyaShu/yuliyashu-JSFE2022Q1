@@ -92,8 +92,8 @@ const sliderPets = [
 
 const slider = document.querySelector('.slider');
 
-function createSlider() {
-  for (let i = 0; i <= 7; i++) {
+function createSlider(x) {
+  for (let i = 0; i <= x; i++) {
     let sliderItemI = 'sliderItem' + i;
     sliderItemI = document.createElement('div'); // create element
     slider.append(sliderItemI); // add element to slider Item container
@@ -119,7 +119,26 @@ function createSlider() {
   }
   
 }
-createSlider();
+ function createAdaptiveSlider() {
+  if (window.screen.availWidth >= 1280) {
+    document.querySelector('.slider').innerHTML = '';
+    createSlider(7);
+  }
+  if (window.screen.availWidth < 1280 && window.screen.availWidth >= 768) {
+    document.querySelector('.slider').innerHTML = '';
+    createSlider(5);
+  }
+  if (window.screen.availWidth < 768) {
+    document.querySelector('.slider').innerHTML = '';
+    createSlider(2);
+  }
+ }
+
+ createAdaptiveSlider();
+
+ 
+
+
 
 
 //pagination buttons
