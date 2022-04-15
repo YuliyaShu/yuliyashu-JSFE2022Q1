@@ -1,3 +1,48 @@
+//burger-menu
+
+const burger = document.querySelector('.nav-header-burger');
+const burgerUl = document.querySelector('ul');
+const navBurgerMenu = document.querySelector('.nav-burger-menu');
+const navBurgerMenuContainer = document.querySelector('.nav-burger-menu-container');
+const navBurgerMenuList = document.querySelector('.nav-burger-menu-list');
+const navBurgerMenuLink1 = document.querySelector('.nav-burger-menu-link-1');
+const navBurgerMenuLink2 = document.querySelector('.nav-burger-menu-link-2');
+const navBurgerMenuLink3 = document.querySelector('.nav-burger-menu-link-3');
+const navBurgerMenuLink4 = document.querySelector('.nav-burger-menu-link-4');
+const logoBurger = document.querySelector('.logo-burger');
+const bodyBurger = document.querySelector('.body-burger');
+const headerMain = document.querySelector('.header-main');
+const hrBurger = document.querySelectorAll('.hr-burger');
+
+function toggleMenu() {
+  bodyBurger.classList.toggle('overlay');
+  headerMain.classList.toggle('header-main-burger');
+  for (let i =0; i< hrBurger.length; i++) {
+    hrBurger[i].classList.toggle('open');
+  };
+  logoBurger.classList.toggle('open');
+  burgerUl.classList.toggle('open');
+  navBurgerMenu.classList.toggle('open');
+  navBurgerMenuContainer.classList.toggle('open');
+  navBurgerMenuList.classList.toggle('open');
+  navBurgerMenuLink1.classList.toggle('open');
+  navBurgerMenuLink2.classList.toggle('open');
+  navBurgerMenuLink3.classList.toggle('open');
+  navBurgerMenuLink4.classList.toggle('open');
+  burger.classList.toggle('open');
+}
+
+burger.addEventListener('click', toggleMenu);
+navBurgerMenuLink1.addEventListener('click', toggleMenu);
+navBurgerMenuLink2.addEventListener('click', toggleMenu);
+navBurgerMenuLink3.addEventListener('click', toggleMenu);
+navBurgerMenuLink4.addEventListener('click', toggleMenu);
+bodyBurger.addEventListener('click', toggleMenu);
+
+
+
+// SLIDER
+
 const sliderPets = [
     {
       "name": "Katrine",
@@ -136,14 +181,136 @@ function createSlider(x) {
 
  createAdaptiveSlider();
 
+
+
  
+
+// POP UP START
+const sliderItem = document.querySelectorAll('.slider-item');
+console.log(sliderItem)
+const bodyPopup = document.querySelector('.body-popup');
+const popupVisible = document.querySelector('.popup');
+const popupItems = document.querySelector('.popup-items');
+let sliderPetsIndex;
+
+//CREATE
+
+function popUpCreate() {
+    bodyPopup.classList.toggle('overlay-popup');
+    popupVisible.classList.toggle('popup-visible');
+    popupVisible.children[0].classList.toggle('close');
+    popupVisible.children[2].classList.toggle('pop-item');
+
+    const popupImg = document.createElement('img');
+    popupItems.append(popupImg);
+    popupImg.classList.add('slider-img');
+    popupImg.src = sliderPets[sliderPetsIndex].img;
+
+    const popupTextBlock = document.createElement('div');
+    popupItems.append(popupTextBlock);
+    popupTextBlock.classList.add('popup-text-block');
+
+    const popupName = document.createElement('p');
+    popupTextBlock.append(popupName);
+    popupName.classList.add('popup-name');
+    popupName.innerHTML = sliderPets[sliderPetsIndex].name;
+
+    const popupTypeBreed = document.createElement('p');
+    popupTextBlock.append(popupTypeBreed);
+    popupTypeBreed.classList.add('popup-type-breed');
+    popupTypeBreed.innerHTML = `${sliderPets[sliderPetsIndex].type} - ${sliderPets[sliderPetsIndex].breed}`;
+    
+    const popupDescription = document.createElement('p');
+    popupTextBlock.append(popupDescription);
+    popupDescription.classList.add('popup-description');
+    popupDescription.innerHTML = sliderPets[sliderPetsIndex].description;
+
+    const popupList = document.createElement('ul');
+    popupTextBlock.append(popupList);
+    popupList.classList.add('popup-list');
+
+
+    const popupListLi1 = document.createElement('li');
+    popupList.append(popupListLi1);
+    popupListLi1.classList.add('popup-list-li');
+    popupListLi1.innerHTML = `${'Age:'.bold()} ${sliderPets[sliderPetsIndex].age}`;
+
+    const popupListLi2 = document.createElement('li');
+    popupList.append(popupListLi2);
+    popupListLi2.classList.add('popup-list-li');
+    popupListLi2.innerHTML = `${'Inoculations:'.bold()} ${sliderPets[sliderPetsIndex].inoculations}`;
+ 
+    const popupListLi3 = document.createElement('li');
+    popupList.append(popupListLi3);
+    popupListLi3.classList.add('popup-list-li');
+    popupListLi3.innerHTML = `${'Diseases:'.bold()} ${sliderPets[sliderPetsIndex].diseases}`;
+
+    const popupListLi4 = document.createElement('li');
+    popupList.append(popupListLi4);
+    popupListLi4.classList.add('popup-list-li');
+    popupListLi4.innerHTML = `${'Parasites:'.bold()} ${sliderPets[sliderPetsIndex].parasites}`;
+  }
+
+
+function popupClickEvent() {
+  for (let i = 0; i < sliderItem.length; i++) {
+    sliderItem[i].addEventListener('click', popUpCreate);
+    console.log(sliderItem[i]);
+    sliderPetsIndex = i;
+  }
+}
+popupClickEvent();
+console.log(sliderPetsIndex);
+
+
+// hover on close, when cursor on body-overlay
+const closeHover = document.querySelector('.closeForHover');
+const emptyCell1 = document.querySelector('.emptyCell1');
+const emptyCell2 = document.querySelector('.emptyCell2');
+// OVER
+bodyPopup.onmouseover = function() {
+   closeHover.classList.toggle('hover');
+}
+emptyCell1.onmouseover = function() {
+  closeHover.classList.toggle('hover');
+}
+emptyCell2.onmouseover = function() {
+  closeHover.classList.toggle('hover');
+}
+// OUT
+bodyPopup.onmouseout = function() {
+  closeHover.classList.toggle('hover');
+}
+emptyCell1.onmouseout = function() {
+  closeHover.classList.toggle('hover');
+}
+emptyCell2.onmouseout = function() {
+  closeHover.classList.toggle('hover');
+}
+
+
+// hide popup, when click on body-overlay
+
+function bodyPopupOverlayHide() {
+  bodyPopup.classList.toggle('overlay-popup');
+  popupVisible.classList.toggle('popup-visible');
+  popupVisible.children[0].classList.toggle('close');
+  popupVisible.children[2].classList.toggle('pop-item');
+  popupVisible.children[0].innerHTML = '';
+  popupVisible.children[2].innerHTML = '';
+}
+bodyPopup.addEventListener('click', bodyPopupOverlayHide);
+emptyCell1.addEventListener('click', bodyPopupOverlayHide);
+emptyCell2.addEventListener('click', bodyPopupOverlayHide);
+closeHover.addEventListener('click', bodyPopupOverlayHide);
+// POP UP END
 
 
 
 
 //pagination buttons
 const sliderPagination = document.querySelector('.slider-buttons');
-console.log(sliderPagination);
+
 const sliderButton1 = document.createElement('button');
 sliderPagination.append(sliderButton1);
 sliderButton1.classList.add('slider-button1');
@@ -173,3 +340,8 @@ sliderPagination.append(sliderButton5);
 sliderButton5.classList.add('slider-button5');
 sliderButton5.textContent = '>>';
 sliderButton5.style.cursor = 'pointer';
+
+
+
+
+ 
