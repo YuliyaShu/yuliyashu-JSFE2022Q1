@@ -9,6 +9,14 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body onresize="createAdaptiveSlider()">
+<div class="body-burger"></div>
+<div class="body-popup"></div>
+<div class="popup">
+    <div class="closeForHover"></div>
+    <div class="emptyCell1"></div>
+    <div class="popup-items"></div>
+    <div class="emptyCell2"></div>
+</div>
 <!-- HEADER -->
 <div class="header-main">
     <header class="header">
@@ -30,6 +38,39 @@
                     <a href="https://rolling-scopes-school.github.io/yuliyashu-JSFE2022Q1/shelter/pages/main/index.html#help" class="nav-header-link">Help the shelter</a>
                     <a href="#footer" class="nav-header-link">Contacts</a>
                 </div> 
+                <div class="nav-header-burger" id="burger">
+                    <span class="line-burger "><hr class="hr-burger line-burger1"></span>
+                    <span class="line-burger "><hr class="hr-burger line-burger2"></span>
+                    <span class="line-burger "><hr class="hr-burger line-burger3"></span>
+                </div>
+                <div class="nav-burger-menu " id="burger-menu">
+                    <nav class="nav-burger-menu-container open">
+                        <div class="logo-burger open">
+                            <a href="https://rolling-scopes-school.github.io/yuliyashu-JSFE2022Q1/shelter/pages/main/index.html">
+                                <h1 class="h1-burger">
+                                    Cozy House
+                                </h1>
+                                <p class="logo-header-description h1-logo-header-description">
+                                    Shelter for pets in Boston
+                                </p>
+                            </a>
+                        </div>
+                        <ul class="nav-burger-menu-list">
+                            <li class="nav-burger-menu-item open ">
+                                <a class="nav-burger-menu-link-1 " href="https://rolling-scopes-school.github.io/yuliyashu-JSFE2022Q1/shelter/pages/main/index.html">About the shelter</a>
+                            </li>
+                            <li class="nav-burger-menu-item open">
+                                <a class="nav-burger-menu-link-2 " href="https://rolling-scopes-school.github.io/yuliyashu-JSFE2022Q1/shelter/pages/pets/index.html">Our pets</a>
+                            </li>
+                            <li class="nav-burger-menu-item open">
+                                <a class="nav-burger-menu-link-3 " href="https://rolling-scopes-school.github.io/yuliyashu-JSFE2022Q1/shelter/pages/main/index.html#help">Help the shelter</a>
+                            </li>
+                            <li class="nav-burger-menu-item open">
+                                <a class="nav-burger-menu-link-4 " href="#footer">Contacts</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
             </div>
          </div>
     </header>
@@ -55,8 +96,7 @@
     <div class="container">
         <div class="footer-wrapper">
             <div class="footer-block footer-block1">
-                <h6>For questions <br> 
-                    and suggestions
+                <h6>For questions and suggestions
                 </h6>
                 <div class="footer-contact">
                     <a href="mailto:email@shelter.com"><img src="../../assets/icons/icon-email.svg" alt="icon-email"></a>
@@ -68,15 +108,14 @@
                     <a href="tel:+136745677554" class="footer-text">+13 674 567 75 54</a>
                 </div>
             </div>
-            <div class="footer-block">
-                <h6>We are waiting <br> 
-                    for your visit
+            <div class="footer-block footer-block2">
+                <h6>We are waiting for your visit
                 </h6>
                 <div class="footer-contact">
                     <a href="https://goo.gl/maps/tnH14oCpLKEokHBg7" target="_blank"><img src="../../assets/icons/icon-marker.svg" alt="icon-marker"></a>
                     <a href="https://goo.gl/maps/tnH14oCpLKEokHBg7" target="_blank" class="footer-text">1 Central Street, Boston (entrance from the store)</a>
                 </div>
-                <div class="footer-contact">
+                <div class="footer-contact footer-contact-point">
                     <a href="https://goo.gl/maps/tnH14oCpLKEokHBg7" target="_blank"><img src="../../assets/icons/icon-marker.svg" alt="icon-marker"></a>
                     <a href="https://goo.gl/maps/tnH14oCpLKEokHBg7" target="_blank" class="footer-text">18 South Park, London </a>
                 </div>
