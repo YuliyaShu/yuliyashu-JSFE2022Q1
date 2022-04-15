@@ -143,6 +143,7 @@ function createSlider(x) {
     sliderItemI = document.createElement('div'); // create element
     slider.append(sliderItemI); // add element to slider Item container
     sliderItemI.classList.add('slider-item');
+    sliderItemI.setAttribute('id', `item${i}`);
     
     const sliderImg = document.createElement('img');
     sliderItemI.append(sliderImg);
@@ -164,7 +165,7 @@ function createSlider(x) {
   }
   
 }
- function createAdaptiveSlider() {
+function createAdaptiveSlider() {
   if (window.screen.availWidth >= 1280) {
     document.querySelector('.slider').innerHTML = '';
     createSlider(7);
@@ -177,9 +178,9 @@ function createSlider(x) {
     document.querySelector('.slider').innerHTML = '';
     createSlider(2);
   }
- }
+}
 
- createAdaptiveSlider();
+createAdaptiveSlider();
 
 
 
@@ -187,80 +188,87 @@ function createSlider(x) {
 
 // POP UP START
 const sliderItem = document.querySelectorAll('.slider-item');
-console.log(sliderItem)
 const bodyPopup = document.querySelector('.body-popup');
 const popupVisible = document.querySelector('.popup');
 const popupItems = document.querySelector('.popup-items');
 let sliderPetsIndex;
 
 //CREATE
-
-function popUpCreate() {
-    bodyPopup.classList.toggle('overlay-popup');
-    popupVisible.classList.toggle('popup-visible');
-    popupVisible.children[0].classList.toggle('close');
-    popupVisible.children[2].classList.toggle('pop-item');
-
-    const popupImg = document.createElement('img');
-    popupItems.append(popupImg);
-    popupImg.classList.add('slider-img');
-    popupImg.src = sliderPets[sliderPetsIndex].img;
-
-    const popupTextBlock = document.createElement('div');
-    popupItems.append(popupTextBlock);
-    popupTextBlock.classList.add('popup-text-block');
-
-    const popupName = document.createElement('p');
-    popupTextBlock.append(popupName);
-    popupName.classList.add('popup-name');
-    popupName.innerHTML = sliderPets[sliderPetsIndex].name;
-
-    const popupTypeBreed = document.createElement('p');
-    popupTextBlock.append(popupTypeBreed);
-    popupTypeBreed.classList.add('popup-type-breed');
-    popupTypeBreed.innerHTML = `${sliderPets[sliderPetsIndex].type} - ${sliderPets[sliderPetsIndex].breed}`;
-    
-    const popupDescription = document.createElement('p');
-    popupTextBlock.append(popupDescription);
-    popupDescription.classList.add('popup-description');
-    popupDescription.innerHTML = sliderPets[sliderPetsIndex].description;
-
-    const popupList = document.createElement('ul');
-    popupTextBlock.append(popupList);
-    popupList.classList.add('popup-list');
-
-
-    const popupListLi1 = document.createElement('li');
-    popupList.append(popupListLi1);
-    popupListLi1.classList.add('popup-list-li');
-    popupListLi1.innerHTML = `${'Age:'.bold()} ${sliderPets[sliderPetsIndex].age}`;
-
-    const popupListLi2 = document.createElement('li');
-    popupList.append(popupListLi2);
-    popupListLi2.classList.add('popup-list-li');
-    popupListLi2.innerHTML = `${'Inoculations:'.bold()} ${sliderPets[sliderPetsIndex].inoculations}`;
- 
-    const popupListLi3 = document.createElement('li');
-    popupList.append(popupListLi3);
-    popupListLi3.classList.add('popup-list-li');
-    popupListLi3.innerHTML = `${'Diseases:'.bold()} ${sliderPets[sliderPetsIndex].diseases}`;
-
-    const popupListLi4 = document.createElement('li');
-    popupList.append(popupListLi4);
-    popupListLi4.classList.add('popup-list-li');
-    popupListLi4.innerHTML = `${'Parasites:'.bold()} ${sliderPets[sliderPetsIndex].parasites}`;
-  }
-
-
+let nameOfPet;
 function popupClickEvent() {
-  for (let i = 0; i < sliderItem.length; i++) {
-    sliderItem[i].addEventListener('click', popUpCreate);
-    console.log(sliderItem[i]);
-    sliderPetsIndex = i;
-  }
+      for (let i = 0; i < sliderItem.length; i++) {
+        sliderItem[i].addEventListener('click', (event) =>{
+          nameOfPet = event.target.parentElement.children[1].textContent;
+          for (let [a, b] of sliderPets.entries()) {
+              if (b.name == nameOfPet)  {
+                sliderPetsIndex = a;
+                break;
+              } 
+            }
+        })
+        sliderItem[i].addEventListener('click', popUpCreate );
+      } 
 }
 popupClickEvent();
-console.log(sliderPetsIndex);
+
+
+
+function popUpCreate() {
+  bodyPopup.classList.toggle('overlay-popup');
+  popupVisible.classList.toggle('popup-visible');
+  popupVisible.children[0].classList.toggle('close');
+  popupVisible.children[2].classList.toggle('pop-item');
+
+  const popupImg = document.createElement('img');
+  popupItems.append(popupImg);
+  popupImg.classList.add('slider-img');
+  popupImg.src = sliderPets[sliderPetsIndex].img;
+
+  const popupTextBlock = document.createElement('div');
+  popupItems.append(popupTextBlock);
+  popupTextBlock.classList.add('popup-text-block');
+
+  const popupName = document.createElement('p');
+  popupTextBlock.append(popupName);
+  popupName.classList.add('popup-name');
+  popupName.innerHTML = sliderPets[sliderPetsIndex].name;
+
+  const popupTypeBreed = document.createElement('p');
+  popupTextBlock.append(popupTypeBreed);
+  popupTypeBreed.classList.add('popup-type-breed');
+  popupTypeBreed.innerHTML = `${sliderPets[sliderPetsIndex].type} - ${sliderPets[sliderPetsIndex].breed}`;
+  
+  const popupDescription = document.createElement('p');
+  popupTextBlock.append(popupDescription);
+  popupDescription.classList.add('popup-description');
+  popupDescription.innerHTML = sliderPets[sliderPetsIndex].description;
+
+  const popupList = document.createElement('ul');
+  popupTextBlock.append(popupList);
+  popupList.classList.add('popup-list');
+
+
+  const popupListLi1 = document.createElement('li');
+  popupList.append(popupListLi1);
+  popupListLi1.classList.add('popup-list-li');
+  popupListLi1.innerHTML = `${'Age:'.bold()} ${sliderPets[sliderPetsIndex].age}`;
+
+  const popupListLi2 = document.createElement('li');
+  popupList.append(popupListLi2);
+  popupListLi2.classList.add('popup-list-li');
+  popupListLi2.innerHTML = `${'Inoculations:'.bold()} ${sliderPets[sliderPetsIndex].inoculations}`;
+
+  const popupListLi3 = document.createElement('li');
+  popupList.append(popupListLi3);
+  popupListLi3.classList.add('popup-list-li');
+  popupListLi3.innerHTML = `${'Diseases:'.bold()} ${sliderPets[sliderPetsIndex].diseases}`;
+
+  const popupListLi4 = document.createElement('li');
+  popupList.append(popupListLi4);
+  popupListLi4.classList.add('popup-list-li');
+  popupListLi4.innerHTML = `${'Parasites:'.bold()} ${sliderPets[sliderPetsIndex].parasites}`;
+}
+
 
 
 // hover on close, when cursor on body-overlay
