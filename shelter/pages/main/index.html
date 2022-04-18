@@ -8,9 +8,16 @@
     <link rel="shortcut icon" href="../../assets/icons/Icons8-Windows-8-Animals-Dog-Track.ico" type="image/x-icon">
     <link rel="stylesheet" href="./style.css">
 </head>
-<body>
-<div class="body-burger">
+<body onresize="createAdaptiveSlider()">
+<div class="body-burger"></div>
+<div class="body-popup"></div>
+<div class="popup">
+    <div class="closeForHover"></div>
+    <div class="emptyCell1"></div>
+    <div class="popup-items"></div>
+    <div class="emptyCell2"></div>
 </div>
+
 <!-- HEADER -->
     <div class="header-main">
         <header class="header">
@@ -124,24 +131,8 @@
                             are looking for a house</h4>
                     </div>
                     <div class="our-friends-slider">
-                        <button type="button" class="our-friends-arrow1"></button>
-                        <div class="our-friends-whole-trio">
-                            <div class="our-friends-block">
-                                <img src="../../assets/images/pets-katrine.png" alt="pets-katrine" class="our-friends-img">
-                                <p class="our-friends-name">Katrine</p>
-                                <button class="our-friends-click">Learn more</button>
-                            </div>
-                            <div class="our-friends-block invisible2">
-                                <img src="../../assets/images/pets-jennifer.png" alt="pets-jennifer" class="our-friends-img">
-                                <p class="our-friends-name">Jennifer</p>
-                                <button class="our-friends-click">Learn more</button>
-                            </div>
-                            <div class="our-friends-block invisible">
-                                <img src="../../assets/images/pets-woody.png" alt="pets-woody" class="our-friends-img">
-                                <p class="our-friends-name">Woody</p>
-                                <button class="our-friends-click">Learn more</button>
-                            </div>
-                        </div>
+                        <button type="button" class="our-friends-arrow1 "></button>
+                        <div class="our-friends-whole-trio"></div>
                         <button type="button" class="our-friends-arrow2"></button>
                     </div>
                     <button type="button" onclick="buttonToOurFriendsPage()" class="our-friends-button">
