@@ -224,15 +224,7 @@ function createNewSlider(x) {
         sliderItemI.append(sliderName);
         sliderName.classList.add('our-friends-name');
         sliderName.textContent = sliderPets[y].name;
-/*        
-        function createSliderButton(z) {
-          const sliderButton = document.createElement('button');
-          z.append(sliderButton);
-          sliderButton.classList.add('our-friends-click');
-          sliderButton.textContent = 'Learn more';
-        };
-        createSliderButton(sliderItemI);
-*/
+
         const sliderButton = document.createElement('button');
         sliderItemI.append(sliderButton);
         sliderButton.classList.add('our-friends-click');
