@@ -41,7 +41,7 @@ bodyBurger.addEventListener('click', toggleMenu);
 
 
 
-// SLIDER
+// SLIDER OUR PETS
 
 const sliderPets = [
     {
@@ -143,7 +143,6 @@ function createSlider(x) {
     sliderItemI = document.createElement('div'); // create element
     slider.append(sliderItemI); // add element to slider Item container
     sliderItemI.classList.add('slider-item');
-    sliderItemI.setAttribute('id', `item${i}`);
     
     const sliderImg = document.createElement('img');
     sliderItemI.append(sliderImg);
@@ -163,8 +162,9 @@ function createSlider(x) {
     };
     createSliderButton(sliderItemI);
   }
-  
 }
+
+
 function createAdaptiveSlider() {
   if (window.screen.availWidth >= 1280) {
     document.querySelector('.slider').innerHTML = '';
@@ -181,6 +181,8 @@ function createAdaptiveSlider() {
 }
 
 createAdaptiveSlider();
+
+
 
 
 
