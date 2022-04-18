@@ -528,7 +528,7 @@ h6 {
 
 
 
-@media screen and (max-width: 1279px) {
+@media screen and (max-width: 1279.9px) {
 
 	.container {
 		min-width: 738px;
@@ -649,12 +649,12 @@ h6 {
 }
 
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 767.9px) {
 
 	body {
 		overflow-x: hidden;
 	}
-	
+
 	.container {
 		min-width: 300px;
 		padding: 0 10px;
