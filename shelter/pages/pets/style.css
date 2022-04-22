@@ -22,6 +22,12 @@ html {
 	overflow-x: hidden;
 }
 
+html.open {
+	overflow-y: hidden;
+}
+
+
+
 *, *::before, *::after {
     box-sizing: inherit;
 }
@@ -700,6 +706,8 @@ h6 {
 
 		/* BURGER START */
 
+		
+
 		.nav-header{
 			display: none;
 		}	
@@ -739,7 +747,7 @@ h6 {
 		}
 
 		.hr-burger.open {
-			background-color: var(--color-primary);
+			background-color: var(--color-dark-3xl);
 		}
 
 		.nav-header-burger.open .line-burger1 {
@@ -768,8 +776,8 @@ h6 {
 			transition: all 1s ease-in-out;
 			flex-direction: column;
 			width: 320px;
-			height: 823px;
-			background-color: var(--color-dark-3xl);
+			height: 100vh;
+			background-color: var(--color-light-xl);
 			z-index: 12;
 		}
 	
@@ -796,7 +804,7 @@ h6 {
 			font-size: 32px;
 			line-height: 110%;
 			letter-spacing: 0.06em;
-			color: var(--color-primary);
+			color: var(--color-dark-l);
 		}
 
 		.h1-logo-header-description {
@@ -806,7 +814,7 @@ h6 {
 			font-size: 13px;
 			line-height: 15px;
 			letter-spacing: 0.1em;
-			color: var(--color-light-xl);
+			color: var(--color-dark-3xl);
 			margin-left: 4px;
 			background-color: transparent;
 		}	
@@ -857,7 +865,7 @@ h6 {
 			font-weight: 400;
 			font-size: 32px;
 			line-height: 160%;
-			color: var(--color-dark-s);
+			color: var(--color-dark-l);
 			text-decoration: none;
 		}
 
@@ -870,7 +878,7 @@ h6 {
 		.nav-burger-menu-link-3.open:hover, .nav-burger-menu-link-3.open:focus, .nav-burger-menu-link-3.open:active,
 		.nav-burger-menu-link-4.open:hover, .nav-burger-menu-link-4.open:focus, .nav-burger-menu-link-4.open:active,
 		.nav-burger-menu-link-5.open:hover, .nav-burger-menu-link-5.open:focus, .nav-burger-menu-link-5.open:active {
-			color: var(--color-light-xl);
+			color: var(--color-dark-3xl);
 			transition: 0.5s;
 		}
 		

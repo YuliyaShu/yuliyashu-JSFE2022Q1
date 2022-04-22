@@ -110,10 +110,14 @@ const sliderPets = [
     }
     
   ]
+
 const slider = document.querySelector('.our-friends-whole-trio');
-function createSlider(x) {
-    for (let i = 0; i <= x; i++) {
-      let sliderItemI = 'sliderItem' + i;
+let lastIndex;
+
+// slider create 
+function createSlide(z) {
+  
+      let sliderItemI = 'sliderItem' + z;
       sliderItemI = document.createElement('div'); // create element
       slider.append(sliderItemI); // add element to slider Item container
       sliderItemI.classList.add('our-friends-block');
@@ -121,24 +125,30 @@ function createSlider(x) {
       const sliderImg = document.createElement('img');
       sliderItemI.append(sliderImg);
       sliderImg.classList.add('our-friends-img');
-      sliderImg.src = sliderPets[i].img;
+      sliderImg.src = sliderPets[z].img;
       
       const sliderName = document.createElement('p');
       sliderItemI.append(sliderName);
       sliderName.classList.add('our-friends-name');
-      sliderName.textContent = sliderPets[i].name;
-      
-      function createSliderButton(x) {
-        const sliderButton = document.createElement('button');
-        x.append(sliderButton);
-        sliderButton.classList.add('our-friends-click');
-        sliderButton.textContent = 'Learn more';
-      };
-      createSliderButton(sliderItemI);
+      sliderName.textContent = sliderPets[z].name;
+
+      const sliderButton = document.createElement('button');
+      sliderItemI.append(sliderButton);
+      sliderButton.classList.add('our-friends-click');
+      sliderButton.textContent = 'Learn more';
+
+
+      lastIndex = z;
+    
+}
+
+function createSlider(x) {
+    for (let i = 0; i <= x; i++) {
+      createSlide(i);
     }
-  }
+}
   
-  function createAdaptiveSlider() {
+function createAdaptiveSlider() {
     if (window.screen.availWidth >= 1280) {
       document.querySelector('.our-friends-whole-trio').innerHTML = '';
       createSlider(2);
@@ -151,11 +161,84 @@ function createSlider(x) {
       document.querySelector('.our-friends-whole-trio').innerHTML = '';
       createSlider(0);
     }
-  }
+}
   
-  createAdaptiveSlider();
+createAdaptiveSlider();
 
 
+
+// slider change
+
+const goLeft = document.querySelector('.our-friends-arrow1');
+const goRight = document.querySelector('.our-friends-arrow2');
+
+goLeft.addEventListener('click', createAdaptiveNewSliderLeft);
+goRight.addEventListener('click', createAdaptiveNewSliderRight);
+
+
+
+// slider change RIGHT
+let yRight;
+function createNewSliderRight(x) {
+   yRight = lastIndex;
+    for (let i = 0; i <= x; i++) {
+        yRight++;
+        if (yRight === sliderPets.length) yRight = 0;
+        createSlide(yRight);
+
+        popupClickEvent();
+      }
+}
+
+function createAdaptiveNewSliderRight() {
+    if (window.screen.availWidth >= 1280) {
+      document.querySelector('.our-friends-whole-trio').innerHTML = '';
+      createNewSliderRight(2);
+    }
+    if (window.screen.availWidth < 1280 && window.screen.availWidth >= 768) {
+      document.querySelector('.our-friends-whole-trio').innerHTML = '';
+      createNewSliderRight(1);
+    }
+    if (window.screen.availWidth < 768) {
+      document.querySelector('.our-friends-whole-trio').innerHTML = '';
+      createNewSliderRight(0);
+    }
+}
+  
+
+//  slider change LEFT 
+let yLeft;
+function createNewSliderLeft(x) {
+  yLeft = lastIndex - 2 * (x + 1);
+      for (let i = 0; i <= x; i++) {
+
+      yLeft++;
+      if (yLeft == -1) yLeft = sliderPets.length - 1;
+      if (yLeft == -2) yLeft = sliderPets.length - 2;
+      if (yLeft == -3) yLeft = sliderPets.length - 3;
+      if (yLeft == -4) yLeft = sliderPets.length - 4;
+      if (yLeft == -5) yLeft = sliderPets.length - 5;
+      if (yLeft == sliderPets.length) yLeft = 0;
+
+      createSlide(yLeft);
+      popupClickEvent();
+      }
+}
+
+function createAdaptiveNewSliderLeft() {
+    if (window.screen.availWidth >= 1280) {
+    document.querySelector('.our-friends-whole-trio').innerHTML = '';
+    createNewSliderLeft(2);
+    }
+    if (window.screen.availWidth < 1280 && window.screen.availWidth >= 768) {
+    document.querySelector('.our-friends-whole-trio').innerHTML = '';
+    createNewSliderLeft(1);
+    }
+    if (window.screen.availWidth < 768) {
+    document.querySelector('.our-friends-whole-trio').innerHTML = '';
+    createNewSliderLeft(0);
+    }
+}
 
 
 
@@ -175,8 +258,10 @@ const navBurgerMenuLink3 = document.querySelector('.nav-burger-menu-link-3');
 const navBurgerMenuLink4 = document.querySelector('.nav-burger-menu-link-4');
 const logoBurger = document.querySelector('.logo-burger');
 const bodyBurger = document.querySelector('.body-burger');
+const htmlBurger = document.querySelector('html');
 
 function toggleMenu() {
+  htmlBurger.classList.toggle('open');
   bodyBurger.classList.toggle('overlay');
   logoBurger.classList.toggle('open');
   burgerUl.classList.toggle('open');
@@ -199,63 +284,14 @@ bodyBurger.addEventListener('click', toggleMenu);
 
 
 
-// SLIDER arrays
-const goLeft = document.querySelector('.our-friends-arrow1');
-const goRight = document.querySelector('.our-friends-arrow2');
 
-goLeft.addEventListener('click', createAdaptiveNewSlider);
-goRight.addEventListener('click', createAdaptiveNewSlider);
 
-function createNewSlider(x) {
-    for (let i = 0; i <= x; i++) {
-        let y = Math.floor(Math.random() * (sliderPets.length - 1));
-        console.log(y);
-        let sliderItemI = 'sliderItem' + y;
-        sliderItemI = document.createElement('div'); // create element
-        slider.append(sliderItemI); // add element to slider Item container
-        sliderItemI.classList.add('our-friends-block');
-        
-        const sliderImg = document.createElement('img');
-        sliderItemI.append(sliderImg);
-        sliderImg.classList.add('our-friends-img');
-        sliderImg.src = sliderPets[y].img;
-        
-        const sliderName = document.createElement('p');
-        sliderItemI.append(sliderName);
-        sliderName.classList.add('our-friends-name');
-        sliderName.textContent = sliderPets[y].name;
-
-        const sliderButton = document.createElement('button');
-        sliderItemI.append(sliderButton);
-        sliderButton.classList.add('our-friends-click');
-        sliderButton.textContent = 'Learn more';
-
-        popupClickEvent();
-      }
-      
-}
-
-function createAdaptiveNewSlider() {
-    if (window.screen.availWidth >= 1280) {
-      document.querySelector('.our-friends-whole-trio').innerHTML = '';
-      createNewSlider(2);
-    }
-    if (window.screen.availWidth < 1280 && window.screen.availWidth >= 768) {
-      document.querySelector('.our-friends-whole-trio').innerHTML = '';
-      createNewSlider(1);
-    }
-    if (window.screen.availWidth < 768) {
-      document.querySelector('.our-friends-whole-trio').innerHTML = '';
-      createNewSlider(0);
-    }
-  }
 
 
 
   
   // POP UP START
 let sliderItem;
-console.log(sliderItem)
 const bodyPopup = document.querySelector('.body-popup');
 const popupVisible = document.querySelector('.popup');
 const popupItems = document.querySelector('.popup-items');
@@ -280,7 +316,7 @@ function popUpCreateNew(event) {
                 break;
               } 
             }
-
+  htmlBurger.classList.add('open');
   bodyPopup.classList.toggle('overlay-popup');
   popupVisible.classList.toggle('popup-visible');
   popupVisible.children[0].classList.toggle('close');
@@ -367,6 +403,7 @@ emptyCell2.onmouseout = function() {
 // hide popup, when click on body-overlay
 
 function bodyPopupOverlayHide() {
+  htmlBurger.classList.remove('open');
   bodyPopup.classList.toggle('overlay-popup');
   popupVisible.classList.toggle('popup-visible');
   popupVisible.children[0].classList.toggle('close');
@@ -379,3 +416,7 @@ emptyCell1.addEventListener('click', bodyPopupOverlayHide);
 emptyCell2.addEventListener('click', bodyPopupOverlayHide);
 closeHover.addEventListener('click', bodyPopupOverlayHide);
 // POP UP END
+
+
+
+
