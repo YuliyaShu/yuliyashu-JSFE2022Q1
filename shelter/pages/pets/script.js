@@ -576,7 +576,6 @@ function createSlide(z) {
 }
 
 function createSlider(sliderSize, firstPetIndex) {
-  console.log(sliderSize, firstPetIndex)
   for (let i = firstPetIndex; i <= sliderSize + firstPetIndex; i++) {
     createSlide(i);
     
@@ -590,7 +589,8 @@ function createAdaptiveSlider(firstIndex) {
   if (window.screen.availWidth < 1280 && window.screen.availWidth >= 768)  createSlider(5, firstIndex);
   if (window.screen.availWidth < 768) createSlider(2, firstIndex);
 }
-
+// let randomStartFirstIndex = Math.floor(Math.random() * 40);
+// console.log(randomStartFirstIndex);
 createAdaptiveSlider(0);
 createButtons();
 
