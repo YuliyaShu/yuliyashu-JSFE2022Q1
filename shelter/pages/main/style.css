@@ -465,8 +465,8 @@ h4 {
 /* POPUP */
 .popup-visible {
 	position: fixed;
-	top: 50%;
-	left: 50%;
+	top: calc(50% - 26px);
+    left: calc(50% + 26px);
 	transform: translate(-50%, -50%); 
 	width: 952px;
 	height: auto;
@@ -479,7 +479,9 @@ h4 {
 	grid-template-areas: 
 		'emptyCell1 close'
 		'pop-item emptyCell2';
+	
 }
+
 .emptyCell1 {
 	grid-area: 1/1/1/1;
 }
@@ -1040,6 +1042,7 @@ h6 {
 	.popup-visible {
 		width: 271px;
 		height: auto;
+    	left: calc(50% + 15px);
 	}
 
 	.pop-item {
