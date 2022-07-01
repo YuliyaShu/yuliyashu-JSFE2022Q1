@@ -2,6 +2,7 @@ const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { merge } = require('webpack-merge');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 const baseConfig = {
     entry: path .resolve(__dirname, './src/index.ts'),
@@ -21,12 +22,20 @@ const baseConfig = {
         filename: 'index.js',
         path: path.resolve(__dirname, './dist'),
     },
+    devServer: {
+        static: {
+          directory: path.join(__dirname, 'dist'),
+        },
+        compress: true,
+        port: 3000,
+      },
     plugins: [
         new HtmlWebpackPlugin ({
             template: path.resolve(__dirname, './src/index.html'),
             filename: 'index.html',
         }),
         new CleanWebpackPlugin (),
+        new ESLintPlugin({ extensions: 'ts' }),
     ],
 };
 
