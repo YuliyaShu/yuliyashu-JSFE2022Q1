@@ -1,20 +1,24 @@
+import { NewsInt, NewsUnit } from '../interfaces/newsInterface';
+import { SourceInt, SourcesUnit } from '../interfaces/sourcesInterface';
 import News from './news/news';
 import Sources from './sources/sources';
 
-export class AppView {
+class AppView {
+    sources: Sources;
+    news: News;
     constructor() {
         this.news = new News();
         this.sources = new Sources();
     }
 
-    drawNews(data) {
-        const values = data?.articles ? data?.articles : [];
-        this.news.draw(values);
+    drawNews(data: NewsInt): void {
+        const values: NewsUnit[] = data?.articles ? data?.articles : [];
+        this.news.draw(values as NewsUnit[]);
     }
 
-    drawSources(data) {
-        const values = data?.sources ? data?.sources : [];
-        this.sources.draw(values);
+    drawSources(data: SourceInt): void {
+        const values: SourcesUnit[] = data?.sources ? data?.sources : [];
+        this.sources.draw(values as SourcesUnit[]);
     }
 }
 
