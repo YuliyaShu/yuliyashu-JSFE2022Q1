@@ -3,6 +3,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { merge } = require('webpack-merge');
 const ESLintPlugin = require('eslint-webpack-plugin');
+const CopyPlugin = require("copy-webpack-plugin");
 
 const baseConfig = {
     entry: path .resolve(__dirname, './src/index.ts'),
@@ -13,6 +14,12 @@ const baseConfig = {
             { test: /\.css$/i, use: ['style-loader', 'css-loader'] },
             { test: /\.tsx?$/, loader: 'ts-loader' },
             { test: /\.js$/, loader: 'source-map-loader' },
+            { test: /\.(png|jpe?g|gif|svg)$/i,
+                type: 'asset/resource',
+                generator: {
+                  filename: 'src/images/[name][ext][query]',
+                },
+            },
         ],
     },
     resolve: {
@@ -21,6 +28,7 @@ const baseConfig = {
     output: {
         filename: 'index.js',
         path: path.resolve(__dirname, './dist'),
+        assetModuleFilename: path.join(__dirname, './dist', '/images/[name].[ext]')
     },
     devServer: {
         static: {
@@ -36,6 +44,15 @@ const baseConfig = {
         }),
         new CleanWebpackPlugin (),
         new ESLintPlugin({ extensions: 'ts' }),
+        new CopyPlugin({
+            patterns: [
+              {
+                from: `${__dirname}/src/images`,
+                to: 'images',
+                noErrorOnMissing: true,
+              },
+            ],
+          }),
     ],
 };
 
