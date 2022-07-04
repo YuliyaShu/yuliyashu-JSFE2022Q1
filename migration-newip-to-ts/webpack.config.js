@@ -28,7 +28,7 @@ const baseConfig = {
     output: {
         filename: 'index.js',
         path: path.resolve(__dirname, './dist'),
-        assetModuleFilename: path.join(__dirname, './dist', '/images/[name].[ext]')
+        assetModuleFilename: 'images/[name].[ext]'
     },
     devServer: {
         static: {

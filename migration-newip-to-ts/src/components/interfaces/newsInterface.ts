@@ -18,11 +18,6 @@ interface Articles extends Array<NewsUnit> {
     [index: number]: NewsUnit;
 }
 
-// enum Status {
-//     Ok = "ok",
-//     Error = "error"
-// }
-
 interface NewsInt {
     articles: Articles;
     status: string;
