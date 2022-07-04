@@ -1,11 +1,11 @@
 interface SourcesUnit {
-    category: string;
-    country: string;
-    description: string;
-    id: string;
-    language: string;
-    name: string;
-    url: string;
+    readonly category: string;
+    readonly country: string;
+    readonly description: string;
+    readonly id: string;
+    readonly language: string;
+    readonly name: string;
+    readonly url: string;
 }
 
 interface SourcesSources extends Array<SourcesUnit> {
@@ -21,8 +21,8 @@ enum Status {
 }
 
 interface SourceInt extends Array<SourcesSources> {
-    sources: SourcesSources;
-    status: Status.ok;
+    readonly sources: SourcesSources;
+    readonly status: Status.ok;
 }
 
 export { SourcesUnit, SourceInt, SourcesSources };

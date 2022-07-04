@@ -1,17 +1,17 @@
 interface NewsSource {
-    id: string;
-    name: string;
+    readonly id: string;
+    readonly name: string;
 }
 
 interface NewsUnit {
-    author: string;
-    content: string;
-    description: string;
-    publishedAt: string;
-    source: NewsSource;
-    title: string;
-    url: string;
-    urlToImage: string;
+    readonly author: string;
+    readonly content: string;
+    readonly description: string;
+    readonly publishedAt: string;
+    readonly source: NewsSource;
+    readonly title: string;
+    readonly url: string;
+    readonly urlToImage: string;
 }
 
 interface Articles extends Array<NewsUnit> {
@@ -19,9 +19,9 @@ interface Articles extends Array<NewsUnit> {
 }
 
 interface NewsInt {
-    articles: Articles;
-    status: string;
-    totalResults: number;
+    readonly articles: Articles;
+    readonly status: string;
+    readonly totalResults: number;
 }
 
 export { NewsUnit, NewsInt, Articles };
