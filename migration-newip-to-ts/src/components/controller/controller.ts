@@ -19,19 +19,17 @@ class AppController extends AppLoader {
         while (target !== newsContainer) {
             if (target instanceof HTMLElement) {
                 if (target.classList.contains('source__item')) {
-                    if (newsContainer && sourceId) {
-                        if (newsContainer.getAttribute('data-source') !== sourceId) {
-                            newsContainer.setAttribute('data-source', sourceId);
-                            super.getResp<NewsInt>(
-                                {
-                                    endpoint: 'everything',
-                                    options: {
-                                        sources: sourceId,
-                                    },
+                    if (newsContainer && sourceId && newsContainer.getAttribute('data-source') !== sourceId) {
+                        newsContainer.setAttribute('data-source', sourceId);
+                        super.getResp<NewsInt>(
+                            {
+                                endpoint: 'everything',
+                                options: {
+                                    sources: sourceId,
                                 },
-                                callback
-                            );
-                        }
+                            },
+                            callback
+                        );
                     }
                     return;
                 }
