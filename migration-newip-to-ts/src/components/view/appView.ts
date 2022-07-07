@@ -12,12 +12,12 @@ class AppView {
     }
 
     drawNews(data?: NewsInt): void {
-        const values: NewsUnit[] = data?.articles ? data?.articles : [];
+        const values: NewsUnit[] = data?.articles ? data.articles : [];
         this.news.draw(values as NewsUnit[]);
     }
 
     drawSources(data?: SourceInt): void {
-        const values: SourcesUnit[] = data?.sources ? data?.sources : [];
+        const values: SourcesUnit[] = data?.sources ? data.sources : [];
         this.sources.draw(values as SourcesUnit[]);
     }
 }
