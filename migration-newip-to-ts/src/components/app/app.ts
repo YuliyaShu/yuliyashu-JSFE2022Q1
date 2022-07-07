@@ -10,7 +10,7 @@ class App {
     }
 
     start(): void {
-        const sourcesStart: HTMLElement | null = document.querySelector('.sources');
+        const sourcesStart = document.querySelector('.sources');
         if (sourcesStart)
             sourcesStart.addEventListener('click', (e) =>
                 this.controller.getNews(e, (data) => {
