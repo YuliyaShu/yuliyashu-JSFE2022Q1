@@ -9,12 +9,15 @@ class AppController extends AppLoader {
     }
 
     getNews(e: Event, callback: CallBack<NewsInt>): void {
-        let target = e.target as HTMLElement;
-        const newsContainer = e.currentTarget as HTMLElement;
-        const sourceId = target.getAttribute('data-source-id') as string;
+        let target = e.target;
+        const newsContainer = e.currentTarget;
+        if (!(target instanceof HTMLElement) || !(newsContainer instanceof HTMLElement)) {
+            return;
+        }
+        const sourceId = target.getAttribute('data-source-id');
 
         while (target !== newsContainer) {
-            if (target) {
+            if (target instanceof HTMLElement) {
                 if (target.classList.contains('source__item')) {
                     if (newsContainer && sourceId) {
                         if (newsContainer.getAttribute('data-source') !== sourceId) {
