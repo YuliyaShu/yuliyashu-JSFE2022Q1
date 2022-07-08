@@ -15,7 +15,7 @@ body {
   box-sizing: inherit;
 }
 
-.wrapper {
+.body__wrapper {
   color: var(--white-color);
   display: flex;
   flex-direction: column;

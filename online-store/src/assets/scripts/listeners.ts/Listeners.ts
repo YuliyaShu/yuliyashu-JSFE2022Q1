@@ -1,8 +1,12 @@
-class Listeners {
-  // clickStartButton() {
-    // new ShopView().drawMainCatalog() {},
-  // },
-  // clickBagButton() {},
-}
+// class Listeners {
+//   static clickStartButton() {
+//     const startPageButton = document.querySelector('.start-page__button');
+//      if (startPageButton) {
+//       startPageButton.addEventListener('click', )
+//      }
+//     // new ShopView().drawMainCatalog() {},
+//   // },
+//   // clickBagButton() {},
+// }
 
-export default Listeners;
+// export default Listeners;

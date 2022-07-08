@@ -1,11 +1,11 @@
+import ShopView from './assets/scripts/view/ShopView';
 import './style.css';
-import Shop from './assets/scripts/shop/Shop';
 
-try {
-  const shop: Shop = new Shop();
-  // shop.start();
-} catch(e) {
-  // load image 404
-}
+// try {
+  const shop: ShopView = new ShopView();
+  shop.start();
+// } catch(e) {
+//   // load image 404
+// }
 
 export {}

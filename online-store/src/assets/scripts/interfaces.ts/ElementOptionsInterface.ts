@@ -1,6 +1,6 @@
 interface ElementOptionsInterface {
   type: string;
-  className?: string[] | string;
+  className?: string[];
   innerText?: string;
   appendType?: 'append' | 'prepend';
   attributes?: [attr: string, name: string][];
