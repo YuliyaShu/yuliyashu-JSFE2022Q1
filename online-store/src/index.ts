@@ -1,7 +1,7 @@
 import './style.css';
-import Shop from './assets/scripts/shop/shop';
+import Shop from './assets/scripts/shop/Shop';
 
 const shop: Shop = new Shop();
-shop.start();
+// shop.start();
 
 export {}
