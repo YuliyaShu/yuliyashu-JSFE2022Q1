@@ -1,4 +1,7 @@
 import './style.css';
-import './assets/scripts/start-page';
+import Shop from './assets/scripts/shop/shop';
+
+const shop: Shop = new Shop();
+shop.start();
 
 export {}
