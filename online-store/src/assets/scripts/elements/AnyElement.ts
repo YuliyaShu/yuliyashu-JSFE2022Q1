@@ -19,7 +19,6 @@ class AnyElement implements ElementInterface {
     this.options = { type, className, innerText, appendType, attributes };
     this.element = document.createElement(this.options.type);
     this.isVisible = false;
-    // this.addClassToElement().addAttributesToElement().addTextToElement().attachElementToDom();
   }
 
   addProperties(): void {

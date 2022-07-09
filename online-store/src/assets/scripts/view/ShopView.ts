@@ -8,7 +8,6 @@ import StartPage from './shop/StartPage';
 
 
 class ShopView {
-
     bodyWrapper!: AnyElement;
 
     start() {
@@ -25,10 +24,10 @@ class ShopView {
     }
 
     private createWrapper():void {
-        const body = document.querySelector('body');
-        if (body instanceof HTMLElement) {
-          this.bodyWrapper = Utils.createAnyElement(body, { type: 'div', className: ['body__wrapper']});
-        }
+      const body = document.querySelector('body');
+      if (body instanceof HTMLElement) {
+        this.bodyWrapper = Utils.createAnyElement(body, { type: 'div', className: ['body__wrapper']});
+      }
     }
 }
 

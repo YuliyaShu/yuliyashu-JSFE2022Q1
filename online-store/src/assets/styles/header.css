@@ -1,0 +1,27 @@
+.header {
+  height: 100px;
+  width: 100%;
+}
+
+.header__links img {
+  width: auto;
+  height: 90px;
+}
+.header__search {
+  float: right;
+  padding: 6px;
+  font-size: 80%;
+  font-family: 'Montserrat';
+  color: var(--green-color);
+}
+
+.header__search-form-search {
+  background-color: var(--grey-dark-color);
+  border: solid 2px var(--green-color);
+}
+
+.header__search-form-search:hover {
+  cursor: pointer;
+  border-color: var(--orange-color);
+  transition: 0.5s;
+}
