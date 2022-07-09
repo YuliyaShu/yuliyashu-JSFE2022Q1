@@ -1,12 +1,12 @@
 import AnyElement from "../../elements/AnyElement";
 import ShopView from "../ShopView";
 
-class MainCatalog {
+class Aside {
   static bodyWrapper: ShopView["bodyWrapper"];
-  static drawMainCatalog(bodyWrapper: AnyElement): void {
+  static drawAside(bodyWrapper: AnyElement): void {
     this.bodyWrapper = bodyWrapper;
-    // create elements of main catalog
+    // create elements of aside
   }
 }
 
-export default MainCatalog;
+export default Aside;
