@@ -1,0 +1,107 @@
+{
+  
+  "bird": {
+    "url": "./assets/images/animals-bird.jpg",
+    "name": "bird",
+    "translate": "птица",
+    "category": "animals",
+    "year": "2012",
+    "quantity": "3",
+    "designer": "Peppy",
+    "color": "orange",
+    "size": "20x20",
+    "popularity": "yes"
+  },
+
+  "cat": {
+    "url": "./assets/images/animals-cat.jpg",
+    "name": "cat",
+    "translate": "кот",
+    "category": "animals",
+    "year": "2017",
+    "quantity": "9",
+    "designer": "Peppy",
+    "color": "green",
+    "size": "20x20",
+    "popularity": "yes"
+  },
+
+  "dog": {
+    "url": "./assets/images/animals-dog.jpg",
+    "name": "dog",
+    "translate": "собака",
+    "category": "animals",
+    "year": "2013",
+    "quantity": "2",
+    "designer": "Eleven",
+    "color": "orange",
+    "size": "20x20",
+    "popularity": "yes"
+  },
+
+  "rabbit": {
+    "url": "./assets/images/animals-rabbit.jpg",
+    "name": "rabbit",
+    "translate": "кролик",
+    "category": "animals",
+    "year": "2015",
+    "quantity": "0",
+    "designer": "Eleven",
+    "color": "orange",
+    "size": "50x50",
+    "popularity": "yes"
+  },
+
+  "horse": {
+    "url": "./assets/images/animals-horse.jpg",
+    "name": "horse",
+    "translate": "конь",
+    "category": "animals",
+    "year": "2020",
+    "quantity": "10",
+    "designer": "Eleven",
+    "color": "green",
+    "size": "50x50",
+    "popularity": "no"
+  },
+
+  "kangaroo": {
+    "url": "./assets/images/animals-kangaroo.jpg",
+    "name": "kangaroo",
+    "translate": "кенгуру",
+    "category": "animals",
+    "year": "2021",
+    "quantity": "4",
+    "designer": "Eleven",
+    "color": "orange",
+    "size": "20x20",
+    "popularity": "no"
+  },
+
+  "monkey": {
+    "url": "./assets/images/animals-monkey.jpg",
+    "name": "monkey",
+    "translate": "обезьяна",
+    "category": "animals",
+    "year": "2012",
+    "quantity": "7",
+    "designer": "Infinite_Jest",
+    "color": "green",
+    "size": "70x70",
+    "popularity": "no"
+  },
+
+  "pig": {
+    "url": "./assets/images/animals-pig.jpg",
+    "name": "pig",
+    "translate": "свинья",
+    "category": "animals",
+    "year": "2022",
+    "quantity": "5",
+    "designer": "Infinite_Jest",
+    "color": "orange",
+    "size": "70x70",
+    "popularity": "no"
+  }
+
+}

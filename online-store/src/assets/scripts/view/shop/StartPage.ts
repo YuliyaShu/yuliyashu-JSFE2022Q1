@@ -7,7 +7,6 @@ class StartPage {
   static bodyWrapper: ShopView["bodyWrapper"];
   static drawStartPage(bodyWrapper: AnyElement): void {
     this.bodyWrapper = bodyWrapper;
-    console.log(this.bodyWrapper);
       const newElem = Utils .createAnyElement(bodyWrapper.element, { type: 'div', className: ['start-page', 'start-page_hide']});
       Utils.createAnyElement(newElem.element, { type: 'img', attributes: [['src', './assets/images/main-2500-ready.jpg'], ['alt', 'welcome image']]});
       Utils.createAnyElement(newElem.element, { type: 'button', className: ['start-page__button'], innerText: 'GO TO SHOP'});

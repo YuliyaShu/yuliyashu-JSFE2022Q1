@@ -1,3 +1,6 @@
+// import { arrOfPostersObjects } from "../../../..";
+// import { arrOfPostersObjects } from "../../components/components/Posters";
+import Posters from "../../components/components/Posters";
 import AnyElement from "../../elements/AnyElement";
 import Utils from "../../utils/Utils";
 import ShopView from "../ShopView";
@@ -23,7 +26,7 @@ class MainCatalog {
 
     // catalog
     const catalog = Utils.createAnyElement(this.main.element, { type: 'div', className: ['main__catalog', 'catalog'] });
-    
+    console.log(Posters.categoriesData);
   }
 }
 
