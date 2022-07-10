@@ -1,4 +1,21 @@
 .main {
-  width: 70vw;
+  width: 65%;
   height: auto;
+  display: flex;
+  flex-direction: column;
+  margin-left: 35%;
 }
+
+.sort {
+  width: 100%;
+  height: 10%;
+  border: solid 1px var(--dark-color);
+  border-radius: 10px;
+  padding: 5%;
+}
+
+.catalog {
+  width: 100%;
+  height: 90%;
+}
+

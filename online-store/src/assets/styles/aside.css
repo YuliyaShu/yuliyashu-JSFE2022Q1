@@ -1,6 +1,6 @@
 .aside {
   position: fixed;
-  width: 30vw;
+  width: 25%;
   height: calc(100vh - 200px);
 }
 

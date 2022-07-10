@@ -13,7 +13,12 @@ class MainCatalog {
     if (containerMain instanceof HTMLElement) {
       this.main = Utils.createAnyElement(containerMain, { type: 'main', className: ['main'] })
     }
-    // create elements of main catalog
+
+    // sorting
+    const sort = Utils.createAnyElement(this.main.element, { type: 'div', className: ['main__sort', 'sort'] });
+
+    // catalog
+    const catalog = Utils.createAnyElement(this.main.element, { type: 'div', className: ['main__catalog', 'catalog'] });
   }
 }
 
