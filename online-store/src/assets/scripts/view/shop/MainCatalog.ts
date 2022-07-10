@@ -1,5 +1,4 @@
-// import { arrOfPostersObjects } from "../../../..";
-// import { arrOfPostersObjects } from "../../components/components/Posters";
+import Poster from "../../components/components/Poster";
 import Posters from "../../components/components/Posters";
 import AnyElement from "../../elements/AnyElement";
 import Utils from "../../utils/Utils";
@@ -25,8 +24,8 @@ class MainCatalog {
     
 
     // catalog
-    const catalog = Utils.createAnyElement(this.main.element, { type: 'div', className: ['main__catalog', 'catalog'] });
-    console.log(Posters.categoriesData);
+    Utils.createAnyElement(this.main.element, { type: 'div', className: ['main__catalog', 'catalog'] });
+    Poster.drawPoster();
   }
 }
 

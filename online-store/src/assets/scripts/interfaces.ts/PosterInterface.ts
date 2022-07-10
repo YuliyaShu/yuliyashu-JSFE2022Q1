@@ -9,6 +9,7 @@ interface PosterInterface {
   readonly color: 'Green' | 'Orange' | 'White';
   readonly size: '20x20' | '50x50' | '70x70';
   readonly popularity: boolean;
+  readonly prize: string;
 }
 
 interface PostersJSONInterface {

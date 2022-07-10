@@ -10,7 +10,8 @@
     "designer": "Peppy",
     "color": "orange",
     "size": "20x20",
-    "popularity": "yes"
+    "popularity": true,
+    "prize": "$20"
   },
 
   "cat": {
@@ -23,7 +24,8 @@
     "designer": "Peppy",
     "color": "green",
     "size": "20x20",
-    "popularity": "yes"
+    "popularity": "yes",
+    "prize": "$20"
   },
 
   "dog": {
@@ -36,7 +38,8 @@
     "designer": "Eleven",
     "color": "orange",
     "size": "20x20",
-    "popularity": "yes"
+    "popularity": true,
+    "prize": "$20"
   },
 
   "rabbit": {
@@ -49,7 +52,8 @@
     "designer": "Eleven",
     "color": "orange",
     "size": "50x50",
-    "popularity": "yes"
+    "popularity": true,
+    "prize": "$50"
   },
 
   "horse": {
@@ -62,7 +66,8 @@
     "designer": "Eleven",
     "color": "green",
     "size": "50x50",
-    "popularity": "no"
+    "popularity": false,
+    "prize": "$50"
   },
 
   "kangaroo": {
@@ -75,7 +80,8 @@
     "designer": "Eleven",
     "color": "orange",
     "size": "20x20",
-    "popularity": "no"
+    "popularity": false,
+    "prize": "$20"
   },
 
   "monkey": {
@@ -88,7 +94,8 @@
     "designer": "Infinite_Jest",
     "color": "green",
     "size": "70x70",
-    "popularity": "no"
+    "popularity": false,
+    "prize": "$70"
   },
 
   "pig": {
@@ -101,7 +108,8 @@
     "designer": "Infinite_Jest",
     "color": "orange",
     "size": "70x70",
-    "popularity": "no"
+    "popularity": false,
+    "prize": "$70"
   }
 
 }
