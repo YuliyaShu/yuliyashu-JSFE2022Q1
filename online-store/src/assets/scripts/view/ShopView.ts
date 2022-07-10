@@ -19,8 +19,8 @@ class ShopView {
       this.createWrapper();
       Header.drawHeader(this.bodyWrapper);
       Aside.drawAside(this.bodyWrapper);
-      Footer.drawFooter(this.bodyWrapper);
       MainCatalog.drawMainCatalog(this.bodyWrapper);
+      Footer.drawFooter(this.bodyWrapper);
     }
 
     private createWrapper():void {

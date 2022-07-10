@@ -1,6 +1,7 @@
 .header {
   height: 100px;
   width: 100%;
+  position: fixed;
 }
 
 .header__links img {

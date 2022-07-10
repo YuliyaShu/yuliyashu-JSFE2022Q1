@@ -19,6 +19,7 @@ class Header {
     Utils.createAnyElement(logoLink.element, { type: 'img', attributes: [['src', './assets/images/logo.png'], ['alt', 'logo']] });
 
     Search.drawSearch();
+    
     function setFocus(){
       const headerSearchFormText = document.querySelector(".header__search-form-text");
       if (headerSearchFormText instanceof HTMLElement){
