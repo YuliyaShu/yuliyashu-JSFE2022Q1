@@ -30,7 +30,7 @@ class Header {
 
     const bag = Utils.createAnyElement(container.element, { type: 'div', className: ['header__bag'] });
     Utils.createAnyElement(bag.element, { type: 'img', className: ['header__bag-img'], attributes: [['src', './assets/images/bag.jpg'], ['alt', 'bag image']]});
-    Utils.createAnyElement(bag.element, {type: 'div', className: ['header__bag-count'], innerText: '10'});
+    Utils.createAnyElement(bag.element, {type: 'div', className: ['header__bag-count'], innerText: '0'});
   }
 }
 

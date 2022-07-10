@@ -15,10 +15,15 @@ class MainCatalog {
     }
 
     // sorting
-    const sort = Utils.createAnyElement(this.main.element, { type: 'div', className: ['main__sort', 'sort'] });
+    const sort = Utils.createAnyElement(this.main.element, { type: 'div', className: ['main__sort', 'sort'], innerText: 'SORT' });
+    Utils.createAnyElement(sort.element, { type: 'button', className: ['button', 'sort__name'], innerText: 'by name' });
+    Utils.createAnyElement(sort.element, { type: 'button', className: ['button', 'sort__year'], innerText: 'by year' });
+    Utils.createAnyElement(sort.element, { type: 'button', className: ['button', 'sort__category'], innerText: 'by category' });
+    
 
     // catalog
     const catalog = Utils.createAnyElement(this.main.element, { type: 'div', className: ['main__catalog', 'catalog'] });
+    
   }
 }
 
