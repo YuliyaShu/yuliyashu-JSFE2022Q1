@@ -38,8 +38,10 @@ class Listeners {
             counter.innerHTML = (+counter.innerHTML - 1).toString();
           }
 
-          if (+counter > 20) {
-            alert('The Cart is full!')
+          if (+counter.innerHTML > 20) {
+            counter.innerHTML = '20';
+            targetElement.classList.remove('status__in-cart');
+            alert('The Cart is full!');
           }
         }
       })
