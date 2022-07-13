@@ -37,6 +37,10 @@ class Listeners {
             targetElement.classList.remove('status__in-cart');
             counter.innerHTML = (+counter.innerHTML - 1).toString();
           }
+
+          if (+counter > 20) {
+            alert('The Cart is full!')
+          }
         }
       })
     }
