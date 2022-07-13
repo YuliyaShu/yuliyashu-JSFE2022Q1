@@ -1,5 +1,4 @@
 import Poster from "../../components/components/Poster";
-import Posters from "../../components/components/Posters";
 import AnyElement from "../../elements/AnyElement";
 import Utils from "../../utils/Utils";
 import ShopView from "../ShopView";

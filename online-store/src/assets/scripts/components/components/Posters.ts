@@ -20,6 +20,4 @@ class Posters {
   }
 }
 
-// const arrOfPostersObjects = Posters.setCategoriesData();
-// console.log(arrOfPostersObjects)
 export default Posters;

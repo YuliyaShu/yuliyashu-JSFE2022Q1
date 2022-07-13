@@ -58,46 +58,54 @@
   margin-bottom: 5%;
   align-items: center;
   justify-content: space-between;
+  z-index: 4;
+  cursor: pointer;
 }
 
 .poster__img {
   width: 30%;
   border: solid 1px var(--green-color);
   border-radius: 10px;
+  cursor: pointer;
 }
 
 .poster__info {
   width: 50%;
   display: flex;
   flex-direction: column;
+  cursor: pointer;
 }
 
 .poster__info-name {
   color: var(--dark-color);
   font-size: 1.5vw;
+  cursor: pointer;
 }
 
 .poster__info-name-after::after {
   content: '\1F525';
+  cursor: pointer;
 }
 
 .poster__info-designer-year {
   color: var(--green-color);
   font-size: 0.7vw;
   margin-bottom: 3%;
+  cursor: pointer;
 }
 
 .poster__info-diff {
   color: var(--green-color);
   font-size: 1vw;
   font-weight: 700;
+  cursor: pointer;
 }
 
 .poster__info-diff p {
   font-weight: normal;
   margin-left: 3%;
   display: inline;
-  
+  cursor: pointer;
   color: var(--orange-color);
 }
 
@@ -106,6 +114,7 @@
   font-size: 1.5vw;
   font-weight: 700;
   margin-top: 3%;
+  cursor: pointer;
 }
 
 .poster__button {
@@ -124,4 +133,8 @@
   box-shadow: 0px 0px 17px var(--orange-color);
   transition: 0.5s;
   cursor: pointer;
+}
+
+.status__in-cart {
+  opacity: 50%;
 }

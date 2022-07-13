@@ -16,4 +16,8 @@ interface PostersJSONInterface {
   [name: string]: PosterInterface;
 }
 
-export { PosterInterface, PostersJSONInterface };
+interface FilterPopularityInterface extends PosterInterface {
+  readonly popularity: true;
+}
+
+export { PosterInterface, PostersJSONInterface, FilterPopularityInterface };

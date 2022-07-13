@@ -24,7 +24,7 @@
     "designer": "Peppy",
     "color": "green",
     "size": "20x20",
-    "popularity": "yes",
+    "popularity": true,
     "prize": "$20"
   },
 
