@@ -65,7 +65,15 @@ class Filters {
       .filter(z => arrOfArr[3].includes(z)))
       .filter(q => arrOfArr[4].includes(q)))
       .filter(w => arrOfArr[5].includes(w));
-    Poster.drawPoster(arrOfPostersFilter);
+    
+    if (arrOfPostersFilter.length === 0) {
+      const catalog = document.querySelector('.catalog');
+      if (catalog) {
+        catalog.innerHTML = 'There is no such posters in our catalog. Please, try another preferences!';
+      } 
+    } else {
+      Poster.drawPoster(arrOfPostersFilter);
+    }
   }
 }
 
