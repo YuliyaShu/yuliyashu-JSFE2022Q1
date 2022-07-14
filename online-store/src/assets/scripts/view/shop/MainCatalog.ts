@@ -1,5 +1,7 @@
 import Poster from "../../components/components/Poster";
+import Posters from "../../components/components/Posters";
 import AnyElement from "../../elements/AnyElement";
+import { PosterInterface } from "../../interfaces.ts/PosterInterface";
 import Utils from "../../utils/Utils";
 import ShopView from "../ShopView";
 
@@ -24,7 +26,8 @@ class MainCatalog {
 
     // catalog
     Utils.createAnyElement(this.main.element, { type: 'div', className: ['main__catalog', 'catalog'] });
-    Poster.drawPoster();
+    const arrOfPosters: PosterInterface[] = Posters.categoriesData;
+    Poster.drawPoster(arrOfPosters);
   }
 }
 

@@ -1,14 +1,16 @@
 
+import { PosterInterface } from "../../interfaces.ts/PosterInterface";
 import Listeners from "../../listeners.ts/Listeners";
 import Utils from "../../utils/Utils";
-import Posters from "./Posters";
 
 class Poster {
-  static drawPoster(conditions = true) {
-    const arrOfPosters = Posters.categoriesData;
+  static drawPoster(arrOfPostersFilter: PosterInterface[], conditions = true) {
     const catalog = document.querySelector('.catalog');
+    if (catalog) {
+      catalog.innerHTML = '';
+    }
     if (catalog instanceof HTMLElement) {
-      arrOfPosters.forEach((posterUnit) => {
+      arrOfPostersFilter.forEach((posterUnit: PosterInterface) => {
         if (conditions) {
           // poster img
           const poster = Utils.createAnyElement(catalog, { type: 'div', className: ['catalog__poster', 'poster']});
