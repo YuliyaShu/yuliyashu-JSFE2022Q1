@@ -110,7 +110,7 @@ class Aside {
     const resetWrapper = Utils.createAnyElement(asideWrapper.element, { type: 'div', className: ['aside__reset-wrapper'] });
     // reset filters
     Utils.createAnyElement(resetWrapper.element, { type: 'button', className: ['aside__reset-filters'], innerText: 'RESET FILTERS'});
-
+    ListenersFilters.addResetListener();
     // reset settings
     Utils.createAnyElement(resetWrapper.element, { type: 'button', className: ['aside__reset-settings'], innerText: 'RESET SETTINGS'});
 

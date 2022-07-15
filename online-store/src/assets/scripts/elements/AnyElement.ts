@@ -54,6 +54,8 @@ class AnyElement implements ElementInterface {
         this.parent.append(this.element);
       } else if (this.options.appendType === 'prepend') {
         this.parent.prepend(this.element);
+      } else if (this.options.appendType === 'after') {
+        this.parent.after(this.element);
       }
     }
     return this;

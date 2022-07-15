@@ -40,7 +40,6 @@ class Filters {
         const start1 = Number(arrOfActiveFilters[4][0]?.innerHTML);
         const end1 = Number(arrOfActiveFilters[4][1]?.innerHTML);
         const rangeQuantity = [...Array(end1 - start1 + 1).keys()].map(x => x + start1);
-        console.log(rangeQuantity);
         rangeQuantity.forEach((q) => {
           if (arrOfActiveFilters[4] && Object.values(poster).includes(q.toString())) {
             arrOfArr[4].push(poster);
@@ -50,7 +49,6 @@ class Filters {
         const start2 = Number(arrOfActiveFilters[4][2]?.innerHTML);
         const end2 = Number(arrOfActiveFilters[4][3]?.innerHTML);
         const rangeYear = [...Array(end2 - start2 + 1).keys()].map(x => x + start2);
-        console.log(rangeYear);
         rangeYear.forEach((y) => {
           if (arrOfActiveFilters[4] && Object.values(poster).includes(y.toString())) {
             arrOfArr[5].push(poster);

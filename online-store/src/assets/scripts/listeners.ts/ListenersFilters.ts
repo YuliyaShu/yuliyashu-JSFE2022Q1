@@ -1,4 +1,8 @@
 import Filters from "../components/components/Filters";
+import Poster from "../components/components/Poster";
+import Posters from "../components/components/Posters";
+import * as noUiSlider from 'nouislider';
+import Utils from "../utils/Utils";
 
 class ListenersFilters {
   static activeFilters: (Element | null)[][] = [[], [], [], [], []];
@@ -47,7 +51,6 @@ class ListenersFilters {
 
     arrOfFilterButtons.map((button) => {
       if (button) {
-        console.log(button);
         button.addEventListener('click', () => {
           if (!button.classList.contains('active-filter')) {
             button.classList.add('active-filter');
@@ -100,6 +103,85 @@ class ListenersFilters {
       }
     }
   }
+
+  static addResetListener() {
+    console.log('here');
+    const resetButton = document.querySelector('.aside__reset-filters');
+    if (resetButton) {
+      resetButton.addEventListener('click', () => {
+        const arrOfPosters = Posters.categoriesData;
+        Poster.drawPoster(arrOfPosters);
+  
+        const buttons = document.querySelectorAll('.button');
+        buttons.forEach((b) => b.classList.remove('active-filter'));
+
+        const sliderQ = document.getElementById('slider-q');
+        const parent = sliderQ?.parentNode;
+        if (parent) {
+          parent.removeChild(sliderQ);
+        }
+        const quantityFrom = document.querySelector('.quantity__from');
+        if (quantityFrom && quantityFrom instanceof HTMLElement) {
+          Utils.createAnyElement(quantityFrom, { type: 'div', className: ['aside__filter-slider', 'quantity'], appendType: 'after', attributes: [['id', 'slider-q']] });
+        }
+        const slider = document.getElementById('slider-q');
+        if (slider instanceof HTMLElement) {
+          noUiSlider.create(slider, {
+            start: [0, 10],
+            step: 1,
+            connect: true,
+            range: {
+              'min': 0,
+              'max': 10
+            }
+          });
+        }
+        
+        const sliderY = document.getElementById('slider-y');
+        const parentY = sliderY?.parentNode;
+        if (parentY) {
+          parentY.removeChild(sliderY);
+        }
+        const yearFrom = document.querySelector('.year__from');
+        if (yearFrom && yearFrom instanceof HTMLElement) {
+          Utils.createAnyElement(yearFrom, { type: 'div', className: ['aside__filter-slider', 'year'], appendType: 'after', attributes: [['id', 'slider-y']] });
+        }
+        const slider2 = document.getElementById('slider-y');
+        if (slider2 instanceof HTMLElement) {
+          noUiSlider.create(slider2, {
+            start: [2012, 2022],
+            step: 1,
+            connect: true,
+            range: {
+              'min': 2012,
+              'max': 2022
+            }
+          });
+        }
+        this.addFilterListeners();
+  
+        const quantityFrom1 = document.querySelector('.quantity__from');
+        if (quantityFrom1) {
+          quantityFrom1.innerHTML = '0';
+        }
+        
+        const quantityTo = document.querySelector('.quantity__to');
+        if (quantityTo) {
+          quantityTo.innerHTML = '10';
+        }
+  
+        const yearFrom1 = document.querySelector('.year__from');
+        if (yearFrom1) {
+          yearFrom1.innerHTML = '2012';
+        }
+  
+        const yearTo = document.querySelector('.year__to');
+        if (yearTo) {
+          yearTo.innerHTML = '2022';
+        }
+      })
+    }
+  } 
 }
 
 export default ListenersFilters;
