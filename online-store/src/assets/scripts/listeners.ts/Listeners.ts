@@ -1,4 +1,5 @@
 import Poster from "../components/components/Poster";
+import Search from "../components/components/Search";
 import { PosterInterface } from "../interfaces.ts/PosterInterface";
 import FindTarget from "../utils/FindTarget";
 import ShopView from "../view/ShopView";
@@ -103,8 +104,24 @@ class Listeners {
         Poster.drawPoster(arrOfCurrentPostersOnPage);
       });
     }
+  }
 
-   
+  // static clickSearchButton() {
+  //   const searchButton = document.querySelector('.header__search-form-search');
+  //   if (searchButton) {
+  //     searchButton.addEventListener('click', Search.startSearch);
+  //   }
+  // }
+
+  static inputListener() {
+    const headerSearchFormText = document.querySelector(".header__search-form-text");
+      if (headerSearchFormText){
+        headerSearchFormText.addEventListener('input', () => {
+            if (headerSearchFormText instanceof HTMLInputElement) {
+              Search.startSearch(headerSearchFormText.value);
+            }
+        })
+      }
   }
 }
 

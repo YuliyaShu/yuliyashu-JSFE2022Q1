@@ -1,5 +1,6 @@
 import Search from "../../components/components/Search";
 import AnyElement from "../../elements/AnyElement";
+import Listeners from "../../listeners.ts/Listeners";
 import Utils from "../../utils/Utils";
 import ShopView from "../ShopView";
 
@@ -19,6 +20,7 @@ class Header {
     Utils.createAnyElement(logoLink.element, { type: 'img', attributes: [['src', './assets/images/logo.png'], ['alt', 'logo']] });
 
     Search.drawSearch();
+    Listeners.inputListener();
     
     function setFocus(){
       const headerSearchFormText = document.querySelector(".header__search-form-text");
