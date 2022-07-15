@@ -1,0 +1,54 @@
+.header {
+  height: 100px;
+  width: 100%;
+  position: fixed;
+}
+
+.header__links img {
+  width: auto;
+  height: 90px;
+}
+.header__search {
+  float: right;
+  padding: 6px;
+  font-size: 80%;
+  font-family: 'Montserrat';
+  color: var(--green-color);
+}
+
+.header__search-form-search {
+  background-color: var(--grey-dark-color);
+  border: solid 2px var(--green-color);
+}
+
+.header__search-form-search:hover {
+  cursor: pointer;
+  border-color: var(--orange-color);
+  transition: 0.5s;
+}
+
+.header__bag,
+.header__bag-img {
+  width: auto;
+  height: 90px;
+  position: relative;
+  cursor: pointer;
+}
+
+.header__bag-count {
+  position: absolute;
+  z-index: 2;
+  font-family: 'Montserrat';
+  color: var(--green-color);
+  bottom: 0px;
+  right: 0px;
+  border: solid 1px var(--green-color);
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  padding: 2%;
+  font-size: 0.7em;
+  align-items: center;
+  cursor: pointer;
+}
