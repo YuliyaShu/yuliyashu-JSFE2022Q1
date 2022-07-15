@@ -4,7 +4,10 @@ import Listeners from "../../listeners.ts/Listeners";
 import Utils from "../../utils/Utils";
 
 class Poster {
+  static currentPosters: PosterInterface[];
+
   static drawPoster(arrOfPostersFilter: PosterInterface[], conditions = true) {
+    this.currentPosters = arrOfPostersFilter;
     const catalog = document.querySelector('.catalog');
     if (catalog) {
       catalog.innerHTML = '';

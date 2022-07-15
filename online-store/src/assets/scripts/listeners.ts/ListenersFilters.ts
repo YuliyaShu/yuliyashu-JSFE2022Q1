@@ -105,7 +105,6 @@ class ListenersFilters {
   }
 
   static addResetListener() {
-    console.log('here');
     const resetButton = document.querySelector('.aside__reset-filters');
     if (resetButton) {
       resetButton.addEventListener('click', () => {

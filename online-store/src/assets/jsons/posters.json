@@ -545,20 +545,6 @@
     "popularity": true,
     "prize": "$20"
   },
-  
-  "cooking": {
-    "url": "./assets/images/hobby-cooking.jpg",
-    "name": "cooking",
-    "translate": "готовка",
-    "category": "hobby",
-    "year": "2017",
-    "quantity": "9",
-    "designer": "Peppy",
-    "color": "green",
-    "size": "20x20",
-    "popularity": true,
-    "prize": "$20"
-  },
 
   "dancing": {
     "url": "./assets/images/hobby-dancing.jpg",

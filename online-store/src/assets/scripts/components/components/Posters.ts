@@ -15,7 +15,6 @@ class Posters {
       })
       .then((data: PostersJSONInterface) => {
         const arrOfPosters: PosterInterface[] = Object.values(data);
-        console.log(arrOfPosters);
         return arrOfPosters;
       })
   }
