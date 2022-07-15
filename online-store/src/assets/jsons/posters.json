@@ -657,20 +657,6 @@
     "popularity": true,
     "prize": "$20"
   },
-  
-  "bamboo": {
-    "url": "./assets/images/plants-bamboo.jpg",
-    "name": "bamboo",
-    "translate": "бамбук",
-    "category": "plants",
-    "year": "2017",
-    "quantity": "9",
-    "designer": "Peppy",
-    "color": "green",
-    "size": "20x20",
-    "popularity": true,
-    "prize": "$20"
-  },
 
   "cactus": {
     "url": "./assets/images/plants-cactus.jpg",
@@ -712,20 +698,6 @@
     "size": "50x50",
     "popularity": false,
     "prize": "$50"
-  },
-
-  "palm": {
-    "url": "./assets/images/plants-palm.jpg",
-    "name": "palm",
-    "translate": "пальма",
-    "category": "plants",
-    "year": "2012",
-    "quantity": "7",
-    "designer": "Infinite_Jest",
-    "color": "green",
-    "size": "70x70",
-    "popularity": false,
-    "prize": "$70"
   },
 
   "rose": {
