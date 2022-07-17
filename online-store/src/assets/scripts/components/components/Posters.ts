@@ -4,6 +4,7 @@ class Posters {
   static categoriesData: PosterInterface[];
   static async setCategoriesData() {
     this.categoriesData = await Posters.postersFromJson();
+    localStorage.setItem('filteredPosters', JSON.stringify(this.categoriesData));
   }
   static postersFromJson() {
     return fetch('./assets/jsons/posters.json')

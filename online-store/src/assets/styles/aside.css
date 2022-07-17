@@ -64,11 +64,6 @@
   background-color: var(--orange-color);
   opacity: 70%;
 }
-/* 
-.noUi-horizontal .noUi-handle {
-  width: 10%;
-  height: 28px;
-} */
 
 .aside__filter button {
   width: fit-content;

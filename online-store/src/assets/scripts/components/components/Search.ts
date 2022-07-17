@@ -22,7 +22,7 @@ class Search {
 
   static startSearch(inputText: string) {
     console.log('here');
-    let arrOfSearchPosters: PosterInterface[] = [];
+    let searchedPosters: PosterInterface[] = [];
     const start: PosterInterface[] = [];
     const filteredPostersFromJSON = localStorage.getItem('filteredPosters');
     if (filteredPostersFromJSON) {
@@ -31,17 +31,17 @@ class Search {
         if (poster.name.toLowerCase().includes(inputText.toLowerCase())) {
           res.push(poster);
         }
-        arrOfSearchPosters = res;
+        searchedPosters = res;
         return res;
       }, start);
     
-      if (arrOfSearchPosters.length === 0) {
+      if (searchedPosters.length === 0) {
         const catalog = document.querySelector('.catalog');
         if (catalog) {
           catalog.innerHTML = 'There is no such posters in our catalog. Please, try another search preferences!';
         } 
       } else {
-        Poster.drawPoster(arrOfSearchPosters);
+        Poster.drawPoster(searchedPosters);
       }
     }
       

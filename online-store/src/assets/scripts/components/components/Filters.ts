@@ -71,7 +71,6 @@ class Filters {
       } 
     } else {
       localStorage.setItem('filteredPosters', JSON.stringify(filteredPosters));
-      console.log(filteredPosters);
       Poster.drawPoster(filteredPosters);
     }
   }

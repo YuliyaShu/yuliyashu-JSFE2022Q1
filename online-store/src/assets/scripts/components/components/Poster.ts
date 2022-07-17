@@ -6,14 +6,14 @@ import Utils from "../../utils/Utils";
 class Poster {
   static currentPosters: PosterInterface[];
 
-  static drawPoster(arrOfPostersFilter: PosterInterface[], conditions = true) {
-    this.currentPosters = arrOfPostersFilter;
+  static drawPoster(filteredPosters: PosterInterface[], conditions = true) {
+    this.currentPosters = filteredPosters;
     const catalog = document.querySelector('.catalog');
     if (catalog) {
       catalog.innerHTML = '';
     }
     if (catalog instanceof HTMLElement) {
-      arrOfPostersFilter.forEach((posterUnit: PosterInterface) => {
+      filteredPosters.forEach((posterUnit: PosterInterface) => {
         if (conditions) {
           // poster img
           const poster = Utils.createAnyElement(catalog, { type: 'div', className: ['catalog__poster', 'poster']});

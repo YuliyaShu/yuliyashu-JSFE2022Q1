@@ -60,58 +60,80 @@ class Listeners {
     const sortName = document.querySelector('.sort__name');
     const sortYear = document.querySelector('.sort__year');
     const sortCategory = document.querySelector('.sort__category');
-    let arrOfCurrentPostersOnPage: PosterInterface[];
 
 
     if (sortName) {
       sortName.addEventListener('click', () => {
-        arrOfCurrentPostersOnPage = Poster.currentPosters;
-        if (this.countName % 2) {
-          arrOfCurrentPostersOnPage.sort((a, b) => a.name.localeCompare(b.name));
-        } else {
-          arrOfCurrentPostersOnPage.sort((a, b) => b.name.localeCompare(a.name));
+        const filteredPostersFromJSON = localStorage.getItem('filteredPosters');
+        if (filteredPostersFromJSON) {
+          const currentPosters: PosterInterface[] = JSON.parse(filteredPostersFromJSON);
+            if (this.countName % 3 === 1) {
+              sortName.classList.add('sort__name-up');
+              sortName.classList.remove('sort__name-down');
+              currentPosters.sort((a, b) => a.name.localeCompare(b.name));
+            } else if (this.countName % 3 === 2) {
+              sortName.classList.add('sort__name-down');
+              sortName.classList.remove('sort__name-up');
+              currentPosters.sort((a, b) => b.name.localeCompare(a.name));
+            } else if (this.countName % 3 === 0) {
+              sortName.classList.remove('sort__name-up');
+              sortName.classList.remove('sort__name-down');
+            }
+            this.sortedPosters = currentPosters;
+            Poster.drawPoster(currentPosters);
+            this.countName += 1;
         }
-        this.sortedPosters = arrOfCurrentPostersOnPage;
-        Poster.drawPoster(arrOfCurrentPostersOnPage);
-        this.countName += 1;
       });
     }
 
     if (sortYear) {
       sortYear.addEventListener('click', () => {
-        arrOfCurrentPostersOnPage = Poster.currentPosters;
-        if (this.countYear % 2) {
-          arrOfCurrentPostersOnPage.sort((a, b) => a.year.localeCompare(b.year));
-        } else {
-          arrOfCurrentPostersOnPage.sort((a, b) => b.year.localeCompare(a.year));
+        const filteredPostersFromJSON = localStorage.getItem('filteredPosters');
+        if (filteredPostersFromJSON) {
+          const currentPosters: PosterInterface[] = JSON.parse(filteredPostersFromJSON);
+          if (this.countYear % 3 === 1) {
+            sortYear.classList.add('sort__year-up');
+            sortYear.classList.remove('sort__year-down');
+            currentPosters.sort((a, b) => a.year.localeCompare(b.year));
+          } else if (this.countYear % 3 === 2) {
+            sortYear.classList.add('sort__year-down');
+            sortYear.classList.remove('sort__year-up');
+            currentPosters.sort((a, b) => b.year.localeCompare(a.year));
+          } else if (this.countYear % 3 === 0) {
+            sortYear.classList.remove('sort__year-up');
+            sortYear.classList.remove('sort__year-down');
+          }
+          this.countYear += 1;
+          this.sortedPosters = currentPosters;
+          Poster.drawPoster(currentPosters);
         }
-        this.countYear += 1;
-        this.sortedPosters = arrOfCurrentPostersOnPage;
-        Poster.drawPoster(arrOfCurrentPostersOnPage);
       });
     }
 
     if (sortCategory) {
       sortCategory.addEventListener('click', () => {
-        arrOfCurrentPostersOnPage = Poster.currentPosters;
-        if (this.countCategory % 2) {
-          arrOfCurrentPostersOnPage.sort((a, b) => a.category.localeCompare(b.category));
-        } else {
-          arrOfCurrentPostersOnPage.sort((a, b) => b.category.localeCompare(a.category));
+        const filteredPostersFromJSON = localStorage.getItem('filteredPosters');
+        if (filteredPostersFromJSON) {
+            const currentPosters: PosterInterface[] = JSON.parse(filteredPostersFromJSON);
+            if (this.countCategory % 3 === 1) {
+              sortCategory.classList.add('sort__category-up');
+              sortCategory.classList.remove('sort__category-down');
+              currentPosters.sort((a, b) => a.category.localeCompare(b.category));
+            } else if (this.countCategory % 3 === 2) {
+              sortCategory.classList.add('sort__category-down');
+              sortCategory.classList.remove('sort__category-up');
+              currentPosters.sort((a, b) => b.category.localeCompare(a.category));
+            } else if (this.countCategory % 3 === 0) {
+              sortCategory.classList.remove('sort__category-up');
+              sortCategory.classList.remove('sort__category-down');
+            }
+          this.countCategory += 1;
+          this.sortedPosters = currentPosters;
+          Poster.drawPoster(currentPosters);
         }
-        this.countCategory += 1;
-        this.sortedPosters = arrOfCurrentPostersOnPage;
-        Poster.drawPoster(arrOfCurrentPostersOnPage);
       });
     }
   }
-
-  // static clickSearchButton() {
-  //   const searchButton = document.querySelector('.header__search-form-search');
-  //   if (searchButton) {
-  //     searchButton.addEventListener('click', Search.startSearch);
-  //   }
-  // }
 
   static inputListener() {
     const headerSearchFormText = document.querySelector(".header__search-form-text");
