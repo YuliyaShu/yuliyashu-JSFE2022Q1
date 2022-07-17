@@ -22,17 +22,16 @@ class Header {
     Search.drawSearch();
     Listeners.inputListener();
     
-    function setFocus(){
-      const headerSearchFormText = document.querySelector(".header__search-form-text");
-      if (headerSearchFormText instanceof HTMLElement){
-        headerSearchFormText.focus();
-      }
+    const headerSearchFormText = document.querySelector(".header__search-form-text");
+    if (headerSearchFormText instanceof HTMLElement){
+      headerSearchFormText.focus();
     }
-    setFocus();
 
     const bag = Utils.createAnyElement(container.element, { type: 'div', className: ['header__bag'] });
     Utils.createAnyElement(bag.element, { type: 'img', className: ['header__bag-img'], attributes: [['src', './assets/images/bag.jpg'], ['alt', 'bag image']]});
-    Utils.createAnyElement(bag.element, {type: 'div', className: ['header__bag-count'], innerText: '0'});
+    console.log(Utils.getItemFromStorage('cartList'));
+    const count = Utils.getItemFromStorage('cartList').length;
+    Utils.createAnyElement(bag.element, {type: 'div', className: ['header__bag-count'], innerText: count.toString()});
   }
 }
 

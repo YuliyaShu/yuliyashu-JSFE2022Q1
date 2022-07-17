@@ -7,26 +7,24 @@ import Utils from "../../utils/Utils";
 import ShopView from "../ShopView";
 
 class MainCatalog {
-  static bodyWrapper: ShopView["bodyWrapper"];
-  static main: AnyElement;
 
-  static drawMainCatalog(bodyWrapper: AnyElement): void {
-    this.bodyWrapper = bodyWrapper;
+  static drawMainCatalog(): void {
 
     const containerMain = document.querySelector('.container__main');
+    let main!: AnyElement;
     if (containerMain instanceof HTMLElement) {
-      this.main = Utils.createAnyElement(containerMain, { type: 'main', className: ['main'] })
+      main = Utils.createAnyElement(containerMain, { type: 'main', className: ['main'] })
     }
 
     // sorting
-    const sort = Utils.createAnyElement(this.main.element, { type: 'div', className: ['main__sort', 'sort'], innerText: 'SORT' });
+    const sort = Utils.createAnyElement(main.element, { type: 'div', className: ['main__sort', 'sort'], innerText: 'SORT' });
     Utils.createAnyElement(sort.element, { type: 'button', className: ['button', 'sort__name'], innerText: 'by name' });
     Utils.createAnyElement(sort.element, { type: 'button', className: ['button', 'sort__year'], innerText: 'by year' });
     Utils.createAnyElement(sort.element, { type: 'button', className: ['button', 'sort__category'], innerText: 'by category' });
     Listeners.clickSortButtons();
 
     // catalog
-    Utils.createAnyElement(this.main.element, { type: 'div', className: ['main__catalog', 'catalog'] });
+    Utils.createAnyElement(main.element, { type: 'div', className: ['main__catalog', 'catalog'] });
     const arrOfPosters: PosterInterface[] = Posters.categoriesData;
     Poster.drawPoster(arrOfPosters);
   }

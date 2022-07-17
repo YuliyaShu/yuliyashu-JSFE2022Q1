@@ -1,7 +1,9 @@
 import Poster from "../components/components/Poster";
+import Posters from "../components/components/Posters";
 import Search from "../components/components/Search";
-import { PosterInterface } from "../interfaces.ts/PosterInterface";
+import { PosterInCartInterface, PosterInterface } from "../interfaces.ts/PosterInterface";
 import FindTarget from "../utils/FindTarget";
+import Utils from "../utils/Utils";
 import ShopView from "../view/ShopView";
 
 class Listeners {
@@ -10,7 +12,7 @@ class Listeners {
   static countCategory = 1;
   static sortedPosters: PosterInterface[];
 
-  static clickStartButton() {
+  static addStartBtnOnClickEvent() {
     const startPageButton = document.querySelector('.start-page__button');
      if (startPageButton) {
       startPageButton.addEventListener('click', () => {
@@ -27,6 +29,7 @@ class Listeners {
   static clickAddToCart() {
     const posters = document.querySelectorAll('.poster');
     const counter = document.querySelector('.header__bag-count');
+    const cartList = Utils.getItemFromStorage('cartList');
     let targetElement: Element |null | undefined;
 
     for (let i = 0; i < posters.length; i += 1) {
@@ -34,23 +37,27 @@ class Listeners {
         const expr = e.target;
         if (expr instanceof HTMLElement) {
           targetElement = new FindTarget(expr).find();
-          console.log(targetElement);
         }
 
       if (counter && targetElement) {
+        const posterName = targetElement.children[1].children[0].innerHTML.toLowerCase();
+            
           if (!targetElement.classList.contains('status__in-cart')) {
-            targetElement.classList.add('status__in-cart');
-            counter.innerHTML = (+counter.innerHTML + 1).toString();
+
+            if (+counter.innerHTML >= 20) {
+              alert('The Cart is full!');
+            } else {
+              targetElement.classList.add('status__in-cart');
+              cartList.push(posterName);
+            }
           } else {
             targetElement.classList.remove('status__in-cart');
-            counter.innerHTML = (+counter.innerHTML - 1).toString();
+            cartList.splice(cartList.indexOf(posterName), 1);
           }
 
-          if (+counter.innerHTML > 20) {
-            counter.innerHTML = '20';
-            targetElement.classList.remove('status__in-cart');
-            alert('The Cart is full!');
-          }
+          counter.innerHTML = cartList.length.toString();
+          Utils.setItemToStorage('cartList', cartList);
+
         }
       })
     }

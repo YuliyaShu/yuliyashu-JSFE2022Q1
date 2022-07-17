@@ -16,8 +16,8 @@ interface PostersJSONInterface {
   [name: string]: PosterInterface;
 }
 
-interface FilterPopularityInterface extends PosterInterface {
-  readonly popularity: true;
+interface PosterInCartInterface extends PosterInterface {
+  inCart: false;
 }
 
-export { PosterInterface, PostersJSONInterface, FilterPopularityInterface };
+export { PosterInterface, PostersJSONInterface, PosterInCartInterface };

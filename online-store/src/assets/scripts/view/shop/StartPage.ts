@@ -17,7 +17,7 @@ class StartPage {
         }
       }, 200);
       
-      Listeners.clickStartButton();
+      Listeners.addStartBtnOnClickEvent();
   }
   
 }

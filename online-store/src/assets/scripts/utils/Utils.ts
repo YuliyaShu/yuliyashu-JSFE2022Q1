@@ -13,6 +13,20 @@ class Utils {
         elem.addProperties();
         return elem;
       }
+
+  static getItemFromStorage(itemName: string): string[] {
+    const itemVal = localStorage.getItem(itemName);
+    if (itemVal) {
+      return JSON.parse(itemVal);
+    } else {
+      return [];
+    }
+  }
+
+  static setItemToStorage(itemName: string, itemValue: string[]): void {
+    localStorage.setItem(itemName, JSON.stringify(itemValue));            
+  }
+
 }
 
 export default Utils;

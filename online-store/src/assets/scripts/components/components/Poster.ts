@@ -6,17 +6,22 @@ import Utils from "../../utils/Utils";
 class Poster {
   static currentPosters: PosterInterface[];
 
-  static drawPoster(filteredPosters: PosterInterface[], conditions = true) {
-    this.currentPosters = filteredPosters;
+  static drawPoster(filteredSortedPosters: PosterInterface[], conditions = true) {
+    const cartList = Utils.getItemFromStorage('cartList');
+    this.currentPosters = filteredSortedPosters;
     const catalog = document.querySelector('.catalog');
     if (catalog) {
       catalog.innerHTML = '';
     }
     if (catalog instanceof HTMLElement) {
-      filteredPosters.forEach((posterUnit: PosterInterface) => {
+      filteredSortedPosters.forEach((posterUnit: PosterInterface) => {
         if (conditions) {
           // poster img
-          const poster = Utils.createAnyElement(catalog, { type: 'div', className: ['catalog__poster', 'poster']});
+          const posterClassName: string[] = ['catalog__poster', 'poster'];
+          if (cartList.includes(posterUnit.name)) {
+            posterClassName.push('status__in-cart');
+          }
+          const poster = Utils.createAnyElement(catalog, { type: 'div', className: posterClassName});
               
           //poster info
           Utils.createAnyElement(poster.element, { type: 'img', className: ['poster__img'], attributes: [['src', `${posterUnit.url}`], ['alt', 'poster image']]});

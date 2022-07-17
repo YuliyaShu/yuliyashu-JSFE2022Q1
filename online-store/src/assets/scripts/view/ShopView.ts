@@ -1,4 +1,5 @@
 import AnyElement from '../elements/AnyElement';
+import Listeners from '../listeners.ts/Listeners';
 import Utils from '../utils/Utils';
 import Aside from './shop/Aside';
 import Footer from './shop/Footer';
@@ -16,10 +17,11 @@ class ShopView {
     }
 
     createCatalogPage() {
+
       this.createWrapper();
       Header.drawHeader(this.bodyWrapper);
       Aside.drawAside(this.bodyWrapper);
-      MainCatalog.drawMainCatalog(this.bodyWrapper);
+      MainCatalog.drawMainCatalog();
       Footer.drawFooter(this.bodyWrapper);
     }
 
