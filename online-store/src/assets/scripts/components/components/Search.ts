@@ -24,30 +24,28 @@ class Search {
     console.log('here');
     let arrOfSearchPosters: PosterInterface[] = [];
     const start: PosterInterface[] = [];
-      const currentPosters = Poster.currentPosters;
+    const filteredPostersFromJSON = localStorage.getItem('filteredPosters');
+    if (filteredPostersFromJSON) {
+      const currentPosters: PosterInterface[] = JSON.parse(filteredPostersFromJSON);
       currentPosters.reduce((res, poster) => {
         if (poster.name.toLowerCase().includes(inputText.toLowerCase())) {
           res.push(poster);
         }
         arrOfSearchPosters = res;
         return res;
-      }, start)
+      }, start);
     
-      if (inputText === '') {
-        arrOfSearchPosters = Poster.currentPosters;
-        Poster.drawPoster(arrOfSearchPosters);
+      if (arrOfSearchPosters.length === 0) {
+        const catalog = document.querySelector('.catalog');
+        if (catalog) {
+          catalog.innerHTML = 'There is no such posters in our catalog. Please, try another search preferences!';
+        } 
       } else {
-        if (arrOfSearchPosters.length === 0) {
-          const catalog = document.querySelector('.catalog');
-          if (catalog) {
-            catalog.innerHTML = 'There is no such posters in our catalog. Please, try another search preferences!';
-          } 
-        } else {
         Poster.drawPoster(arrOfSearchPosters);
-        }
       }
     }
-  
+      
+    }
 }
 
 export default Search;

@@ -5,6 +5,9 @@ import * as noUiSlider from 'nouislider';
 import ListenersFilters from "../../listeners.ts/ListenersFilters";
 
 class Aside {
+  static sliderQ: noUiSlider.API;
+  static sliderY: noUiSlider.API;
+
   static bodyWrapper: ShopView["bodyWrapper"];
 
   static drawAside(bodyWrapper: AnyElement): void {
@@ -42,7 +45,7 @@ class Aside {
 
       const slider = document.getElementById('slider-q');
       if (slider instanceof HTMLElement) {
-        noUiSlider.create(slider, {
+        this.sliderQ = noUiSlider.create(slider, {
           start: [0, 10],
           step: 1,
           connect: true,
@@ -64,7 +67,7 @@ class Aside {
 
       const slider = document.getElementById('slider-y');
       if (slider instanceof HTMLElement) {
-        noUiSlider.create(slider, {
+        this.sliderY = noUiSlider.create(slider, {
           start: [2012, 2022],
           step: 1,
           connect: true,
