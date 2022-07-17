@@ -25,6 +25,10 @@ class Poster {
           if ((posterUnit.popularity)) {
             posterName.element.classList.add('poster__info-name-after');
           }
+          const fireIcons = document.querySelectorAll('.poster__info-name-after');
+          if (fireIcons) {
+            fireIcons.forEach((fireIcon) => fireIcon.setAttribute('title', 'Popular poster'));
+          }
           Utils.createAnyElement(posterInfo.element, { type: 'p', className: ['poster__info-designer-year'], innerText: `by ${posterUnit.designer} ${posterUnit.year}`});
           const category = Utils.createAnyElement(posterInfo.element, { type: 'div', className: ['poster__info-diff'], innerText: 'Category:' });
           Utils.createAnyElement(category.element, { type: 'p', innerText: posterUnit.category});
@@ -39,7 +43,6 @@ class Poster {
           //poster button
           Utils.createAnyElement(poster.element, { type: 'button', className: ['poster__button'], innerText: 'ADD TO CART'});
         }
-        
       })
       Listeners.clickAddToCart();
     }
