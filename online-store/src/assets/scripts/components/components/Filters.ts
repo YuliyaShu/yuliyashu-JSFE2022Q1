@@ -37,18 +37,18 @@ class Filters {
         }
       }
 
-        const start1 = Number(activeFilters[4][0]);
-        const end1 = Number(activeFilters[4][1]);
-        const rangeQuantity = [...Array(end1 - start1 + 1).keys()].map(x => x + start1);
+        const startQ = Number(activeFilters[4][0]) || 0;
+        const endQ = Number(activeFilters[4][1]) || 10;
+        const rangeQuantity: number[] = [...Array(endQ - startQ + 1).keys()].map(x => x + startQ);
         rangeQuantity.forEach((q) => {
           if (activeFilters[4] && Object.values(poster).includes(q.toString())) {
             previousFilteredPosters[4].push(poster);
           }
         })
       
-        const start2 = Number(activeFilters[4][2]);
-        const end2 = Number(activeFilters[4][3]);
-        const rangeYear = [...Array(end2 - start2 + 1).keys()].map(x => x + start2);
+        const startY = Number(activeFilters[4][2]) || 2012;
+        const endY = Number(activeFilters[4][3]) || 2022;
+        const rangeYear = [...Array(endY - startY + 1).keys()].map(x => x + startY);
         rangeYear.forEach((y) => {
           if (activeFilters[4] && Object.values(poster).includes(y.toString())) {
             previousFilteredPosters[5].push(poster);
@@ -71,6 +71,7 @@ class Filters {
       } 
     } else {
       localStorage.setItem('filteredPosters', JSON.stringify(filteredPosters));
+      console.log(filteredPosters);
       Poster.drawPoster(filteredPosters);
     }
   }

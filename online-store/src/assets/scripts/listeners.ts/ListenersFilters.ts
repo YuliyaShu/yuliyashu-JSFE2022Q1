@@ -51,8 +51,6 @@ class ListenersFilters {
             } else {
               this.activeFilters[3].push(button.innerHTML);
             }
-            const x = JSON.stringify(this.activeFilters);
-            localStorage.setItem('activeFilters', x);
             Filters.drawFilterPosters();
           } else {
             button.classList.remove('active-filter');
@@ -69,24 +67,28 @@ class ListenersFilters {
               const index3 = this.activeFilters[3].indexOf(button.innerHTML);
               this.activeFilters[3].splice(index3, 1);
             }
-            const x = JSON.stringify(this.activeFilters);
-            localStorage.setItem('activeFilters', x);
             Filters.drawFilterPosters();
           }
         })
       }
     })
 
+        
     Aside.sliderQ.on('change', () => {
+      console.log('here');
       const sliderValueQ = Aside.sliderQ.get();
       const quantityFrom = document.querySelector(arrOfTextArea[0]);
-      const quantityTo = document.querySelector(arrOfTextArea[1]);
+      const quantityTo = document.querySelector(arrOfTextArea[1]);  
       if (quantityFrom && quantityTo && Array.isArray(sliderValueQ)) {
         quantityFrom.innerHTML = (+sliderValueQ[0]).toString();
         quantityTo.innerHTML = (+sliderValueQ[1]).toString();
+        this.activeFilters[4][0] = (+sliderValueQ[0]).toString();
+        this.activeFilters[4][1] = (+sliderValueQ[1]).toString();
       }
+      Filters.drawFilterPosters();
     })
 
+    
     Aside.sliderY.on('change', () => {
       const sliderValueY = Aside.sliderY.get();
       const yearFrom = document.querySelector(arrOfTextArea[2]);
@@ -94,9 +96,11 @@ class ListenersFilters {
       if (yearFrom && yearTo && Array.isArray(sliderValueY)) {
         yearFrom.innerHTML = (+sliderValueY[0]).toString();
         yearTo.innerHTML = (+sliderValueY[1]).toString();
+        this.activeFilters[4][2] = (+sliderValueY[0]).toString();
+        this.activeFilters[4][3] = (+sliderValueY[1]).toString();
       }
+      Filters.drawFilterPosters();
     })
-    
   }
 
   static addResetListener() {
