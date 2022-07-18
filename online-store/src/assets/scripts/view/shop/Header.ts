@@ -29,8 +29,7 @@ class Header {
 
     const bag = Utils.createAnyElement(container.element, { type: 'div', className: ['header__bag'] });
     Utils.createAnyElement(bag.element, { type: 'img', className: ['header__bag-img'], attributes: [['src', './assets/images/bag.jpg'], ['alt', 'bag image']]});
-    console.log(Utils.getItemFromStorage('cartList'));
-    const count = Utils.getItemFromStorage('cartList').length;
+    const count = Utils.getArrayFromStorage('cartList').length;
     Utils.createAnyElement(bag.element, {type: 'div', className: ['header__bag-count'], innerText: count.toString()});
   }
 }

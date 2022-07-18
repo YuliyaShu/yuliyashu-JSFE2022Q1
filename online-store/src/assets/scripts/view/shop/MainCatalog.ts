@@ -17,16 +17,17 @@ class MainCatalog {
     }
 
     // sorting
-    const sort = Utils.createAnyElement(main.element, { type: 'div', className: ['main__sort', 'sort'], innerText: 'SORT' });
-    Utils.createAnyElement(sort.element, { type: 'button', className: ['button', 'sort__name'], innerText: 'by name' });
-    Utils.createAnyElement(sort.element, { type: 'button', className: ['button', 'sort__year'], innerText: 'by year' });
-    Utils.createAnyElement(sort.element, { type: 'button', className: ['button', 'sort__category'], innerText: 'by category' });
-    Listeners.clickSortButtons();
+    const sort = Utils.createAnyElement(main.element, { type: 'div', className: ['main__sort', 'sort'], innerText: 'SORT BY' });
+    Utils.createAnyElement(sort.element, { type: 'button', className: ['button', 'sort__button', 'sort__name'], innerText: 'name' });
+    Utils.createAnyElement(sort.element, { type: 'button', className: ['button', 'sort__button', 'sort__year'], innerText: 'year' });
+    Utils.createAnyElement(sort.element, { type: 'button', className: ['button', 'sort__button', 'sort__category'], innerText: 'category' });
+    Listeners.addSortOnClickEvent();
 
     // catalog
     Utils.createAnyElement(main.element, { type: 'div', className: ['main__catalog', 'catalog'] });
-    const arrOfPosters: PosterInterface[] = Posters.categoriesData;
-    Poster.drawPoster(arrOfPosters);
+//    const arrOfPosters: PosterInterface[] = Posters.categoriesData;
+//    Poster.drawPoster(arrOfPosters);
+    Poster.buildPosterList();
   }
 }
 

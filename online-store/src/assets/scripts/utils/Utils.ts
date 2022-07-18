@@ -14,7 +14,7 @@ class Utils {
         return elem;
       }
 
-  static getItemFromStorage(itemName: string): string[] {
+  static getArrayFromStorage(itemName: string): string[] {
     const itemVal = localStorage.getItem(itemName);
     if (itemVal) {
       return JSON.parse(itemVal);
@@ -23,7 +23,16 @@ class Utils {
     }
   }
 
-  static setItemToStorage(itemName: string, itemValue: string[]): void {
+  static getComplexArrayFromStorage(itemName: string): string[][] {
+    const itemVal = localStorage.getItem(itemName);
+    if (itemVal) {
+      return JSON.parse(itemVal);
+    } else {
+      return [];
+    }
+  }
+
+  static setArrayToStorage(itemName: string, itemValue: string[] | (string | null) [][]): void {
     localStorage.setItem(itemName, JSON.stringify(itemValue));            
   }
 

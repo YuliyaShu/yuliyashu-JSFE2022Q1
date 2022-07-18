@@ -43,12 +43,7 @@
   cursor: pointer;
 }
 
-.sort .sort__name-down,
-.sort .sort__name-up,
-.sort .sort__year-down,
-.sort .sort__year-up,
-.sort .sort__category-down,
-.sort .sort__category-up {
+.sort .sort__active {
   opacity: 100%;
 }
 

@@ -1,10 +1,10 @@
-import Filters from "../components/components/Filters";
 import Poster from "../components/components/Poster";
 import Posters from "../components/components/Posters";
+import Utils from "../utils/Utils";
 import Aside from "../view/shop/Aside";
 
 class ListenersFilters {
-  static activeFilters: (string | null)[][] = [[], [], [], [], []];
+  static activeFilters: (string | null)[][] = [[], [], [], [], [], []];
   static addFilterListeners() {
     const designer1 = document.querySelector('.designer__1');
     const designer2 = document.querySelector('.designer__2');
@@ -49,9 +49,8 @@ class ListenersFilters {
             } else if (button === size1 || button === size2 || button === size3) {
               this.activeFilters[2].push(button.innerHTML);
             } else {
-              this.activeFilters[3].push(button.innerHTML);
+              this.activeFilters[3].push('true');
             }
-            Filters.drawFilterPosters();
           } else {
             button.classList.remove('active-filter');
             if (button === designer1 || button === designer2 || button === designer3) {
@@ -64,11 +63,12 @@ class ListenersFilters {
               const index2 = this.activeFilters[2].indexOf(button.innerHTML);
               this.activeFilters[2].splice(index2, 1);
             } else {
-              const index3 = this.activeFilters[3].indexOf(button.innerHTML);
+              const index3 = this.activeFilters[3].indexOf('true');
               this.activeFilters[3].splice(index3, 1);
             }
-            Filters.drawFilterPosters();
           }
+          Utils.setArrayToStorage('filterData', this.activeFilters);
+          Poster.buildPosterList();
         })
       }
     })
@@ -85,7 +85,8 @@ class ListenersFilters {
         this.activeFilters[4][0] = (+sliderValueQ[0]).toString();
         this.activeFilters[4][1] = (+sliderValueQ[1]).toString();
       }
-      Filters.drawFilterPosters();
+      Utils.setArrayToStorage('filterData', this.activeFilters);
+      Poster.buildPosterList();
     })
 
     
@@ -96,11 +97,13 @@ class ListenersFilters {
       if (yearFrom && yearTo && Array.isArray(sliderValueY)) {
         yearFrom.innerHTML = (+sliderValueY[0]).toString();
         yearTo.innerHTML = (+sliderValueY[1]).toString();
-        this.activeFilters[4][2] = (+sliderValueY[0]).toString();
-        this.activeFilters[4][3] = (+sliderValueY[1]).toString();
+        this.activeFilters[5][0] = (+sliderValueY[0]).toString();
+        this.activeFilters[5][1] = (+sliderValueY[1]).toString();
       }
-      Filters.drawFilterPosters();
+      Utils.setArrayToStorage('filterData', this.activeFilters);
+      Poster.buildPosterList();
     })
+    
   }
 
   static addResetListener() {
@@ -114,7 +117,6 @@ class ListenersFilters {
         buttons.forEach((b) => b.classList.remove('active-filter'));
         Aside.sliderQ.reset();
         Aside.sliderY.reset();
-        this.addFilterListeners();
   
         const quantityFrom1 = document.querySelector('.quantity__from');
         if (quantityFrom1) {
@@ -135,6 +137,8 @@ class ListenersFilters {
         if (yearTo) {
           yearTo.innerHTML = '2022';
         }
+        this.activeFilters = [[], [], [], [], [], []];
+        Utils.setArrayToStorage('filterData', this.activeFilters);
       })
     }
   } 

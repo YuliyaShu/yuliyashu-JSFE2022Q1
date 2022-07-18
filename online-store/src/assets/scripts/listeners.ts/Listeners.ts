@@ -26,10 +26,10 @@ class Listeners {
      }
   }
 
-  static clickAddToCart() {
+  static addPosterOnClickEvent() {
     const posters = document.querySelectorAll('.poster');
     const counter = document.querySelector('.header__bag-count');
-    const cartList = Utils.getItemFromStorage('cartList');
+    const cartList = Utils.getArrayFromStorage('cartList');
     let targetElement: Element |null | undefined;
 
     for (let i = 0; i < posters.length; i += 1) {
@@ -56,90 +56,23 @@ class Listeners {
           }
 
           counter.innerHTML = cartList.length.toString();
-          Utils.setItemToStorage('cartList', cartList);
+          Utils.setArrayToStorage('cartList', cartList);
 
         }
       })
     }
   }
 
-  static clickSortButtons() {
-    const sortName = document.querySelector('.sort__name');
-    const sortYear = document.querySelector('.sort__year');
-    const sortCategory = document.querySelector('.sort__category');
-
-
-    if (sortName) {
-      sortName.addEventListener('click', () => {
-        const filteredPostersFromJSON = localStorage.getItem('filteredPosters');
-        if (filteredPostersFromJSON) {
-          const currentPosters: PosterInterface[] = JSON.parse(filteredPostersFromJSON);
-            if (this.countName % 3 === 1) {
-              sortName.classList.add('sort__name-up');
-              sortName.classList.remove('sort__name-down');
-              currentPosters.sort((a, b) => a.name.localeCompare(b.name));
-            } else if (this.countName % 3 === 2) {
-              sortName.classList.add('sort__name-down');
-              sortName.classList.remove('sort__name-up');
-              currentPosters.sort((a, b) => b.name.localeCompare(a.name));
-            } else if (this.countName % 3 === 0) {
-              sortName.classList.remove('sort__name-up');
-              sortName.classList.remove('sort__name-down');
-            }
-            this.sortedPosters = currentPosters;
-            Poster.drawPoster(currentPosters);
-            this.countName += 1;
-        }
-      });
-    }
-
-    if (sortYear) {
-      sortYear.addEventListener('click', () => {
-        const filteredPostersFromJSON = localStorage.getItem('filteredPosters');
-        if (filteredPostersFromJSON) {
-          const currentPosters: PosterInterface[] = JSON.parse(filteredPostersFromJSON);
-          if (this.countYear % 3 === 1) {
-            sortYear.classList.add('sort__year-up');
-            sortYear.classList.remove('sort__year-down');
-            currentPosters.sort((a, b) => a.year.localeCompare(b.year));
-          } else if (this.countYear % 3 === 2) {
-            sortYear.classList.add('sort__year-down');
-            sortYear.classList.remove('sort__year-up');
-            currentPosters.sort((a, b) => b.year.localeCompare(a.year));
-          } else if (this.countYear % 3 === 0) {
-            sortYear.classList.remove('sort__year-up');
-            sortYear.classList.remove('sort__year-down');
-          }
-          this.countYear += 1;
-          this.sortedPosters = currentPosters;
-          Poster.drawPoster(currentPosters);
-        }
-      });
-    }
-
-    if (sortCategory) {
-      sortCategory.addEventListener('click', () => {
-        const filteredPostersFromJSON = localStorage.getItem('filteredPosters');
-        if (filteredPostersFromJSON) {
-            const currentPosters: PosterInterface[] = JSON.parse(filteredPostersFromJSON);
-            if (this.countCategory % 3 === 1) {
-              sortCategory.classList.add('sort__category-up');
-              sortCategory.classList.remove('sort__category-down');
-              currentPosters.sort((a, b) => a.category.localeCompare(b.category));
-            } else if (this.countCategory % 3 === 2) {
-              sortCategory.classList.add('sort__category-down');
-              sortCategory.classList.remove('sort__category-up');
-              currentPosters.sort((a, b) => b.category.localeCompare(a.category));
-            } else if (this.countCategory % 3 === 0) {
-              sortCategory.classList.remove('sort__category-up');
-              sortCategory.classList.remove('sort__category-down');
-            }
-          this.countCategory += 1;
-          this.sortedPosters = currentPosters;
-          Poster.drawPoster(currentPosters);
-        }
-      });
-    }
+  static addSortOnClickEvent() {
+    document.querySelectorAll('.sort__button').forEach(button => {
+      button.addEventListener('click', () => {
+        button.classList.add('sort__active');
+        let sortOrder = +Utils.getArrayFromStorage('sortData')[1];
+        sortOrder = sortOrder ? 1 - Number(sortOrder) : 1;
+        Utils.setArrayToStorage('sortData', [button.innerHTML, sortOrder.toString()]);
+        Poster.buildPosterList();
+      })
+    })
   }
 
   static inputListener() {
