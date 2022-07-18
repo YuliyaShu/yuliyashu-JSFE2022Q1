@@ -16,8 +16,4 @@ interface PostersJSONInterface {
   [name: string]: PosterInterface;
 }
 
-interface PosterInCartInterface extends PosterInterface {
-  inCart: false;
-}
-
-export { PosterInterface, PostersJSONInterface, PosterInCartInterface };
+export { PosterInterface, PostersJSONInterface };

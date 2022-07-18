@@ -26,7 +26,6 @@ class Utils {
   static setArrayToStorage(itemName: string, itemValue: string[] | (string | null) [][]): void {
     localStorage.setItem(itemName, JSON.stringify(itemValue));            
   }
-
 }
 
 export default Utils;

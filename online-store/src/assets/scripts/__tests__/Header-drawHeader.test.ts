@@ -2,6 +2,7 @@ import Utils from "../utils/Utils";
 import Header from "../view/shop/Header";
 
 describe("Header", () => {
+
   test("defines a function", () => {
     expect(typeof Header.drawHeader).toBe("function");
   });
@@ -14,4 +15,5 @@ describe("Header", () => {
     expect(setRuleSpy).toHaveBeenCalledWith(bodyWrapper);
     setRuleSpy.mockClear();
   })
+  
 });

@@ -1,4 +1,5 @@
-import { PosterInterface, PostersJSONInterface } from "../../interfaces.ts/PosterInterface";
+import { PosterInterface, PostersJSONInterface } from "../interfaces.ts/PosterInterface";
+
 
 class Posters {
   static categoriesData: PosterInterface[];

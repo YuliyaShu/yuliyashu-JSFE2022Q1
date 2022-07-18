@@ -1,6 +1,6 @@
-import AnyElement from "../../elements/AnyElement";
-import Listeners from "../../listeners.ts/Listeners";
-import Utils from "../../utils/Utils";
+import AnyElement from "../elements/AnyElement";
+import Listeners from "../listeners.ts/Listeners";
+import Utils from "../utils/Utils";
 
 class Search {
   static headerSearch: AnyElement;

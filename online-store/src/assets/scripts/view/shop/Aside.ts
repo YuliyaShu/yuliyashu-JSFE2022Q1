@@ -92,7 +92,6 @@ class Aside {
       } else {
         Utils.createAnyElement(designer, { type: 'button',  className: ['button', 'designer', 'designer__1'], innerText: 'Peppy' });
       }
-      
 
       if (filterData[0].includes('Eleven')) {
         Utils.createAnyElement(designer, { type: 'button', className: ['button', 'designer', 'designer__2', 'active-filter'], innerText: 'Eleven' });

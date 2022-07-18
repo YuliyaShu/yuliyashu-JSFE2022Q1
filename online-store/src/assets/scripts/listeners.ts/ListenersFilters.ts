@@ -1,11 +1,11 @@
-import Poster from "../components/components/Poster";
-import Posters from "../components/components/Posters";
-import Search from "../components/components/Search";
+import Poster from "../components/Poster";
+import Posters from "../components/Posters";
+import Search from "../components/Search";
 import Utils from "../utils/Utils";
 import Aside from "../view/shop/Aside";
 
 class ListenersFilters {
-  static activeFilters: (string | null)[][];// = [[], [], [], [], [], []];
+  static activeFilters: (string | null)[][];
   static addFilterListeners() {
     const designer1 = document.querySelector('.designer__1');
     const designer2 = document.querySelector('.designer__2');
@@ -18,7 +18,7 @@ class ListenersFilters {
     const size3 = document.querySelector('.size__3');
     const popularity1 = document.querySelector('.popularity__1');
 
-    const arrOfFilterButtons = [
+    const filterButtons = [
       designer1,
       designer2,
       designer3,
@@ -31,14 +31,14 @@ class ListenersFilters {
       popularity1
     ];
 
-    const arrOfTextArea = [
+    const textArea = [
       '.quantity__from',
       '.quantity__to',
       '.year__from',
       '.year__to'
     ]
 
-    arrOfFilterButtons.map((button) => {
+    filterButtons.map((button) => {
       if (button) {
         button.addEventListener('click', () => {
           if (!button.classList.contains('active-filter')) {
@@ -76,10 +76,9 @@ class ListenersFilters {
 
         
     Aside.sliderQ.on('change', () => {
-      console.log('here');
       const sliderValueQ = Aside.sliderQ.get();
-      const quantityFrom = document.querySelector(arrOfTextArea[0]);
-      const quantityTo = document.querySelector(arrOfTextArea[1]);  
+      const quantityFrom = document.querySelector(textArea[0]);
+      const quantityTo = document.querySelector(textArea[1]);  
       if (quantityFrom && quantityTo && Array.isArray(sliderValueQ)) {
         quantityFrom.innerHTML = (+sliderValueQ[0]).toString();
         quantityTo.innerHTML = (+sliderValueQ[1]).toString();
@@ -93,8 +92,8 @@ class ListenersFilters {
     
     Aside.sliderY.on('change', () => {
       const sliderValueY = Aside.sliderY.get();
-      const yearFrom = document.querySelector(arrOfTextArea[2]);
-      const yearTo = document.querySelector(arrOfTextArea[3]);
+      const yearFrom = document.querySelector(textArea[2]);
+      const yearTo = document.querySelector(textArea[3]);
       if (yearFrom && yearTo && Array.isArray(sliderValueY)) {
         yearFrom.innerHTML = (+sliderValueY[0]).toString();
         yearTo.innerHTML = (+sliderValueY[1]).toString();
@@ -143,8 +142,6 @@ class ListenersFilters {
         if (yearTo) {
           yearTo.innerHTML = '2022';
         }
-        
-        
       })
     }
   } 

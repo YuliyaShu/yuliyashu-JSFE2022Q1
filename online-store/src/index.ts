@@ -1,4 +1,4 @@
-import Posters from './assets/scripts/components/components/Posters';
+import Posters from './assets/scripts/components/Posters';
 import ShopView from './assets/scripts/view/ShopView';
 import './style.css';
 
@@ -10,6 +10,6 @@ shop.start();
 // c
 Posters.setCategoriesData();
 
-console.log('Информация для проверяющего: все пункты ТЗ Online store выполнены.')
+console.log('Информация для cross-check проверяющего: все пункты ТЗ Online store выполнены.')
 
 export {};

@@ -1,4 +1,4 @@
-import Search from "../../components/components/Search";
+import Search from "../../components/Search";
 import AnyElement from "../../elements/AnyElement";
 import Utils from "../../utils/Utils";
 import ShopView from "../ShopView";

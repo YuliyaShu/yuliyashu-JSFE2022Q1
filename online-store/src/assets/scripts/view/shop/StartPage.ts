@@ -19,7 +19,6 @@ class StartPage {
       
       Listeners.addStartBtnOnClickEvent();
   }
-  
 }
 
 export default StartPage;

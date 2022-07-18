@@ -1,4 +1,4 @@
-import Poster from "../components/components/Poster";
+import Poster from "../components/Poster";
 import { PosterInterface } from "../interfaces.ts/PosterInterface";
 import FindTarget from "../utils/FindTarget";
 import Utils from "../utils/Utils";
@@ -52,7 +52,6 @@ class Listeners {
 
           counter.innerHTML = cartList.length.toString();
           Utils.setArrayToStorage('cartList', cartList);
-
         }
       })
     }

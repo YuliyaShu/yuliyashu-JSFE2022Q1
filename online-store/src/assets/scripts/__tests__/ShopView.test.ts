@@ -10,4 +10,5 @@ describe("ShopView", () => {
   test ("createCatalogPage method is a function", () => {
     expect(typeof shopView.createCatalogPage).toBe("function");
   })
+  
 });

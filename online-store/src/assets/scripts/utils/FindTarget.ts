@@ -21,28 +21,36 @@ class FindTarget {
           case this.posters[i]:
             targetElement = this.posters[i];
             break;
+
           case this.posterImage[i]:
             targetElement = this.posterImage[i].parentElement;
             break;
+
           case this.posterInfo[i]:
             targetElement = this.posterInfo[i].parentElement;
             break;
+
           case this.posterButton[i]:
             targetElement = this.posterButton[i].parentElement;
             break;
-            case this.posterInfoName[i]:
+
+          case this.posterInfoName[i]:
             targetElement = this.posterInfoName[i].parentElement?.parentElement;
             break;
-            case this.posterInfoDesigner[i]:
+
+          case this.posterInfoDesigner[i]:
             targetElement = this.posterInfoDesigner[i].parentElement?.parentElement;
             break;
-            case this.posterInfoDiff[i]:
+
+          case this.posterInfoDiff[i]:
             targetElement = this.posterInfoDiff[i].parentElement?.parentElement;
             break;
-            case this.posterInfoPrize[i]:
+
+          case this.posterInfoPrize[i]:
             targetElement = this.posterInfoPrize[i].parentElement?.parentElement;
             break;
-            case this.posterInfoDiffP[i]:
+
+          case this.posterInfoDiffP[i]:
             targetElement = this.posterInfoDiffP[i].parentElement?.parentElement?.parentElement;
             break;
       }
