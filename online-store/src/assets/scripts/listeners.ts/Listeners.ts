@@ -24,7 +24,7 @@ class Listeners {
   static addPosterOnClickEvent() {
     const posters = document.querySelectorAll('.poster');
     const counter = document.querySelector('.header__bag-count');
-    const cartList = Utils.getArrayFromStorage('cartList');
+    const cartList = Utils.getArrayFromStorageEx<string>('cartList');
     let targetElement: Element |null | undefined;
 
     for (let i = 0; i < posters.length; i += 1) {
@@ -63,7 +63,7 @@ class Listeners {
       button.addEventListener('click', () => {
         document.querySelectorAll('.sort__button').forEach(buttonClass => buttonClass.classList.remove('sort__active'));
         button.classList.add('sort__active');
-        let sortOrder = +Utils.getArrayFromStorage('sortData')[1];
+        let sortOrder = +Utils.getArrayFromStorageEx<string>('sortData')[1];
         sortOrder = sortOrder ? 1 - Number(sortOrder) : 1;
         Utils.setArrayToStorage('sortData', [button.innerHTML, sortOrder.toString()]);
         Poster.buildPosterList();

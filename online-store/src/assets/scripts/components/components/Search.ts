@@ -22,7 +22,7 @@ class Search {
       attributes: [['type', 'search'], ['placeholder', 'SEARCH'], ['autocomplete', 'off'], ['name', 'inputData'], ['id', 'inputDataId']] })
       .element as HTMLInputElement;
 
-    const searchVal = Utils.getArrayFromStorage('searchData');
+    const searchVal = Utils.getArrayFromStorageEx<string>('searchData');
     if (searchVal.length) {
       this.searchElement.value = searchVal[0];
     }

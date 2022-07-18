@@ -36,7 +36,7 @@ class Aside {
       Utils.createAnyElement(filtersWrapper.element, { type: 'div', className: ['aside__filter', filterName], innerText: filterName });     
     }
     
-    const filterData = Utils.getComplexArrayFromStorage('filterData');
+    const filterData = Utils.getArrayFromStorageEx<string[]>('filterData');
     
 
     // 'quantity'

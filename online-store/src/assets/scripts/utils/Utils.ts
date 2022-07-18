@@ -14,16 +14,7 @@ class Utils {
         return elem;
       }
 
-  static getArrayFromStorage(itemName: string): string[] {
-    const itemVal = localStorage.getItem(itemName);
-    if (itemVal) {
-      return JSON.parse(itemVal);
-    } else {
-      return [];
-    }
-  }
-
-  static getComplexArrayFromStorage(itemName: string): string[][] {
+  static getArrayFromStorageEx<Type>(itemName: string): Type[] {
     const itemVal = localStorage.getItem(itemName);
     if (itemVal) {
       return JSON.parse(itemVal);

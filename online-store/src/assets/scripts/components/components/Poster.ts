@@ -8,7 +8,7 @@ class Poster {
   static currentPosters: PosterInterface[];
 
   static drawPoster(filteredSortedPosters: PosterInterface[]) {
-    const cartList = Utils.getArrayFromStorage('cartList');
+    const cartList = Utils.getArrayFromStorageEx<string>('cartList');
     this.currentPosters = filteredSortedPosters;
     const catalog = document.querySelector('.catalog');
     if (catalog) {
@@ -54,9 +54,9 @@ class Poster {
   }
 
   static buildPosterList() {
-    const filterData = Utils.getComplexArrayFromStorage('filterData');
-    const sortData = Utils.getArrayFromStorage('sortData');
-    const searchData = Utils.getArrayFromStorage('searchData');
+    const filterData = Utils.getArrayFromStorageEx<string[]>('filterData');
+    const sortData = Utils.getArrayFromStorageEx<string>('sortData');
+    const searchData = Utils.getArrayFromStorageEx<string>('searchData');
 
     const allPostersList: PosterInterface[] = Posters.categoriesData;
     let filteredPosters: PosterInterface[] = allPostersList.slice();

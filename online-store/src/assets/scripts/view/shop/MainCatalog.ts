@@ -14,7 +14,7 @@ class MainCatalog {
     }
 
     // sorting
-    const sortData = Utils.getArrayFromStorage('sortData');
+    const sortData = Utils.getArrayFromStorageEx<string>('sortData');
     const sort = Utils.createAnyElement(main.element, { type: 'div', className: ['main__sort', 'sort'], innerText: 'SORT BY' });
     if (sortData.includes('name')) {
       Utils.createAnyElement(sort.element, { type: 'button', className: ['button', 'sort__button', 'sort__name', 'sort__active'], innerText: 'name' });
