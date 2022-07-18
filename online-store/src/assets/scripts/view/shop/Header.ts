@@ -1,6 +1,5 @@
 import Search from "../../components/components/Search";
 import AnyElement from "../../elements/AnyElement";
-import Listeners from "../../listeners.ts/Listeners";
 import Utils from "../../utils/Utils";
 import ShopView from "../ShopView";
 
@@ -20,13 +19,7 @@ class Header {
     Utils.createAnyElement(logoLink.element, { type: 'img', attributes: [['src', './assets/images/logo.png'], ['alt', 'logo']] });
 
     Search.drawSearch();
-    Listeners.inputListener();
     
-    const headerSearchFormText = document.querySelector(".header__search-form-text");
-    if (headerSearchFormText instanceof HTMLElement){
-      headerSearchFormText.focus();
-    }
-
     const bag = Utils.createAnyElement(container.element, { type: 'div', className: ['header__bag'] });
     Utils.createAnyElement(bag.element, { type: 'img', className: ['header__bag-img'], attributes: [['src', './assets/images/bag.jpg'], ['alt', 'bag image']]});
     const count = Utils.getArrayFromStorage('cartList').length;

@@ -1,5 +1,4 @@
 import Poster from "../components/components/Poster";
-import Search from "../components/components/Search";
 import { PosterInterface } from "../interfaces.ts/PosterInterface";
 import FindTarget from "../utils/FindTarget";
 import Utils from "../utils/Utils";
@@ -72,15 +71,11 @@ class Listeners {
     })
   }
 
-  static inputListener() {
-    const headerSearchFormText = document.querySelector(".header__search-form-text");
-      if (headerSearchFormText){
-        headerSearchFormText.addEventListener('input', () => {
-            if (headerSearchFormText instanceof HTMLInputElement) {
-              Search.startSearch(headerSearchFormText.value);
-            }
-        })
-      }
+  static addSearchInputEvent(searchElement: HTMLInputElement) {
+    searchElement.addEventListener('input', () => {
+      Utils.setArrayToStorage('searchData', [searchElement.value]);
+      Poster.buildPosterList();
+    })
   }
 }
 

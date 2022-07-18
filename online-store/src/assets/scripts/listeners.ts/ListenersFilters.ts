@@ -1,5 +1,6 @@
 import Poster from "../components/components/Poster";
 import Posters from "../components/components/Posters";
+import Search from "../components/components/Search";
 import Utils from "../utils/Utils";
 import Aside from "../view/shop/Aside";
 
@@ -115,11 +116,13 @@ class ListenersFilters {
 
         this.activeFilters = [[], [], [], [], [], []];
         Utils.setArrayToStorage('filterData', this.activeFilters);
+        Utils.setArrayToStorage('searchData', []);
+        Search.clearSearchField();
 
         const buttons = document.querySelectorAll('.button');
         buttons.forEach((b) => b.classList.remove('active-filter'));
-        Aside.sliderQ.reset();
-        Aside.sliderY.reset();
+        Aside.sliderQ.set([0, 10]);
+        Aside.sliderY.set([2012, 2022]);
   
         const quantityFrom1 = document.querySelector('.quantity__from');
         if (quantityFrom1) {

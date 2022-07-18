@@ -56,7 +56,7 @@ class Poster {
   static buildPosterList() {
     const filterData = Utils.getComplexArrayFromStorage('filterData');
     const sortData = Utils.getArrayFromStorage('sortData');
-    // const searchData = Utils.getArrayFromStorage('SearchData');
+    const searchData = Utils.getArrayFromStorage('searchData');
 
     const allPostersList: PosterInterface[] = Posters.categoriesData;
     let filteredPosters: PosterInterface[] = allPostersList.slice();
@@ -70,7 +70,11 @@ class Poster {
             && (!filterData[5].length || (+poster.year >= +filterData[5][0] && +poster.year <= +filterData[5][1]));
       });
 
-      if (sortData.length) {
+      if (searchData.length && filteredPosters.length) {
+        filteredPosters = filteredPosters.filter(poster => (poster.name.toLowerCase().includes(searchData[0].toLowerCase())));
+      }
+
+      if (sortData.length && filteredPosters.length) {
         const sortField = sortData[0];
         const sortOrder = +sortData[1];
         filteredPosters.sort((a, b) => {
