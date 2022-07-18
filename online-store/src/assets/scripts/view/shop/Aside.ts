@@ -113,19 +113,19 @@ class Aside {
       if (filterData[1].includes('green')) {
         Utils.createAnyElement(color, { type: 'button',  className: ['button', 'color__1', 'color', 'active-filter'], innerText: 'green' });
       } else {
-        Utils.createAnyElement(color, { type: 'button',  className: ['button', 'color__1', 'color'], innerText: 'Peppy' });
+        Utils.createAnyElement(color, { type: 'button',  className: ['button', 'color__1', 'color'], innerText: 'green' });
       }
 
       if (filterData[1].includes('orange')) {
         Utils.createAnyElement(color, { type: 'button',  className: ['button', 'color__2', 'color', 'active-filter'], innerText: 'orange' });
       } else {
-        Utils.createAnyElement(color, { type: 'button',  className: ['button', 'color__2', 'color'], innerText: 'Peppy' });
+        Utils.createAnyElement(color, { type: 'button',  className: ['button', 'color__2', 'color'], innerText: 'orange' });
       }
 
       if (filterData[1].includes('white')) {
         Utils.createAnyElement(color, { type: 'button',  className: ['button', 'color__3', 'color', 'active-filter'], innerText: 'white' });
       } else {
-        Utils.createAnyElement(color, { type: 'button',  className: ['button', 'color__3', 'color'], innerText: 'Peppy' });
+        Utils.createAnyElement(color, { type: 'button',  className: ['button', 'color__3', 'color'], innerText: 'white' });
       }
     }
 
