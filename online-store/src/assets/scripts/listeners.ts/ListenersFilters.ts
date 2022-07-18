@@ -145,6 +145,15 @@ class ListenersFilters {
       })
     }
   } 
+
+  static addResetStorageListener() {
+    const resetStorage = document.querySelector('.aside__reset-settings');
+    if (resetStorage instanceof HTMLElement) {
+      resetStorage.addEventListener('click', () => {
+        localStorage.clear();
+      });      
+    }
+  }
 }
 
 export default ListenersFilters;

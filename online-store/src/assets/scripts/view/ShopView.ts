@@ -13,6 +13,9 @@ class ShopView {
     start() {
         this.createWrapper();
         StartPage.drawStartPage(this.bodyWrapper);
+        if (!localStorage.getItem('filterData')) {
+          Utils.setArrayToStorage('filterData', [[], [], [], [], [], []]);
+        }
     }
 
     createCatalogPage() {

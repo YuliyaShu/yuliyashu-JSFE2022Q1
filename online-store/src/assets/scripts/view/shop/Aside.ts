@@ -42,7 +42,7 @@ class Aside {
     // 'quantity'
     const quantity = document.querySelector('.quantity');
     if (quantity instanceof HTMLElement) {
-      Utils.createAnyElement(quantity, { type: 'div', className: ['quantity__from', 'aside__filter-range'], innerText: filterData[4][0] || '0' });
+      Utils.createAnyElement(quantity, { type: 'div', className: ['quantity__from', 'aside__filter-range'], innerText: filterData[4][0] || '0'});
       Utils.createAnyElement(quantity, { type: 'div', className: ['aside__filter-slider', 'quantity'], attributes: [['id', 'slider-q']] });
 
       const slider = document.getElementById('slider-q');
@@ -167,6 +167,7 @@ class Aside {
     ListenersFilters.addResetListener();
     // reset settings
     Utils.createAnyElement(resetWrapper.element, { type: 'button', className: ['aside__reset-settings'], innerText: 'RESET SETTINGS'});
+    ListenersFilters.addResetStorageListener();
 
     ListenersFilters.activeFilters = filterData;
     ListenersFilters.addFilterListeners();
