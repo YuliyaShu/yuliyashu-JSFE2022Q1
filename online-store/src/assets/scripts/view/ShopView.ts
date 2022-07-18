@@ -1,5 +1,4 @@
 import AnyElement from '../elements/AnyElement';
-import Listeners from '../listeners.ts/Listeners';
 import Utils from '../utils/Utils';
 import Aside from './shop/Aside';
 import Footer from './shop/Footer';

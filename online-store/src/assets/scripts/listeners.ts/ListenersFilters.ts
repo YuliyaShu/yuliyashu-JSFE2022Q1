@@ -4,7 +4,7 @@ import Utils from "../utils/Utils";
 import Aside from "../view/shop/Aside";
 
 class ListenersFilters {
-  static activeFilters: (string | null)[][] = [[], [], [], [], [], []];
+  static activeFilters: (string | null)[][];// = [[], [], [], [], [], []];
   static addFilterListeners() {
     const designer1 = document.querySelector('.designer__1');
     const designer2 = document.querySelector('.designer__2');
@@ -112,7 +112,10 @@ class ListenersFilters {
       resetButton.addEventListener('click', () => {
         const arrOfPosters = Posters.categoriesData;
         Poster.drawPoster(arrOfPosters);
-  
+
+        this.activeFilters = [[], [], [], [], [], []];
+        Utils.setArrayToStorage('filterData', this.activeFilters);
+
         const buttons = document.querySelectorAll('.button');
         buttons.forEach((b) => b.classList.remove('active-filter'));
         Aside.sliderQ.reset();
@@ -137,8 +140,8 @@ class ListenersFilters {
         if (yearTo) {
           yearTo.innerHTML = '2022';
         }
-        this.activeFilters = [[], [], [], [], [], []];
-        Utils.setArrayToStorage('filterData', this.activeFilters);
+        
+        
       })
     }
   } 

@@ -56,19 +56,18 @@ class Poster {
   static buildPosterList() {
     const filterData = Utils.getComplexArrayFromStorage('filterData');
     const sortData = Utils.getArrayFromStorage('sortData');
-    const searchData = Utils.getArrayFromStorage('SearchData');
+    // const searchData = Utils.getArrayFromStorage('SearchData');
 
     const allPostersList: PosterInterface[] = Posters.categoriesData;
     let filteredPosters: PosterInterface[] = allPostersList.slice();
-    //console.log(filteredPosters);
     if (filterData.length) {
       filteredPosters = filteredPosters.filter(poster => {
         return (!filterData[0].length || filterData[0].includes(poster.designer))
             && (!filterData[1].length || filterData[1].includes(poster.color))
             && (!filterData[2].length || filterData[2].includes(poster.size))
             && (!filterData[3].length || !!filterData[3] == poster.popularity)
-            && (!filterData[4].length || (poster.quantity >= filterData[4][0] && poster.quantity <= filterData[4][1]))
-            && (!filterData[5].length || (poster.year >= filterData[5][0] && poster.year <= filterData[5][1]));
+            && (!filterData[4].length || (+poster.quantity >= +filterData[4][0] && +poster.quantity <= +filterData[4][1]))
+            && (!filterData[5].length || (+poster.year >= +filterData[5][0] && +poster.year <= +filterData[5][1]));
       });
 
       if (sortData.length) {

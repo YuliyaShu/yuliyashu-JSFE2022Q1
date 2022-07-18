@@ -1,7 +1,6 @@
 import Poster from "../components/components/Poster";
-import Posters from "../components/components/Posters";
 import Search from "../components/components/Search";
-import { PosterInCartInterface, PosterInterface } from "../interfaces.ts/PosterInterface";
+import { PosterInterface } from "../interfaces.ts/PosterInterface";
 import FindTarget from "../utils/FindTarget";
 import Utils from "../utils/Utils";
 import ShopView from "../view/ShopView";
