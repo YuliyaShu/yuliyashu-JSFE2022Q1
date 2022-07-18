@@ -18,8 +18,7 @@ class ShopView {
         }
     }
 
-    createCatalogPage() {
-
+    createCatalogPage(): void {
       this.createWrapper();
       Header.drawHeader(this.bodyWrapper);
       Aside.drawAside(this.bodyWrapper);
@@ -27,7 +26,7 @@ class ShopView {
       Footer.drawFooter(this.bodyWrapper);
     }
 
-    private createWrapper():void {
+    private createWrapper(): void {
       const body = document.querySelector('body');
       if (body instanceof HTMLElement) {
         this.bodyWrapper = Utils.createAnyElement(body, { type: 'div', className: ['body__wrapper']});

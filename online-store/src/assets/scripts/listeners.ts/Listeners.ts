@@ -6,9 +6,6 @@ import Utils from "../utils/Utils";
 import ShopView from "../view/ShopView";
 
 class Listeners {
-  static countName = 1;
-  static countYear = 1;
-  static countCategory = 1;
   static sortedPosters: PosterInterface[];
 
   static addStartBtnOnClickEvent() {

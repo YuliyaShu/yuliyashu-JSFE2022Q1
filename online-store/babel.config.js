@@ -12,6 +12,7 @@ const presets = [
       useBuiltIns: "usage",
       corejs: "3.6.4",
     },
+    '@babel/preset-typescript',
   ],
 ];
 
