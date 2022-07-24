@@ -1,11 +1,11 @@
-@import url(./assets/styles/common.css);
-@import url(./assets/styles/fonts.css);
-@import url(./assets/styles/palette.css);
+@import url(./styles/common.css);
+@import url(./styles/fonts.css);
+@import url(./styles/palette.css);
 @import url(../node_modules/nouislider/dist/nouislider.css);
 
-@import url(./assets/styles/page-start.css);
-@import url(./assets/styles/footer.css);
-@import url(./assets/styles/header.css);
-@import url(./assets/styles/aside.css);
-@import url(./assets/styles/main.css);
+@import url(./styles/page-start.css);
+@import url(./styles/footer.css);
+@import url(./styles/header.css);
+@import url(./styles/aside.css);
+@import url(./styles/main.css);
 
