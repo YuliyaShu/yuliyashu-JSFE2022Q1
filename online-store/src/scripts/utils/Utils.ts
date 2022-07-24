@@ -1,5 +1,5 @@
 import AnyElement from "../elements/AnyElement";
-import ElementOptionsInterface from "../interfaces.ts/ElementOptionsInterface";
+import ElementOptionsInterface from "../interfaces/ElementOptionsInterface";
 
 class Utils {
   static createAnyElement(

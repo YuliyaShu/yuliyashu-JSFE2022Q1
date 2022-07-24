@@ -1,5 +1,5 @@
-import ElementInterface from "../interfaces.ts/ElementInterface";
-import ElementOptionsInterface from "../interfaces.ts/ElementOptionsInterface";
+import ElementInterface from "../interfaces/ElementInterface";
+import ElementOptionsInterface from "../interfaces/ElementOptionsInterface";
 
 class AnyElement implements ElementInterface {
   public parent: HTMLElement;

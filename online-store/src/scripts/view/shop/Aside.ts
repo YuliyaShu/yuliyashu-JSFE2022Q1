@@ -2,7 +2,7 @@ import AnyElement from "../../elements/AnyElement";
 import Utils from "../../utils/Utils";
 import ShopView from "../ShopView";
 import * as noUiSlider from 'nouislider';
-import ListenersFilters from "../../listeners.ts/ListenersFilters";
+import ListenersFilters from "../../listeners/ListenersFilters";
 
 class Aside {
   static sliderQ: noUiSlider.API;
