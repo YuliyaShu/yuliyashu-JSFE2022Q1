@@ -1,4 +1,4 @@
-import { PosterInterface, PostersJSONInterface } from "../interfaces.ts/PosterInterface";
+import { PosterInterface, PostersJSONInterface } from "../interfaces/PosterInterface";
 
 
 class Posters {

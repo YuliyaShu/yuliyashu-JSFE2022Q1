@@ -1,6 +1,6 @@
 
-import { PosterInterface } from "../interfaces.ts/PosterInterface";
-import Listeners from "../listeners.ts/Listeners";
+import { PosterInterface } from "../interfaces/PosterInterface";
+import Listeners from "../listeners/Listeners";
 import Utils from "../utils/Utils";
 import Posters from "./Posters";
 

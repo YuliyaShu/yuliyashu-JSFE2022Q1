@@ -90,6 +90,11 @@ module.exports = {
           to: 'styles',
           noErrorOnMissing: true,
         },
+        {
+          from: `${__dirname}/src/scripts`,
+          to: 'scripts',
+          noErrorOnMissing: true,
+        },
       ],
     }),
   ],

@@ -1,5 +1,5 @@
 import AnyElement from "../../elements/AnyElement";
-import Listeners from "../../listeners.ts/Listeners";
+import Listeners from "../../listeners/Listeners";
 import Utils from "../../utils/Utils";
 import ShopView from "../ShopView";
 
