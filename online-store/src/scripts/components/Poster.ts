@@ -91,7 +91,7 @@ class Poster {
         })
       }
 
-      if (filteredPosters.length === 0) {
+      if (!filteredPosters.length) {
         const catalog = document.querySelector('.catalog');
         if (catalog) {
           catalog.innerHTML = 'There is no such posters in our catalog. Please, try another preferences!';

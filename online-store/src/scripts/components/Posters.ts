@@ -6,18 +6,15 @@ class Posters {
   static async setCategoriesData() {
     this.categoriesData = await Posters.postersFromJson();
   }
-  static postersFromJson() {
-    return fetch('./assets/jsons/posters.json')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(response.statusText)
-        }
-        return response.json();
-      })
-      .then((data: PostersJSONInterface) => {
-        const arrOfPosters: PosterInterface[] = Object.values(data);
-        return arrOfPosters;
-      })
+  
+  static async postersFromJson() {
+    const response = await fetch('./assets/jsons/posters.json');
+    if (!response.ok) {
+              throw new Error(response.statusText);
+            }
+    const posters: PostersJSONInterface = await response.json();
+    const postersValues: PosterInterface[] = Object.values(posters);
+    return postersValues;
   }
 }
 

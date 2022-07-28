@@ -5,9 +5,9 @@ interface ElementInterface {
   options:ElementOptionsInterface;
   element: HTMLElement;
   isVisible: boolean;
-  addClassToElement(): this;
+  addClassName(): this;
   addTextToElement(): this;
-  addAttributesToElement(): this;
+  addAttributes(): this;
   attachElementToDom(): this;
   removeElementFromDom(): void;
   toggleClass(): this;
