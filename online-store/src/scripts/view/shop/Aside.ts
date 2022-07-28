@@ -47,7 +47,6 @@ class Aside {
 
       const slider = document.getElementById('slider-q');
       if (slider instanceof HTMLElement) {
-        console.log(+filterData[4][0] || 0);
         this.sliderQ = noUiSlider.create(slider, {
           start: [+filterData[4][0] || 0, +filterData[4][1] || 10],
           step: 1,
@@ -58,7 +57,6 @@ class Aside {
           }
         });
       }
-      
       Utils.createAnyElement(quantity, { type: 'div', className: ['quantity__to', 'aside__filter-range'], innerText: filterData[4][1] || '10' });
     }
 
