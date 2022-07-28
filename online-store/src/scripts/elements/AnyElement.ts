@@ -22,20 +22,20 @@ class AnyElement implements ElementInterface {
   }
 
   addProperties(): void {
-    this.addClassToElement().addAttributesToElement().addTextToElement().attachElementToDom();
+    this.addClassName().addAttributes().addTextToElement().attachElementToDom();
   }
 
-  addClassToElement(): this {
+  addClassName(): this {
     if (this.element && this.options.className) {
       this.options.className.forEach((e) => this.element.classList.add(e));
     }
     return this;
   }
 
-  addAttributesToElement(): this {
+  addAttributes(): this {
     if (this.element && this.options.attributes) {
-      this.options.attributes.forEach((e) => 
-      this.element.setAttribute(e[0], e[1]));
+      this.options.attributes.forEach(([attribute, value]) => 
+      this.element.setAttribute(attribute, value));
     }
     return this;
   }
