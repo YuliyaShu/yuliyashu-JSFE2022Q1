@@ -10,10 +10,10 @@ class AnyElement implements ElementInterface {
   constructor(
     parent: HTMLElement,
     { type,
-      className = undefined,
-      innerText = undefined,
+      className,
+      innerText,
       appendType = 'append',
-      attributes = undefined }: ElementOptionsInterface,
+      attributes }: ElementOptionsInterface,
   ) {
     this.parent = parent;
     this.options = { type, className, innerText, appendType, attributes };

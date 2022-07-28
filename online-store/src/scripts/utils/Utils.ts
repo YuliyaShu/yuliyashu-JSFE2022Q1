@@ -5,10 +5,10 @@ class Utils {
   static createAnyElement(
     parent: HTMLElement,
     { type,
-      className = undefined,
-      innerText = undefined,
+      className,
+      innerText,
       appendType = 'append',
-      attributes = undefined }: ElementOptionsInterface): AnyElement {
+      attributes }: ElementOptionsInterface): AnyElement {
         const elem = new AnyElement(parent, { type: type, className: className, innerText: innerText, appendType: appendType, attributes: attributes});
         elem.addProperties();
         return elem;
