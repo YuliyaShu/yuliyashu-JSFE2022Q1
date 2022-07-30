@@ -4,6 +4,7 @@
     "corejs",
     "FEJS",
     "linebreak",
+    "rsschool",
     "tsbuildinfo"
   ],
   "files.eol": "\n"

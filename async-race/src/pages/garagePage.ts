@@ -1,3 +1,4 @@
+import Footer from '../components/Footer';
 import Header from '../components/Header';
 
 function createGaragePage(): void {
@@ -10,6 +11,8 @@ function createGaragePage(): void {
     isGaragePage: true,
     isWinnersPage: false,
   }));
+
+  wrapper.append(Footer());
 
   fragment.append(wrapper);
   document.body.prepend(fragment);
