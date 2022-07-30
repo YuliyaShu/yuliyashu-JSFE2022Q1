@@ -1,4 +1,39 @@
+@import url(../../style.css);
+
+.header {
+  height: 100px;
+  width: 100%;
+}
+
 .header__wrapper {
   display: flex;
   flex-direction: row;
+  height: 100px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.header__wrapper-name {
+  cursor: default;
+  font-size: 25px;
+  color: var(--dark);
+}
+
+.header__wrapper-button {
+  background-color: var(--red);
+  margin-left: 10px;
+}
+
+.active-button {
+  cursor: default;
+  background-color: var(--green);
+  color: var(--white);
+}
+
+.active-button:hover {
+  transform: none;
+  box-shadow: none;
+  transition: none;
+  cursor: default;
 }

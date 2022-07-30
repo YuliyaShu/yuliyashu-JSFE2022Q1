@@ -1,20 +1,29 @@
+@import url('../../style.css');
+
+.footer {
+  height: 100px;
+  width: 100%;
+}
+
 .footer__wrapper {
   display: flex;
   flex-direction: row;
   height: 100px;
   width: 100%;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .footer .footer__links {
   font-family: 'Montserrat';
   font-size: 14px;
-  color: var(--green-color);
+  color: var(--dark);
   text-align: center;
   text-decoration: none;
 }
 
 .footer .footer__links:hover {
-  color: var(--orange-color);
+  color: var(--green);
   transition: 0.5s;
 }
 
