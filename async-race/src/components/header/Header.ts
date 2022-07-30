@@ -1,4 +1,5 @@
-import createMyElement from '../utils/createMyElement';
+import createMyElement from '../../utils/createMyElement';
+import './header.css';
 
 type Props = {
   title: string;

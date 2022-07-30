@@ -1,4 +1,5 @@
-import createMyElement from '../utils/createMyElement';
+import createMyElement from '../../utils/createMyElement';
+import './footer.css';
 
 function Footer(): HTMLElement {
   const footer = document.createElement('footer');
@@ -21,7 +22,7 @@ function Footer(): HTMLElement {
 
   createMyElement(schoolLink.element, {
     type: 'img',
-    attributes: [['src', './assets/images/rs_school_js.svg'], ['alt', 'rsschool-logo']],
+    attributes: [['src', '../../assets/images/rs_school_js.svg'], ['alt', 'rsschool-logo']],
   });
 
   return footer;

@@ -1,10 +1,11 @@
-import Footer from '../components/Footer';
-import Header from '../components/Header';
+import Footer from '../components/footer/Footer';
+import Header from '../components/header/Header';
 
 function createGaragePage(): void {
   const fragment = new DocumentFragment();
 
   const wrapper = document.createElement('div');
+  wrapper.classList.add('body__wrapper');
 
   wrapper.append(Header({
     title: 'RACE GARAGE',
