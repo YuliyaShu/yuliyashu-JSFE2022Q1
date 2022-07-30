@@ -1,5 +1,5 @@
 interface ElementOptionsInterface {
-  type: string;
+  type: keyof HTMLElementTagNameMap;
   className?: string[];
   innerText?: string;
   appendType?: 'append' | 'prepend' | 'after';
