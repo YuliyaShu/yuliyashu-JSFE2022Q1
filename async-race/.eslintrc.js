@@ -38,6 +38,7 @@ module.exports = {
                 "prefix": ["is", "should", "has", "can", "did", "will"]
             },
         ],
-        "linebreak-style": 0
+        "linebreak-style": 0,
+        "lines-between-class-members": "off"
     }
 }

@@ -1,11 +1,10 @@
+/* eslint-disable @typescript-eslint/lines-between-class-members */
 import ElementInterface from './ElementInterface';
 import ElementOptionsInterface from './ElementOptionsInterface';
 
 class MyElement implements ElementInterface {
   public parent: HTMLElement;
-
   public options: ElementOptionsInterface;
-
   public element: HTMLElement;
 
   isVisible: boolean;

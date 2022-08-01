@@ -17,6 +17,7 @@ function createGaragePage(): void {
 
   fragment.append(wrapper);
   document.body.prepend(fragment);
+  console.log('createGarage()');
 }
 
 export default createGaragePage;
