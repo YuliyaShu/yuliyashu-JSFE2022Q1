@@ -1,6 +1,9 @@
 const garage = 'http://127.0.0.1:3000/garage';
 const engine = 'http://127.0.0.1:3000/engine';
 const winners = 'http://127.0.0.1:3000/winners';
+const DEFAULT_HEADERS = {
+  'Content-Type': 'application/json',
+};
 
 interface Car {
   name: string;
@@ -18,7 +21,7 @@ async function getCars(page?: number, limit = 7):Promise<AllCars> {
   if (!response.ok) {
     throw new Error(response.statusText);
   }
-  console.log('1 getCars()');
+  console.log('🚀 ~ file: api.ts ~ line 17 ~ getCars');
   return {
     cars: await response.json(),
     count: response.headers.get('x-total-count'),
@@ -31,7 +34,7 @@ async function getOneCar(id: number): Promise<Car | unknown> {
     if (!response.ok) {
       throw new Error(response.statusText);
     }
-    console.log('2 getOneCar()');
+    console.log('🚀 ~ file: api.ts ~ line 29 ~ getOneCar');
     return await response.json();
   } catch (error: unknown) {
     return error;
@@ -45,11 +48,9 @@ async function createCar(name: string, color: string): Promise<Car> {
       name,
       color,
     }),
-    headers: {
-      'Content-Type': 'application/json',
-    },
+    headers: DEFAULT_HEADERS,
   });
-  console.log('3 createCar()');
+  console.log('🚀 ~ file: api.ts ~ line 42 ~ createCar');
   return response.json();
 }
 
@@ -61,7 +62,7 @@ async function deleteCar(id: number): Promise<void | unknown> {
     if (!response.ok) {
       throw new Error(response.statusText);
     }
-    console.log('4 deleteCar()');
+    console.log('🚀 ~ file: api.ts ~ line 57 ~ deleteCar');
     return response;
   } catch (error: unknown) {
     return error;
@@ -76,14 +77,12 @@ async function updateCar(id: number, name: string, color: string): Promise<void 
         name,
         color,
       }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: DEFAULT_HEADERS,
     });
     if (!response.ok) {
       throw new Error(response.statusText);
     }
-    console.log('5 updateCar()');
+    console.log('🚀 ~ file: api.ts ~ line 72 ~ updateCar');
     return response;
   } catch (error: unknown) {
     return error;
@@ -103,11 +102,11 @@ async function startEngine(id: number): Promise<CarEngine | unknown> {
     if (!response.ok) {
       throw new Error(response.statusText);
     }
-    console.log('6 startEngine()');
+    console.log('🚀 ~ file: api.ts ~ line 99 ~ startEngine');
     return await response.json();
   } catch (error: unknown) {
     if (error instanceof Error) {
-      console.log(error.message);
+      console.log('🚀 ~ file: api.ts ~ line 110 ~ error', error.message);
     }
     return error;
   }
@@ -121,10 +120,10 @@ async function stopEngine(id: number): Promise<CarEngine | unknown> {
     if (!response.ok) {
       throw new Error(response.statusText);
     }
-    console.log('7 stopEngine()');
+    console.log('🚀 ~ file: api.ts ~ line 117 ~ stopEngine');
     return await response.json();
   } catch (error: unknown) {
-    console.log(error);
+    console.log('🚀 ~ file: api.ts ~ line 127 ~ error', error);
     return error;
   }
 }
@@ -141,10 +140,10 @@ async function driveMode(id: number): Promise<SuccessDrive | unknown> {
     if (!response.ok) {
       throw new Error(response.statusText);
     }
-    console.log('8 driveMode()');
+    console.log('🚀 ~ file: api.ts ~ line 137 ~ driveMode');
     return await response.json();
   } catch (error: unknown) {
-    console.log(error);
+    console.log('🚀 ~ file: api.ts ~ line 147 ~ error', error);
     return error;
   }
 }
@@ -160,12 +159,17 @@ interface GetWinners {
   count: string | null
 }
 
-async function getWinners(page:number, sort: 'id' | 'wins' | 'time', order: 'ASC' | 'DESC', limit = 10): Promise<GetWinners> {
+async function getWinners(
+  page:number,
+  sort: 'id' | 'wins' | 'time',
+  order: 'ASC' | 'DESC',
+  limit = 10,
+): Promise<GetWinners> {
   const response = await fetch(`${winners}?_page=${page}&_sort=${sort}&_order=${order}&_limit=${limit}`);
   if (!response.ok) {
     throw new Error(response.statusText);
   }
-  console.log('9 getWinners()');
+  console.log('🚀 ~ file: api.ts ~ line 164 ~ getWinners');
   return {
     winners: await response.json(),
     count: response.headers.get('X-Total-Count'),
@@ -178,7 +182,7 @@ async function getOneWinner(id: number): Promise<Winner | unknown> {
     if (!response.ok) {
       throw new Error(response.statusText);
     }
-    console.log('10 getOneWinner()');
+    console.log('🚀 ~ file: api.ts ~ line 181 ~ getOneWinner');
     return await response.json();
   } catch (error: unknown) {
     return error;
@@ -192,14 +196,12 @@ async function createWinner(param: Winner): Promise<Winner | unknown> {
       body: JSON.stringify({
         param,
       }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: DEFAULT_HEADERS,
     });
     if (!response.ok) {
       throw new Error(response.statusText);
     }
-    console.log('11 createWinner()');
+    console.log('🚀 ~ file: api.ts ~ line 194 ~ createWinner');
     return await response.json();
   } catch (error: unknown) {
     return error;
@@ -214,14 +216,18 @@ async function deleteWinner(id: number): Promise<{} | unknown> {
     if (!response.ok) {
       throw new Error(response.statusText);
     }
-    console.log('12 deleteWinner()');
+    console.log('🚀 ~ file: api.ts ~ line 215 ~ deleteWinner');
     return response.statusText;
   } catch (error: unknown) {
     return error;
   }
 }
 
-async function updateWinner(id: number, wins: number, time: number): Promise<Winner | unknown> {
+async function updateWinner(
+  id: number,
+  wins: number,
+  time: number,
+): Promise<Winner | unknown> {
   try {
     const response = await fetch(`${winners}/${id}`, {
       method: 'PUT',
@@ -229,14 +235,12 @@ async function updateWinner(id: number, wins: number, time: number): Promise<Win
         wins,
         time,
       }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: DEFAULT_HEADERS,
     });
     if (!response.ok) {
       throw new Error(response.statusText);
     }
-    console.log('13 updateWinner()');
+    console.log('🚀 ~ file: api.ts ~ line 230 ~ updateWinner');
     return await response.json();
   } catch (error: unknown) {
     return error;
@@ -258,6 +262,3 @@ export {
   deleteWinner,
   updateWinner,
 };
-
-// Create Winner
-// Update Winner

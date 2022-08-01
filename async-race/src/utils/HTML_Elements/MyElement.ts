@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/lines-between-class-members */
+
 import ElementInterface from './ElementInterface';
 import ElementOptionsInterface from './ElementOptionsInterface';
 

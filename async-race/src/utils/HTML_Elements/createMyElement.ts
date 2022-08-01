@@ -1,5 +1,5 @@
-import ElementOptionsInterface from '../pages/elements/ElementOptionsInterface';
-import MyElement from '../pages/elements/MyElement';
+import ElementOptionsInterface from './ElementOptionsInterface';
+import MyElement from './MyElement';
 
 const createMyElement = (
   parent: HTMLElement,

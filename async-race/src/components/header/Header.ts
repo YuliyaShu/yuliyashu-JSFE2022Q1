@@ -1,4 +1,4 @@
-import createMyElement from '../../utils/createMyElement';
+import createMyElement from '../../utils/HTML_Elements/createMyElement';
 import './header.css';
 
 type Props = {
