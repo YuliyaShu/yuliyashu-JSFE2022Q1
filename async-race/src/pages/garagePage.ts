@@ -1,6 +1,7 @@
 import Footer from '../components/footer/Footer';
 import Header from '../components/header/Header';
 import MainGarage from '../components/mainGarage/MainGarage';
+import { mainTitleGarageVar } from '../utils/string-variables';
 
 async function createGaragePage(): Promise<void> {
   const fragment = new DocumentFragment();
@@ -9,7 +10,7 @@ async function createGaragePage(): Promise<void> {
   wrapper.classList.add('body__wrapper');
 
   wrapper.append(Header({
-    title: 'RACE GARAGE',
+    title: mainTitleGarageVar.toUpperCase(),
     isGaragePage: true,
     isWinnersPage: false,
   }));
@@ -18,7 +19,6 @@ async function createGaragePage(): Promise<void> {
 
   fragment.append(wrapper);
   document.body.prepend(fragment);
-  console.log('🚀 ~ file: garagePage.ts ~ line 6 ~ createGaragePage');
 }
 
 export default createGaragePage;

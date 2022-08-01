@@ -1,4 +1,5 @@
 import createMyElement from '../../utils/HTML_Elements/createMyElement';
+import { garagePageNameVar, winnersPageNameVar } from '../../utils/string-variables';
 import './header.css';
 
 type Props = {
@@ -15,11 +16,11 @@ function Header(props: Props): HTMLElement {
   const container = createMyElement(header, { type: 'div', className: ['header__container', 'container'] });
   const headerWrapper = createMyElement(container.element, { type: 'div', className: ['header__wrapper'] });
   createMyElement(headerWrapper.element, { type: 'p', className: ['header__wrapper-name'], innerText: title });
-  const garageButton = createMyElement(headerWrapper.element, { type: 'button', className: ['button', 'header__wrapper-button'], innerText: 'garage' });
+  const garageButton = createMyElement(headerWrapper.element, { type: 'button', className: ['button', 'header__wrapper-button'], innerText: garagePageNameVar });
   if (isGaragePage) {
     garageButton.element.classList.add('active-button');
   }
-  const winnersButton = createMyElement(headerWrapper.element, { type: 'button', className: ['button', 'header__wrapper-button'], innerText: 'winners' });
+  const winnersButton = createMyElement(headerWrapper.element, { type: 'button', className: ['button', 'header__wrapper-button'], innerText: winnersPageNameVar });
   if (isWinnersPage) {
     winnersButton.element.classList.add('active-button');
   }

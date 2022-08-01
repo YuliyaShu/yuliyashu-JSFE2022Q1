@@ -1,5 +1,6 @@
 import Footer from '../components/footer/Footer';
 import Header from '../components/header/Header';
+import { mainTitleWinnersVar } from '../utils/string-variables';
 
 function createWinnersPage(): void {
   const fragment = new DocumentFragment();
@@ -8,7 +9,7 @@ function createWinnersPage(): void {
   wrapper.classList.add('body__wrapper');
 
   wrapper.append(Header({
-    title: 'RACE WINNERS',
+    title: mainTitleWinnersVar.toUpperCase(),
     isGaragePage: false,
     isWinnersPage: true,
   }));

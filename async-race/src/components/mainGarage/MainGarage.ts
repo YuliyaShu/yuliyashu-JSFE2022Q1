@@ -1,5 +1,6 @@
 import { getCars } from '../../api/api';
 import createMyElement from '../../utils/HTML_Elements/createMyElement';
+import { carsInGarageVar } from '../../utils/string-variables';
 import './garage.css';
 import createManageBlock from './manageBlock';
 
@@ -13,7 +14,7 @@ async function MainGarage(): Promise<HTMLElement> {
   createMyElement(mainWrapper.element, {
     type: 'p',
     className: ['main__title'],
-    innerText: `${(await getCars()).count} cars are in your garage`.toUpperCase(),
+    innerText: `${(await getCars()).count} ${carsInGarageVar}`.toUpperCase(),
   });
 
   // manage block

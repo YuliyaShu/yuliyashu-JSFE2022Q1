@@ -26,6 +26,7 @@
   font-size: 20px;
   color: var(--dark);
   margin-bottom: 10px;
+  cursor: default;
 }
 
 .main__subblock {

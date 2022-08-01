@@ -1,5 +1,8 @@
 /* eslint-disable @typescript-eslint/no-use-before-define */
 import createMyElement from '../../utils/HTML_Elements/createMyElement';
+import {
+  createCarVar, generateVar, raceVar, resetVar, updateCarVar,
+} from '../../utils/string-variables';
 
 function createManageBlock(parentElement: HTMLElement): void {
   createCarBlock(parentElement);
@@ -24,7 +27,7 @@ function createCarBlock(parentElement: HTMLElement): void {
   createMyElement(mainCreateCar.element, {
     type: 'button',
     className: ['create-car__button', 'block-button'],
-    innerText: 'CREATE CAR',
+    innerText: createCarVar.toUpperCase(),
   });
 }
 
@@ -46,7 +49,7 @@ function updateCarBlock(parentElement: HTMLElement): void {
   createMyElement(mainUpdateCar.element, {
     type: 'button',
     className: ['update-car__button', 'block-button', 'inactive'],
-    innerText: 'UPDATE CAR',
+    innerText: updateCarVar.toUpperCase(),
     attributes: [['disabled', '']],
   });
 }
@@ -59,17 +62,17 @@ function actionsButtonsBlock(parentElement: HTMLElement): void {
   createMyElement(mainActionsButtons.element, {
     type: 'button',
     className: ['actions-buttons__race', 'block-button'],
-    innerText: 'RACE',
+    innerText: raceVar.toUpperCase(),
   });
   createMyElement(mainActionsButtons.element, {
     type: 'button',
     className: ['actions-buttons__reset', 'block-button'],
-    innerText: 'RESET',
+    innerText: resetVar.toUpperCase(),
   });
   createMyElement(mainActionsButtons.element, {
     type: 'button',
     className: ['actions-buttons__generate', 'block-button'],
-    innerText: 'GENERATE 100 CARS',
+    innerText: generateVar.toUpperCase(),
   });
 }
 

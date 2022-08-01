@@ -1,0 +1,10 @@
+export const mainTitleGarageVar = 'race garage';
+export const mainTitleWinnersVar = 'race winners';
+export const garagePageNameVar = 'garage';
+export const winnersPageNameVar = 'winners';
+export const carsInGarageVar = 'cars are in your garage';
+export const createCarVar = 'create car';
+export const updateCarVar = 'update car';
+export const raceVar = 'race';
+export const resetVar = 'reset';
+export const generateVar = 'generate 100 cars';
