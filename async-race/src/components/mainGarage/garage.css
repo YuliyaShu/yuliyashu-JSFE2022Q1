@@ -1,0 +1,85 @@
+@import url('../../style.css');
+
+.main {
+  width: 100%;
+  height: calc(100% - 200px);
+}
+
+.container__main {
+  display: flex;
+  flex-direction: row;
+  height: calc(100% - 200px);
+  width: 100%;
+  align-items: flex-start
+}
+
+.main__wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.main__title {
+  font-family: 'Montserrat';
+  font-size: 20px;
+  color: var(--dark);
+  margin-bottom: 10px;
+}
+
+.main__subblock {
+  margin-bottom: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.block-button,
+.block-input {
+  margin: 0 5px;
+  border: solid 1px var(--dark);
+  border-radius: 3px;
+}
+
+.actions-buttons__generate {
+  color: var(--white);
+  background-color: var(--green);
+}
+
+.block-button:hover {
+  transform: scale(1.005) translateZ(0);
+  box-shadow: 0px 0px 17px var(--red);
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.create-car__button {
+  background-color: var(--orange);
+}
+
+.update-car__button {
+  background-color: var(--yellow);
+}
+
+.actions-buttons__race {
+  background-color: var(--dark);
+  color: var(--white);
+}
+
+.actions-buttons__reset {
+  background-color: var(--red);
+  color: var(--white);
+}
+
+.inactive {
+  opacity: 50%;
+}
+
+.inactive:hover {
+  transform: none;
+  box-shadow: none;
+  transition: none;
+  cursor: default;
+}

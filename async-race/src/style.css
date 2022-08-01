@@ -54,15 +54,6 @@ body {
   height: 100px;
 }
 
-.container__main {
-  display: flex;
-  flex-direction: row;
-  margin-top: 100px;
-  height: calc(100% - 200px);
-  width: 100%;
-  align-items: flex-start
-}
-
 img {
   height: auto;
   vertical-align: middle;

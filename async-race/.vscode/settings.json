@@ -5,6 +5,7 @@
     "FEJS",
     "linebreak",
     "rsschool",
+    "subblock",
     "tsbuildinfo"
   ],
   "files.eol": "\n"
