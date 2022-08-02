@@ -84,3 +84,25 @@
   transition: none;
   cursor: default;
 }
+
+.main__page-counter {
+  margin-top: 20px;
+}
+
+
+
+.main__pagination {
+  margin: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.prev-button {
+  background-color: var(--yellow);
+}
+
+.next-button {
+  background-color: var(--orange);
+}

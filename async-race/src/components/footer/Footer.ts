@@ -1,4 +1,5 @@
 import createMyElement from '../../utils/HTML_Elements/createMyElement';
+import { authorDateVar, githubLinkVar, rsschoolLinkVar } from '../../utils/string-variables';
 import './footer.css';
 
 function Footer(): HTMLElement {
@@ -10,14 +11,14 @@ function Footer(): HTMLElement {
   createMyElement(footerWrapper.element, {
     type: 'a',
     className: ['footer__links'],
-    innerText: 'YuliyaShu august 2022',
-    attributes: [['href', 'https://github.com/YuliyaShu']],
+    innerText: authorDateVar,
+    attributes: [['href', githubLinkVar]],
   });
 
   const schoolLink = createMyElement(footerWrapper.element, {
     type: 'a',
     className: ['footer__links'],
-    attributes: [['href', 'https://rs.school/']],
+    attributes: [['href', rsschoolLinkVar]],
   });
 
   createMyElement(schoolLink.element, {
