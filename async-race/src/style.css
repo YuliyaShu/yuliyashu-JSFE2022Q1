@@ -45,7 +45,6 @@ body {
 .container {
   margin: 0 auto;
   position: relative;
-  overflow-x: hidden;
   max-width: 1900px;
   padding: 0px 5%;
   display: flex;

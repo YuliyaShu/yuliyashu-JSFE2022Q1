@@ -1,5 +1,5 @@
 interface ElementOptionsInterface {
-  type: keyof HTMLElementTagNameMap;
+  type: keyof HTMLElementTagNameMap | 'svg' | 'path';
   className?: string[];
   innerText?: string;
   appendType?: 'append' | 'prepend' | 'after';

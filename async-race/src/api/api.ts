@@ -5,13 +5,13 @@ const DEFAULT_HEADERS = {
   'Content-Type': 'application/json',
 };
 
-interface Car {
+export interface Car {
   name: string;
   color: string;
   id: number;
 }
 
-interface AllCars {
+export interface AllCars {
   cars: Car[];
   count: string | null;
 }

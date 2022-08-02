@@ -2,13 +2,13 @@
 
 .main {
   width: 100%;
-  height: calc(100% - 200px);
+  height: auto;
 }
 
 .container__main {
   display: flex;
   flex-direction: row;
-  height: calc(100% - 200px);
+  height: fit-content;
   width: 100%;
   align-items: flex-start
 }
@@ -85,11 +85,73 @@
   cursor: default;
 }
 
-.main__page-counter {
+.main__page-counter,
+.car-name {
   margin-top: 20px;
 }
 
+.main__track,
+.track-line__wrapper {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
 
+.track-line__car-panel {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: flex-start
+}
+
+.track-line__car-drive {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.track-line__car-manipulate {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: flex-start;
+  width: 80%;
+}
+
+.track-line__flag {
+  width: 20%;
+}
+
+.track-line__flag-img {
+  width: 30px;
+}
+
+.car-img {
+  display: flex;
+  position: relative;
+  width: 60px;
+}
+
+svg {
+  /* transform: scale(0.1); */
+  top: 0;
+  left: 0;
+  position: absolute;
+}
+
+path {
+  transform: scale(0.06);
+}
+
+.dotted-line {
+  border:none;
+  border-top: 1px dashed var(--dark);
+  color: var(--white);
+  background-color: var(--white);
+  height: 1px;
+  width: 100%;
+}
 
 .main__pagination {
   margin: 5px;

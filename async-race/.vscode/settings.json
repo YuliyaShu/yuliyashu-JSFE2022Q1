@@ -6,7 +6,8 @@
     "linebreak",
     "rsschool",
     "subblock",
-    "tsbuildinfo"
+    "tsbuildinfo",
+    "xlink"
   ],
   "files.eol": "\n"
 }

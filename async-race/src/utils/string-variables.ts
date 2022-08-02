@@ -14,7 +14,7 @@ export const nextPageVar = 'next page';
 export const authorDateVar = 'YuliyaShu august 2022';
 export const githubLinkVar = 'https://github.com/YuliyaShu';
 export const rsschoolLinkVar = 'https://rs.school/';
-// export const
-// export const
-// export const
-// export const
+export const selectVar = 'select';
+export const removeVar = 'remove';
+export const startVar = 'start';
+export const stopVar = 'stop';
