@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-use-before-define */
 import { Car, getCars, getOneCar } from '../../api/api';
-import generateRandomColor from '../../utils/generate-random-color';
 import createMyElement from '../../utils/HTML_Elements/createMyElement';
 import {
   removeVar,
@@ -11,16 +10,29 @@ import {
 
 const defaultLinesCount = 7;
 async function createTrack(parentElement: HTMLElement, page = 1): Promise<void> {
+  console.log(parentElement.querySelector('.track'));
   const mainActionsButtons = createMyElement(parentElement, {
     type: 'div',
     className: ['main__track', 'track'],
   });
 
   const getAllCars = await getCars();
-  for (let i = 0; i < defaultLinesCount; i += 1) {
+  console.log('🚀 ~ file: track.ts ~ line 20 ~ getAllCars', getAllCars);
+  for (let i = 0; i < getAllCars.cars.length; i += 1) {
     const carIndex = page * defaultLinesCount - defaultLinesCount + i;
-    const { id } = getAllCars.cars[carIndex];
-    createTrackLine(mainActionsButtons.element, id, generateRandomColor());
+    const carId = getAllCars.cars[carIndex].id;
+    const cardColor = getAllCars.cars[carIndex].color;
+    if (carId) {
+      createTrackLine(mainActionsButtons.element, carId, cardColor);
+    }
+  }
+}
+
+async function updateTrack() {
+  const mainWrapper = document.querySelector('.main__page-track-wrapper');
+  if (mainWrapper) mainWrapper.innerHTML = '';
+  if (mainWrapper instanceof HTMLElement) {
+    await createTrack(mainWrapper);
   }
 }
 
@@ -104,4 +116,4 @@ function createCarImage(randomColor: string): SVGSVGElement {
   return svgImage;
 }
 
-export default createTrack;
+export { createTrack, createTrackLine, updateTrack };

@@ -49,6 +49,11 @@
   background-color: var(--green);
 }
 
+.actions-buttons__remove-all {
+  color: var(--white);
+  background-color: var(--red);
+}
+
 .block-button:hover {
   transform: scale(1.005) translateZ(0);
   box-shadow: 0px 0px 17px var(--red);
@@ -91,7 +96,8 @@
 }
 
 .main__track,
-.track-line__wrapper {
+.track-line__wrapper,
+.main__page-track-wrapper {
   width: 100%;
   height: auto;
   display: flex;

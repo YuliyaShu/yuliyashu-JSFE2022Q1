@@ -16,7 +16,7 @@ export interface AllCars {
   count: string | null;
 }
 
-async function getCars(page?: number, limit = 7):Promise<AllCars> {
+async function getCars(limit = 7, page?: number):Promise<AllCars> {
   const response = await fetch(`${garage}?_page=${page}&_limit=${limit}`);
   if (!response.ok) {
     throw new Error(response.statusText);
@@ -41,7 +41,7 @@ async function getOneCar(id: number): Promise<Car | unknown> {
   }
 }
 
-async function createCar(name: string, color: string): Promise<Car> {
+async function createCar(color: string, name: string = 'Tesla Class'): Promise<Car> {
   const response = await fetch(garage, {
     method: 'POST',
     body: JSON.stringify({

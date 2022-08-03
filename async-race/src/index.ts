@@ -3,7 +3,7 @@ import createGaragePage from './pages/garagePage';
 import './style.css';
 
 createGaragePage();
-getCars(1, 3);
+getCars(3, 1);
 getOneCar(2);
 startEngine(12);
 

@@ -8,7 +8,7 @@ import {
 } from '../../utils/string-variables';
 import './garage.css';
 import createManageBlock from './manageBlock';
-import createTrack from './track';
+import { createTrack } from './track';
 
 async function MainGarage(): Promise<HTMLElement> {
   const main = document.createElement('main');
@@ -34,7 +34,11 @@ async function MainGarage(): Promise<HTMLElement> {
   });
 
   // track
-  createTrack(mainWrapper.element);
+  const trackWrapper = createMyElement(mainWrapper.element, {
+    type: 'div',
+    className: ['main__page-track-wrapper'],
+  });
+  createTrack(trackWrapper.element);
 
   // page pagination buttons
   const mainPagination = createMyElement(mainWrapper.element, {
