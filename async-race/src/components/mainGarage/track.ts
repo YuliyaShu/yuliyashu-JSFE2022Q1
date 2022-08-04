@@ -1,5 +1,8 @@
+/* eslint-disable import/no-cycle */
 /* eslint-disable @typescript-eslint/no-use-before-define */
-import { Car, getCars, getOneCar } from '../../api/api';
+import {
+  Car, deleteCar, getCars, getOneCar,
+} from '../../api/api';
 import createMyElement from '../../utils/HTML_Elements/createMyElement';
 import {
   removeVar,
@@ -7,23 +10,23 @@ import {
   startVar,
   stopVar,
 } from '../../utils/string-variables';
+import { activateUpdate } from './manageBlock';
 
 const defaultLinesCount = 7;
 async function createTrack(parentElement: HTMLElement, page = 1): Promise<void> {
-  console.log(parentElement.querySelector('.track'));
   const mainActionsButtons = createMyElement(parentElement, {
     type: 'div',
     className: ['main__track', 'track'],
   });
 
   const getAllCars = await getCars();
-  console.log('🚀 ~ file: track.ts ~ line 20 ~ getAllCars', getAllCars);
   for (let i = 0; i < getAllCars.cars.length; i += 1) {
     const carIndex = page * defaultLinesCount - defaultLinesCount + i;
     const carId = getAllCars.cars[carIndex].id;
     const cardColor = getAllCars.cars[carIndex].color;
     if (carId) {
       createTrackLine(mainActionsButtons.element, carId, cardColor);
+      // listen();
     }
   }
 }
@@ -48,14 +51,16 @@ async function createTrackLine(parentElement: HTMLElement, id: number, randomCol
   });
   createMyElement(trackLineCarPanel.element, {
     type: 'button',
-    className: ['block-button'],
+    className: ['block-button', 'select-button'],
     innerText: selectVar.toUpperCase(),
-  });
+    attributes: [['carID', `${id}`]],
+  }).element.addEventListener('click', trackListeners);
   createMyElement(trackLineCarPanel.element, {
     type: 'button',
-    className: ['block-button'],
+    className: ['block-button', 'remove-button'],
     innerText: removeVar.toUpperCase(),
-  });
+    attributes: [['carID', `${id}`]],
+  }).element.addEventListener('click', trackListeners);
   const getCar: Car = await getOneCar(id) as Car;
   createMyElement(trackLineCarPanel.element, {
     type: 'p',
@@ -76,11 +81,13 @@ async function createTrackLine(parentElement: HTMLElement, id: number, randomCol
     type: 'button',
     className: ['block-button'],
     innerText: startVar.toUpperCase(),
+    attributes: [['id', `${startVar}-${id}`]],
   });
   createMyElement(trackLineCarManipulate.element, {
     type: 'button',
     className: ['block-button'],
     innerText: stopVar.toUpperCase(),
+    attributes: [['id', `${stopVar}-${id}`]],
   });
   const carImg = createMyElement(trackLineCarManipulate.element, {
     type: 'div',
@@ -114,6 +121,29 @@ function createCarImage(randomColor: string): SVGSVGElement {
   svgImage.appendChild(svgPath);
   svgImage.appendChild(dWrapper);
   return svgImage;
+}
+
+// listeners
+
+async function trackListeners(event: MouseEvent):Promise<void> {
+  if (event.target instanceof HTMLButtonElement) {
+    const carID = event.target.getAttribute('carID');
+    if (carID) {
+      // select button
+      if (event.target.innerText === 'SELECT') {
+        activateUpdate(event.target, carID);
+      }
+
+      // remove button
+      if (event.target.innerText === 'REMOVE') {
+        await deleteCar(+carID);
+        await updateTrack();
+      }
+
+      // start button
+      // stop button
+    }
+  }
 }
 
 export { createTrack, createTrackLine, updateTrack };

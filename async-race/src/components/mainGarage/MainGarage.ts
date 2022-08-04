@@ -7,7 +7,7 @@ import {
   prevPageVar,
 } from '../../utils/string-variables';
 import './garage.css';
-import createManageBlock from './manageBlock';
+import { createManageBlock } from './manageBlock';
 import { createTrack } from './track';
 
 async function MainGarage(): Promise<HTMLElement> {

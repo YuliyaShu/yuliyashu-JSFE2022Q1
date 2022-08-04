@@ -21,7 +21,6 @@ async function getCars(limit = 7, page?: number):Promise<AllCars> {
   if (!response.ok) {
     throw new Error(response.statusText);
   }
-  console.log('🚀 ~ file: api.ts ~ line 17 ~ getCars');
   return {
     cars: await response.json(),
     count: response.headers.get('x-total-count'),
@@ -34,7 +33,6 @@ async function getOneCar(id: number): Promise<Car | unknown> {
     if (!response.ok) {
       throw new Error(response.statusText);
     }
-    console.log('🚀 ~ file: api.ts ~ line 29 ~ getOneCar');
     return await response.json();
   } catch (error: unknown) {
     return error;
@@ -50,11 +48,10 @@ async function createCar(color: string, name: string = 'Tesla Class'): Promise<C
     }),
     headers: DEFAULT_HEADERS,
   });
-  console.log('🚀 ~ file: api.ts ~ line 42 ~ createCar');
   return response.json();
 }
 
-async function deleteCar(id: number): Promise<void | unknown> {
+async function deleteCar(id: number): Promise<{} | unknown> {
   try {
     const response = await fetch(`${garage}/${id}`, {
       method: 'DELETE',
@@ -62,8 +59,7 @@ async function deleteCar(id: number): Promise<void | unknown> {
     if (!response.ok) {
       throw new Error(response.statusText);
     }
-    console.log('🚀 ~ file: api.ts ~ line 57 ~ deleteCar');
-    return response;
+    return await response.json();
   } catch (error: unknown) {
     return error;
   }
@@ -82,7 +78,6 @@ async function updateCar(id: number, name: string, color: string): Promise<void 
     if (!response.ok) {
       throw new Error(response.statusText);
     }
-    console.log('🚀 ~ file: api.ts ~ line 72 ~ updateCar');
     return response;
   } catch (error: unknown) {
     return error;
@@ -102,12 +97,11 @@ async function startEngine(id: number): Promise<CarEngine | unknown> {
     if (!response.ok) {
       throw new Error(response.statusText);
     }
-    console.log('🚀 ~ file: api.ts ~ line 99 ~ startEngine');
     return await response.json();
   } catch (error: unknown) {
-    if (error instanceof Error) {
-      console.log('🚀 ~ file: api.ts ~ line 110 ~ error', error.message);
-    }
+    // if (error instanceof Error) {
+
+    // }
     return error;
   }
 }
@@ -120,10 +114,8 @@ async function stopEngine(id: number): Promise<CarEngine | unknown> {
     if (!response.ok) {
       throw new Error(response.statusText);
     }
-    console.log('🚀 ~ file: api.ts ~ line 117 ~ stopEngine');
     return await response.json();
   } catch (error: unknown) {
-    console.log('🚀 ~ file: api.ts ~ line 127 ~ error', error);
     return error;
   }
 }
@@ -140,10 +132,8 @@ async function driveMode(id: number): Promise<SuccessDrive | unknown> {
     if (!response.ok) {
       throw new Error(response.statusText);
     }
-    console.log('🚀 ~ file: api.ts ~ line 137 ~ driveMode');
     return await response.json();
   } catch (error: unknown) {
-    console.log('🚀 ~ file: api.ts ~ line 147 ~ error', error);
     return error;
   }
 }
@@ -169,7 +159,6 @@ async function getWinners(
   if (!response.ok) {
     throw new Error(response.statusText);
   }
-  console.log('🚀 ~ file: api.ts ~ line 164 ~ getWinners');
   return {
     winners: await response.json(),
     count: response.headers.get('X-Total-Count'),
@@ -182,7 +171,6 @@ async function getOneWinner(id: number): Promise<Winner | unknown> {
     if (!response.ok) {
       throw new Error(response.statusText);
     }
-    console.log('🚀 ~ file: api.ts ~ line 181 ~ getOneWinner');
     return await response.json();
   } catch (error: unknown) {
     return error;
@@ -201,7 +189,6 @@ async function createWinner(param: Winner): Promise<Winner | unknown> {
     if (!response.ok) {
       throw new Error(response.statusText);
     }
-    console.log('🚀 ~ file: api.ts ~ line 194 ~ createWinner');
     return await response.json();
   } catch (error: unknown) {
     return error;
@@ -216,7 +203,6 @@ async function deleteWinner(id: number): Promise<{} | unknown> {
     if (!response.ok) {
       throw new Error(response.statusText);
     }
-    console.log('🚀 ~ file: api.ts ~ line 215 ~ deleteWinner');
     return response.statusText;
   } catch (error: unknown) {
     return error;
@@ -240,7 +226,6 @@ async function updateWinner(
     if (!response.ok) {
       throw new Error(response.statusText);
     }
-    console.log('🚀 ~ file: api.ts ~ line 230 ~ updateWinner');
     return await response.json();
   } catch (error: unknown) {
     return error;
