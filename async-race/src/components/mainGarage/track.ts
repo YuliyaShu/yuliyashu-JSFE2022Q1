@@ -9,33 +9,90 @@ import {
   selectVar,
   startVar,
   stopVar,
+  nextPageVar,
+  pageVar,
+  prevPageVar,
 } from '../../utils/string-variables';
 import { activateUpdate } from './manageBlock';
 
-const defaultLinesCount = 7;
+const startPageNumber = 1;
+localStorage.setItem('current-page-number', startPageNumber.toString());
+
+let prevPageButton: HTMLElement;
+let nextPageButton: HTMLElement;
+
 async function createTrack(parentElement: HTMLElement, page = 1): Promise<void> {
-  const mainActionsButtons = createMyElement(parentElement, {
+  const trackMainWrapper = document.querySelector('.track-main__wrapper');
+  if (trackMainWrapper) trackMainWrapper.innerHTML = '';
+  // page count
+  const totalPages = Math.ceil(Number((await getCars()).count) / 7) || 1;
+  const currentPageNumber = localStorage.getItem('current-page-number');
+  createMyElement(parentElement, {
+    type: 'p',
+    className: ['main__page-counter'],
+    innerText: `${pageVar}${currentPageNumber} from ${totalPages}`,
+  });
+
+  // track
+  const trackWrapper = createMyElement(parentElement, {
+    type: 'div',
+    className: ['main__page-track-wrapper'],
+  });
+
+  const mainActionsButtons = createMyElement(trackWrapper.element, {
     type: 'div',
     className: ['main__track', 'track'],
   });
 
-  const getAllCars = await getCars();
+  const getAllCars = await getCars(7, page);
   for (let i = 0; i < getAllCars.cars.length; i += 1) {
-    const carIndex = page * defaultLinesCount - defaultLinesCount + i;
-    const carId = getAllCars.cars[carIndex].id;
-    const cardColor = getAllCars.cars[carIndex].color;
+    const carId = getAllCars.cars[i].id;
+    const cardColor = getAllCars.cars[i].color;
     if (carId) {
       createTrackLine(mainActionsButtons.element, carId, cardColor);
-      // listen();
     }
+  }
+
+  // page pagination buttons
+  const mainPagination = createMyElement(parentElement, {
+    type: 'div',
+    className: ['main__pagination'],
+  });
+
+  prevPageButton = createMyElement(mainPagination.element, {
+    type: 'button',
+    className: ['block-button', 'prev-button'],
+    innerText: prevPageVar.toUpperCase(),
+  }).element;
+  prevPageButton.addEventListener('click', paginationListeners);
+  if (currentPageNumber === '1') {
+    prevPageButton.classList.add('inactive');
+    prevPageButton.setAttribute('disabled', '');
+  } else {
+    prevPageButton.classList.remove('inactive');
+    prevPageButton.removeAttribute('disabled');
+  }
+
+  nextPageButton = createMyElement(mainPagination.element, {
+    type: 'button',
+    className: ['block-button', 'next-button'],
+    innerText: nextPageVar.toUpperCase(),
+  }).element;
+  nextPageButton.addEventListener('click', paginationListeners);
+  if (currentPageNumber === totalPages.toString()) {
+    nextPageButton.classList.add('inactive');
+    nextPageButton.setAttribute('disabled', '');
+  } else {
+    nextPageButton.classList.remove('inactive');
+    nextPageButton.removeAttribute('disabled');
   }
 }
 
-async function updateTrack() {
-  const mainWrapper = document.querySelector('.main__page-track-wrapper');
-  if (mainWrapper) mainWrapper.innerHTML = '';
-  if (mainWrapper instanceof HTMLElement) {
-    await createTrack(mainWrapper);
+async function updateTrack(page = 1) {
+  const trackMainWrapper = document.querySelector('.track-main__wrapper');
+  if (trackMainWrapper) trackMainWrapper.innerHTML = '';
+  if (trackMainWrapper instanceof HTMLElement) {
+    await createTrack(trackMainWrapper, page);
   }
 }
 
@@ -143,6 +200,21 @@ async function trackListeners(event: MouseEvent):Promise<void> {
       // start button
       // stop button
     }
+  }
+}
+
+async function paginationListeners(event: MouseEvent) {
+  const currentPageNumber = Number(localStorage.getItem('current-page-number'));
+  // next page button
+  if (event.target === nextPageButton) {
+    localStorage.setItem('current-page-number', (currentPageNumber + 1).toString());
+    updateTrack(currentPageNumber + 1);
+  }
+
+  // prev page button
+  if (event.target === prevPageButton) {
+    localStorage.setItem('current-page-number', (currentPageNumber - 1).toString());
+    updateTrack(currentPageNumber - 1);
   }
 }
 

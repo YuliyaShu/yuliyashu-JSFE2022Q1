@@ -13,7 +13,8 @@
   align-items: flex-start
 }
 
-.main__wrapper {
+.main__wrapper,
+.track-main__wrapper {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -169,8 +170,10 @@ path {
 
 .prev-button {
   background-color: var(--yellow);
+  z-index: 2;
 }
 
 .next-button {
   background-color: var(--orange);
+  z-index: 2;
 }

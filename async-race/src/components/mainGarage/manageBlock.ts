@@ -196,7 +196,8 @@ async function manageClickListeners(event: MouseEvent): Promise<void> {
   // remove all button
   if (event.target === removeAllCars) {
     if (window.confirm(deleteAllCarsVar)) {
-      removeAll();
+      await removeAll();
+      await updateTrack();
     }
   }
 }
@@ -207,9 +208,8 @@ async function removeAll() {
   if (allCarsInGarage.length) {
     allCarsInGarage.forEach(async (car) => {
       await deleteCar(car.id);
-      updateTrack();
     });
-    removeAll();
+    await removeAll();
   }
 }
 
