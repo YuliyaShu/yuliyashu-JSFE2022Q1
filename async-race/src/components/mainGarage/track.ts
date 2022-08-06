@@ -16,6 +16,7 @@ import {
 import { activateUpdate } from './manageBlock';
 
 const startPageNumber = 1;
+const trackButtons: HTMLElement[] = [];
 localStorage.setItem('current-page-number', startPageNumber.toString());
 
 let prevPageButton: HTMLElement;
@@ -108,19 +109,23 @@ async function createTrackLine(parentElement: HTMLElement, id: number, randomCol
     className: ['track-line__car-panel'],
   });
 
-  createMyElement(trackLineCarPanel.element, {
+  const selectBtn = createMyElement(trackLineCarPanel.element, {
     type: 'button',
     className: ['block-button', 'select-button'],
     innerText: selectVar.toUpperCase(),
     attributes: [['carID', `${id}`]],
-  }).element.addEventListener('click', trackListeners);
+  }).element;
+  selectBtn.addEventListener('click', trackListeners);
+  trackButtons.push(selectBtn);
 
-  createMyElement(trackLineCarPanel.element, {
+  const removeBtn = createMyElement(trackLineCarPanel.element, {
     type: 'button',
     className: ['block-button', 'remove-button'],
     innerText: removeVar.toUpperCase(),
     attributes: [['carID', `${id}`]],
-  }).element.addEventListener('click', trackListeners);
+  }).element;
+  removeBtn.addEventListener('click', trackListeners);
+  trackButtons.push(removeBtn);
 
   const getCar: Car = await getOneCar(id) as Car;
   createMyElement(trackLineCarPanel.element, {
@@ -138,14 +143,17 @@ async function createTrackLine(parentElement: HTMLElement, id: number, randomCol
     type: 'div',
     className: ['track-line__car-manipulate'],
   });
-  createMyElement(trackLineCarManipulate.element, {
+
+  const startBtn = createMyElement(trackLineCarManipulate.element, {
     type: 'button',
     className: ['block-button'],
     innerText: startVar.toUpperCase(),
     attributes: [['carID', `${id}`],
       ['startCarID', `${id}`],
     ],
-  }).element.addEventListener('click', trackListeners);
+  }).element;
+  startBtn.addEventListener('click', trackListeners);
+  trackButtons.push(startBtn);
 
   stopButton = createMyElement(trackLineCarManipulate.element, {
     type: 'button',
@@ -158,6 +166,8 @@ async function createTrackLine(parentElement: HTMLElement, id: number, randomCol
     ],
   }).element;
   stopButton.addEventListener('click', trackListeners);
+  trackButtons.push(stopButton);
+
   const carImg = createMyElement(trackLineCarManipulate.element, {
     type: 'div',
     className: ['car-img'],
@@ -200,6 +210,24 @@ function createCarImage(randomColor: string, id: number): SVGSVGElement {
 const state = {
   id: 0,
 };
+
+async function startDrive(carID: string) {
+  const velocityDistance = (await startEngine(+carID)) as CarEngine;
+  const timeDrive = velocityDistance.distance / velocityDistance.velocity;
+  const distance = findDistance(carID);
+  carAnimation(+carID, distance, timeDrive);
+  await driveMode(+carID);
+}
+
+async function stopDrive(carID: string) {
+  await stopEngine(+carID);
+  const car = document.querySelector(`[carIDSVG="${carID}"]`);
+  if (car instanceof SVGElement) {
+    car.style.transform = 'translateX(0px) scale(0.06)';
+  }
+  window.cancelAnimationFrame(state.id);
+}
+
 function carAnimation(carID: number, distance: number, animationTime: number) {
   const car = document.querySelector(`[carIDSVG="${carID}"]`);
   let start: number | undefined;
@@ -214,12 +242,10 @@ function carAnimation(carID: number, distance: number, animationTime: number) {
     }
     if (passed < distance) {
       state.id = window.requestAnimationFrame(startAnimation);
-      console.log('🚀 state.id if', state.id);
       car?.setAttribute('animateID', `${state.id}`);
     }
   }
   state.id = window.requestAnimationFrame(startAnimation);
-  console.log('🚀  state.id', state.id);
   return state.id;
 }
 
@@ -227,7 +253,6 @@ async function stopAnimation(carID: number) {
   await stopEngine(carID);
   const car = document.querySelector(`[carIDSVG="${carID}"]`);
   const stateID = Number(car?.getAttribute('animateID'));
-  console.log('🚀 stateID', stateID);
   window.cancelAnimationFrame(stateID);
 }
 
@@ -274,11 +299,7 @@ async function trackListeners(event: MouseEvent):Promise<void | CarEngine | Succ
         }
 
         // drive
-        const velocityDistance = (await startEngine(+carID)) as CarEngine;
-        const timeDrive = velocityDistance.distance / velocityDistance.velocity;
-        const distance = findDistance(carID);
-        carAnimation(+carID, distance, timeDrive);
-        await driveMode(+carID);
+        startDrive(carID);
       }
 
       // stop button
@@ -295,12 +316,7 @@ async function trackListeners(event: MouseEvent):Promise<void | CarEngine | Succ
         event.target.setAttribute('disabled', '');
 
         // stop
-        await stopEngine(+carID);
-        const car = document.querySelector(`[carIDSVG="${carID}"]`);
-        if (car instanceof SVGElement) {
-          car.style.transform = 'translateX(0px) scale(0.06)';
-        }
-        window.cancelAnimationFrame(state.id);
+        stopDrive(carID);
       }
     }
   }
@@ -326,4 +342,7 @@ export {
   createTrackLine,
   updateTrack,
   stopAnimation,
+  startDrive,
+  stopDrive,
+  trackButtons,
 };

@@ -139,7 +139,6 @@ async function driveMode(id: number): Promise<SuccessDrive | unknown> {
   } catch (error: unknown) {
     if (error instanceof Error) {
       if (error.message === 'Internal Server Error') {
-        console.log('here');
         stopAnimation(id);
       }
     }

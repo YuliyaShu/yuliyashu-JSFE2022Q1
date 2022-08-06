@@ -15,7 +15,12 @@ import {
   resetVar,
   updateCarVar,
 } from '../../utils/string-variables';
-import { updateTrack } from './track';
+import {
+  startDrive,
+  stopDrive,
+  trackButtons,
+  updateTrack,
+} from './track';
 
 let createButton: HTMLElement;
 let updateButton: HTMLElement;
@@ -111,8 +116,9 @@ function actionsButtonsBlock(parentElement: HTMLElement): void {
 
   resetButton = createMyElement(mainActionsButtons.element, {
     type: 'button',
-    className: ['actions-buttons__reset', 'block-button'],
+    className: ['actions-buttons__reset', 'block-button', 'inactive'],
     innerText: resetVar.toUpperCase(),
+    attributes: [['disabled', '']],
   }).element;
   resetButton.addEventListener('click', manageClickListeners);
 
@@ -179,7 +185,43 @@ async function manageClickListeners(event: MouseEvent): Promise<void> {
     carNameForUpdate.placeholder = placeholderTextVar;
   }
   // race button
+  if (event.target === raceButton) {
+    if (event.target instanceof HTMLElement) {
+      event.target.classList.add('inactive');
+      event.target.setAttribute('disabled', '');
+    }
+    resetButton.classList.remove('inactive');
+    resetButton.removeAttribute('disabled');
+    trackButtons.forEach((button: HTMLElement) => {
+      button.classList.add('inactive');
+      button.setAttribute('disabled', '');
+    });
+    const currentPage = localStorage.getItem('current-page-number');
+    if (currentPage) {
+      const carsOnTrack = await getCars(7, +currentPage);
+      carsOnTrack.cars.forEach(async (car) => {
+        startDrive(car.id.toString());
+      });
+    }
+  }
+
   // reset button
+  if (event.target === resetButton) {
+    trackButtons.forEach((button: HTMLElement) => {
+      button.classList.remove('inactive');
+      button.removeAttribute('disabled');
+    });
+
+    raceButton.classList.remove('inactive');
+    raceButton.removeAttribute('disabled');
+    const currentPage = localStorage.getItem('current-page-number');
+    if (currentPage) {
+      const carsOnTrack = await getCars(7, +currentPage);
+      carsOnTrack.cars.forEach(async (car) => {
+        stopDrive(car.id.toString());
+      });
+    }
+  }
 
   // create 100 cars button
   if (event.target === generateButton) {
@@ -195,6 +237,7 @@ async function manageClickListeners(event: MouseEvent): Promise<void> {
 
   // remove all button
   if (event.target === removeAllCars) {
+    // eslint-disable-next-line no-alert
     if (window.confirm(deleteAllCarsVar)) {
       await removeAll();
       await updateTrack();
