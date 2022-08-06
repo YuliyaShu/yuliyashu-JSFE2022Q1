@@ -214,10 +214,21 @@ function carAnimation(carID: number, distance: number, animationTime: number) {
     }
     if (passed < distance) {
       state.id = window.requestAnimationFrame(startAnimation);
+      console.log('🚀 state.id if', state.id);
+      car?.setAttribute('animateID', `${state.id}`);
     }
   }
   state.id = window.requestAnimationFrame(startAnimation);
+  console.log('🚀  state.id', state.id);
   return state.id;
+}
+
+async function stopAnimation(carID: number) {
+  await stopEngine(carID);
+  const car = document.querySelector(`[carIDSVG="${carID}"]`);
+  const stateID = Number(car?.getAttribute('animateID'));
+  console.log('🚀 stateID', stateID);
+  window.cancelAnimationFrame(stateID);
 }
 
 function findDistance(carID: string) {
@@ -267,8 +278,7 @@ async function trackListeners(event: MouseEvent):Promise<void | CarEngine | Succ
         const timeDrive = velocityDistance.distance / velocityDistance.velocity;
         const distance = findDistance(carID);
         carAnimation(+carID, distance, timeDrive);
-        const startDrive = await driveMode(+carID);
-        console.log(startDrive);
+        await driveMode(+carID);
       }
 
       // stop button
@@ -311,4 +321,9 @@ async function paginationListeners(event: MouseEvent) {
   }
 }
 
-export { createTrack, createTrackLine, updateTrack };
+export {
+  createTrack,
+  createTrackLine,
+  updateTrack,
+  stopAnimation,
+};

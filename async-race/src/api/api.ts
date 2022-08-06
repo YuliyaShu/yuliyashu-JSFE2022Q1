@@ -1,3 +1,6 @@
+// eslint-disable-next-line import/no-cycle
+import { stopAnimation } from '../components/mainGarage/track';
+
 const garage = 'http://127.0.0.1:3000/garage';
 const engine = 'http://127.0.0.1:3000/engine';
 const winners = 'http://127.0.0.1:3000/winners';
@@ -8,7 +11,7 @@ const DEFAULT_HEADERS = {
 export interface Car {
   name: string;
   color: string;
-  id: number;
+  id: number
 }
 
 export interface AllCars {
@@ -114,7 +117,6 @@ async function stopEngine(id: number): Promise<CarEngine | unknown> {
     if (!response.ok) {
       throw new Error(response.statusText);
     }
-    console.log(response.json());
     return await response.json();
   } catch (error: unknown) {
     return error;
@@ -136,10 +138,10 @@ async function driveMode(id: number): Promise<SuccessDrive | unknown> {
     return await response.json();
   } catch (error: unknown) {
     if (error instanceof Error) {
-      if (error.name === 'INTERNAL SERVER ERROR') {
-        await fetch(`${engine}?id=${id}&status=stopped`);
+      if (error.message === 'Internal Server Error') {
+        console.log('here');
+        stopAnimation(id);
       }
-      console.log(error.name);
     }
     return error;
   }
