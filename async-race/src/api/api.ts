@@ -114,6 +114,7 @@ async function stopEngine(id: number): Promise<CarEngine | unknown> {
     if (!response.ok) {
       throw new Error(response.statusText);
     }
+    console.log(response.json());
     return await response.json();
   } catch (error: unknown) {
     return error;
@@ -134,6 +135,12 @@ async function driveMode(id: number): Promise<SuccessDrive | unknown> {
     }
     return await response.json();
   } catch (error: unknown) {
+    if (error instanceof Error) {
+      if (error.name === 'INTERNAL SERVER ERROR') {
+        await fetch(`${engine}?id=${id}&status=stopped`);
+      }
+      console.log(error.name);
+    }
     return error;
   }
 }
@@ -246,4 +253,6 @@ export {
   createWinner,
   deleteWinner,
   updateWinner,
+  CarEngine,
+  SuccessDrive,
 };
