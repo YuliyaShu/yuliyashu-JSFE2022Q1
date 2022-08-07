@@ -22,7 +22,7 @@ import {
   stopDrive,
   trackButtons,
   updateTrack,
-} from './track';
+} from './trackBlock';
 
 let createButton: HTMLElement;
 let updateButton: HTMLElement;

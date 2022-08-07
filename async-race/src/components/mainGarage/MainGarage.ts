@@ -6,7 +6,7 @@ import {
 } from '../../utils/string-variables';
 import './garage.css';
 import { createManageBlock } from './manageBlock';
-import { createTrack } from './track';
+import { createTrack } from './trackBlock';
 
 async function MainGarage(): Promise<HTMLElement> {
   const main = document.createElement('main');
@@ -23,6 +23,7 @@ async function MainGarage(): Promise<HTMLElement> {
   // manage block
   createManageBlock(mainWrapper.element);
 
+  // track block
   const trackMainWrapper = createMyElement(mainWrapper.element, {
     type: 'div',
     className: ['track-main__wrapper'],

@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-cycle
-import { stopAnimation } from '../components/mainGarage/track';
+import { stopAnimation } from '../components/mainGarage/trackBlock';
 
 const garage = 'http://127.0.0.1:3000/garage';
 const engine = 'http://127.0.0.1:3000/engine';
@@ -158,9 +158,9 @@ interface GetWinners {
 }
 
 async function getWinners(
-  page:number,
-  sort: 'id' | 'wins' | 'time',
-  order: 'ASC' | 'DESC',
+  page?: number,
+  sort?: 'id' | 'wins' | 'time',
+  order?: 'ASC' | 'DESC',
   limit = 10,
 ): Promise<GetWinners> {
   const response = await fetch(`${winners}?_page=${page}&_sort=${sort}&_order=${order}&_limit=${limit}`);

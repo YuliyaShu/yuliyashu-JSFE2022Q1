@@ -2,7 +2,7 @@ export const mainTitleGarageVar = 'race garage';
 export const mainTitleWinnersVar = 'race winners';
 export const garagePageNameVar = 'garage';
 export const winnersPageNameVar = 'winners';
-export const carsInGarageVar = 'cars are in your garage';
+export const carsInGarageVar = 'car(s) in garage';
 export const createCarVar = 'create car';
 export const updateCarVar = 'update car';
 export const raceVar = 'race';
@@ -23,3 +23,10 @@ export const placeholderTextVar = 'Insert name';
 export const deleteAllCarsVar = 'Are you sure you want to delete all cars from garage?';
 export const winnerAlertNameVar = 'The winner is ';
 export const winnerAlertTimeVar = 'Time is ';
+export const totalWinnersVar = 'winner(s)';
+// export const
+// export const
+// export const
+// export const
+// export const
+// export const

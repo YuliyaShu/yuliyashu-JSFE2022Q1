@@ -1,4 +1,4 @@
-import createGaragePage from './pages/garagePage';
+import createGaragePage from './pages/singlePage';
 import './style.css';
 
 createGaragePage();

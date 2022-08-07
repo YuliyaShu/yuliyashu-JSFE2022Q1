@@ -1,6 +1,7 @@
 import Footer from '../components/footer/Footer';
 import Header from '../components/header/Header';
 import MainGarage from '../components/mainGarage/MainGarage';
+import MainWinners from '../components/mainWinners/MainWinners';
 import { mainTitleGarageVar } from '../utils/string-variables';
 
 async function createGaragePage(): Promise<void> {
@@ -15,6 +16,7 @@ async function createGaragePage(): Promise<void> {
     isWinnersPage: false,
   }));
   wrapper.append(await MainGarage());
+  wrapper.append(await MainWinners());
   wrapper.append(Footer());
 
   fragment.append(wrapper);
