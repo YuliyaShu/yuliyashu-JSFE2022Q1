@@ -21,3 +21,5 @@ export const startVar = 'start';
 export const stopVar = 'stop';
 export const placeholderTextVar = 'Insert name';
 export const deleteAllCarsVar = 'Are you sure you want to delete all cars from garage?';
+export const winnerAlertNameVar = 'The winner is ';
+export const winnerAlertTimeVar = 'Time is ';

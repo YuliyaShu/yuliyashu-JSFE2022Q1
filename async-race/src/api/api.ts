@@ -124,7 +124,7 @@ async function stopEngine(id: number): Promise<CarEngine | unknown> {
 }
 
 interface SuccessDrive {
-  success: true
+  success: true,
 }
 
 async function driveMode(id: number): Promise<SuccessDrive | unknown> {

@@ -216,7 +216,10 @@ async function startDrive(carID: string) {
   const timeDrive = velocityDistance.distance / velocityDistance.velocity;
   const distance = findDistance(carID);
   carAnimation(+carID, distance, timeDrive);
-  await driveMode(+carID);
+  return {
+    status: driveMode(+carID),
+    time: timeDrive,
+  };
 }
 
 async function stopDrive(carID: string) {

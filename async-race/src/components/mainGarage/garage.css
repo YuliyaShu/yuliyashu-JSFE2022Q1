@@ -177,3 +177,23 @@ path {
   background-color: var(--orange);
   z-index: 2;
 }
+
+.winner-alert {
+  background-color: var(--dark);
+  color: var(--white);
+  position: absolute;
+  top: calc(100vh / 2);
+  left: calc((100vw / 2) - 170px);
+  cursor: default;
+  margin: 0px auto;
+  font-family: 'Montserrat';
+  font-size: 20px;
+  z-index: 5;
+  transform: scale(1.005) translateZ(0);
+  box-shadow: 0px 0px 17px var(--dark);
+  transition: 1s;
+  padding: 2%;
+  border-radius: 10px;
+  width: 350px;
+  text-align: center;
+}

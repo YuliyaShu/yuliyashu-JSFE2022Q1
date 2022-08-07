@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-use-before-define */
 import {
-  Car, createCar, deleteCar, getCars, getOneCar, updateCar,
+  Car, createCar, deleteCar, getCars, getOneCar, SuccessDrive, updateCar,
 } from '../../api/api';
 import generateRandomColor from '../../utils/generate-random-color';
 import createMyElement from '../../utils/HTML_Elements/createMyElement';
@@ -14,6 +14,8 @@ import {
   raceVar, removeAllVar,
   resetVar,
   updateCarVar,
+  winnerAlertNameVar,
+  winnerAlertTimeVar,
 } from '../../utils/string-variables';
 import {
   startDrive,
@@ -198,15 +200,36 @@ async function manageClickListeners(event: MouseEvent): Promise<void> {
     });
     const currentPage = localStorage.getItem('current-page-number');
     if (currentPage) {
+      const testArray: string[] = [];
       const carsOnTrack = await getCars(7, +currentPage);
       carsOnTrack.cars.forEach(async (car) => {
-        startDrive(car.id.toString());
+        const driveResult = await startDrive(car.id.toString());
+        if (!(await driveResult.status instanceof Error)) {
+          if (testArray.length === 0) {
+            testArray.push(car.name);
+            console.log('🚀 carWinner', testArray);
+            const winnerAlert = createMyElement(document.body, {
+              type: 'p',
+              className: ['winner-alert'],
+              innerText: `${winnerAlertNameVar}${car.name}.
+              ${winnerAlertTimeVar}${(driveResult.time / 1000).toFixed(2)}s`,
+            }).element;
+            console.log(winnerAlert instanceof HTMLElement);
+            // if (winnerAlert instanceof HTMLElement) {
+            //   setTimeout(() => winnerAlert.parentElement?.removeChild(winnerAlert), 5000);
+            // }
+          }
+        }
       });
     }
   }
 
   // reset button
   if (event.target === resetButton) {
+    const winnerAlertElement = document.querySelector('.winner-alert');
+    if (winnerAlertElement) {
+      winnerAlertElement.parentElement?.removeChild(winnerAlertElement);
+    }
     trackButtons.forEach((button: HTMLElement) => {
       button.classList.remove('inactive');
       button.removeAttribute('disabled');
