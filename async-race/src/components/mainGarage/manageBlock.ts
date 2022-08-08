@@ -235,11 +235,6 @@ async function manageClickListeners(event: MouseEvent): Promise<void> {
             } else {
               await createWinner(car.id, 1, +(driveResult.time / 1000).toFixed(2));
             }
-            const currentWinnersPageNumber = Number(localStorage.getItem('current-winners-page-number'));
-            const parentElementForWinners = document.querySelector('main__wrapper-winners');
-            if (parentElementForWinners instanceof HTMLElement) {
-              createTableOfWinners(parentElementForWinners, currentWinnersPageNumber);
-            }
           }
         }
       });

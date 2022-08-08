@@ -50,7 +50,7 @@ async function fillTable(
     const totalCarsInGarage = carsOnPage.count as String;
     const cars = await getCars(+totalCarsInGarage) as AllCars;
 
-    for (let j = 0; j <= winnersPerPage; j += 1) {
+    for (let j = 0; j < winnersPerPage; j += 1) {
       const carsId = winnersCars[j].id;
       const carName = cars.cars.find((item) => item.id === carsId)?.name;
       const carColor = cars.cars.find((item) => item.id === carsId)?.color;
