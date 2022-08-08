@@ -1,6 +1,6 @@
-import createGaragePage from './pages/singlePage';
+import createStartPage from './pages/singlePage';
 import './style.css';
 
-createGaragePage();
+createStartPage();
 
 export {};

@@ -1,10 +1,10 @@
 import Footer from '../components/footer/Footer';
-import Header from '../components/header/Header';
+import { createGaragePage, createWinnerPage, Header } from '../components/header/Header';
 import MainGarage from '../components/mainGarage/MainGarage';
 import MainWinners from '../components/mainWinners/MainWinners';
 import { mainTitleGarageVar } from '../utils/string-variables';
 
-async function createGaragePage(): Promise<void> {
+async function createStartPage(): Promise<void> {
   const fragment = new DocumentFragment();
 
   const wrapper = document.createElement('div');
@@ -21,6 +21,12 @@ async function createGaragePage(): Promise<void> {
 
   fragment.append(wrapper);
   document.body.prepend(fragment);
+
+  if (localStorage.getItem('page') === 'winners') {
+    createWinnerPage();
+  } else {
+    createGaragePage();
+  }
 }
 
-export default createGaragePage;
+export default createStartPage;

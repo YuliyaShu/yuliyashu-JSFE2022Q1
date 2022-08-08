@@ -23,10 +23,11 @@ export const placeholderTextVar = 'Insert name';
 export const deleteAllCarsVar = 'Are you sure you want to delete all cars from garage?';
 export const winnerAlertNameVar = 'The winner is ';
 export const winnerAlertTimeVar = 'Time is ';
+export const winnerAlertExitVar = 'Press RESET to exit';
 export const totalWinnersVar = 'winner(s)';
-// export const
-// export const
-// export const
-// export const
-// export const
+export const columnNumber = 'Number';
+export const columnCar = 'Car';
+export const columnName = 'Name';
+export const columnWins = 'Wins';
+export const columnTime = 'Best time, sec';
 // export const

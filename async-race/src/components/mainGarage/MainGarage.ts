@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-use-before-define */
-import { getCars } from '../../api/api';
+import { AllCars, getCars } from '../../api/api';
 import createMyElement from '../../utils/HTML_Elements/createMyElement';
 import {
   carsInGarageVar,
@@ -14,10 +14,11 @@ async function MainGarage(): Promise<HTMLElement> {
   const container = createMyElement(main, { type: 'div', className: ['container__main', 'container'] });
   const mainWrapper = createMyElement(container.element, { type: 'div', className: ['main__wrapper'] });
   // title
+  const totalCars = await getCars() as AllCars;
   createMyElement(mainWrapper.element, {
     type: 'p',
     className: ['main__title'],
-    innerText: `${(await getCars()).count} ${carsInGarageVar}`.toUpperCase(),
+    innerText: `${totalCars.count} ${carsInGarageVar}`.toUpperCase(),
   });
 
   // manage block

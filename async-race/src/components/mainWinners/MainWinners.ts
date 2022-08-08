@@ -11,7 +11,10 @@ async function MainWinners(): Promise<HTMLElement> {
   const mainWrapper = createMyElement(container.element, { type: 'div', className: ['main__wrapper-winners'] });
 
   // table block
-  createTableOfWinners(mainWrapper.element);
+  const currentWinnersPageNumber = localStorage.getItem('current-winners-page-number');
+  if (currentWinnersPageNumber) {
+    createTableOfWinners(mainWrapper.element, +currentWinnersPageNumber);
+  }
 
   return main;
 }

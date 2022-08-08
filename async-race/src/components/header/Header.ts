@@ -28,8 +28,9 @@ function updateHeader(
   isGaragePage: boolean,
   isWinnersPage: boolean,
 ): HTMLElement {
-  // eslint-disable-next-line no-param-reassign
-  header.innerHTML = '';
+  while (header.firstChild) {
+    header.removeChild(header.firstChild);
+  }
   const container = createMyElement(header, { type: 'div', className: ['header__container', 'container'] });
   const headerWrapper = createMyElement(container.element, { type: 'div', className: ['header__wrapper'] });
   createMyElement(headerWrapper.element, { type: 'p', className: ['header__wrapper-name'], innerText: title });
@@ -60,23 +61,35 @@ function updateHeader(
 
 // listeners
 function switchPagesListeners(event: MouseEvent): void {
-  const headerElement = document.querySelector('.header') as HTMLElement;
-  const garagePage = document.querySelector('.main') as HTMLElement;
-  const winnersPage = document.querySelector('.main__winners') as HTMLElement;
-
   // to garage page
   if (event.target === garageButton) {
-    updateHeader(headerElement, mainTitleGarageVar.toUpperCase(), true, false);
-    garagePage.style.display = 'block';
-    winnersPage.style.display = 'none';
+    createGaragePage();
   }
 
   // to winners page
   if (event.target === winnersButton) {
-    updateHeader(headerElement, mainTitleWinnersVar.toUpperCase(), false, true);
-    garagePage.style.display = 'none';
-    winnersPage.style.display = 'block';
+    createWinnerPage();
   }
 }
 
-export default Header;
+function createWinnerPage() {
+  localStorage.setItem('page', 'winners');
+  const header = document.querySelector('header') as HTMLElement;
+  const garagePage = document.querySelector('.main') as HTMLElement;
+  const winnersPage = document.querySelector('.main__winners') as HTMLElement;
+  updateHeader(header, mainTitleWinnersVar.toUpperCase(), false, true);
+  garagePage.style.display = 'none';
+  winnersPage.style.display = 'block';
+}
+
+function createGaragePage() {
+  localStorage.setItem('page', 'garage');
+  const header = document.querySelector('header') as HTMLElement;
+  const garagePage = document.querySelector('.main') as HTMLElement;
+  const winnersPage = document.querySelector('.main__winners') as HTMLElement;
+  updateHeader(header, mainTitleGarageVar.toUpperCase(), true, false);
+  garagePage.style.display = 'block';
+  winnersPage.style.display = 'none';
+}
+
+export { Header, createGaragePage, createWinnerPage };

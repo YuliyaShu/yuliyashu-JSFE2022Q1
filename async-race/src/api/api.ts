@@ -19,15 +19,19 @@ export interface AllCars {
   count: string | null;
 }
 
-async function getCars(limit = 7, page?: number):Promise<AllCars> {
-  const response = await fetch(`${garage}?_page=${page}&_limit=${limit}`);
-  if (!response.ok) {
-    throw new Error(response.statusText);
+async function getCars(limit = 7, page?: number):Promise<AllCars | unknown> {
+  try {
+    const response = await fetch(`${garage}?_page=${page}&_limit=${limit}`);
+    if (!response.ok) {
+      throw new Error(response.statusText);
+    }
+    return {
+      cars: await response.json(),
+      count: response.headers.get('x-total-count'),
+    };
+  } catch (error: unknown) {
+    return error;
   }
-  return {
-    cars: await response.json(),
-    count: response.headers.get('x-total-count'),
-  };
 }
 
 async function getOneCar(id: number): Promise<Car | unknown> {
@@ -185,12 +189,18 @@ async function getOneWinner(id: number): Promise<Winner | unknown> {
   }
 }
 
-async function createWinner(param: Winner): Promise<Winner | unknown> {
+async function createWinner(
+  id: number,
+  wins: number,
+  time: number,
+): Promise<Winner | unknown> {
   try {
     const response = await fetch(winners, {
       method: 'POST',
       body: JSON.stringify({
-        param,
+        id,
+        wins,
+        time,
       }),
       headers: DEFAULT_HEADERS,
     });
@@ -256,4 +266,6 @@ export {
   updateWinner,
   CarEngine,
   SuccessDrive,
+  Winner,
+  GetWinners,
 };

@@ -1,6 +1,7 @@
 /* eslint-disable import/no-cycle */
 /* eslint-disable @typescript-eslint/no-use-before-define */
 import {
+  AllCars,
   Car, CarEngine, deleteCar, driveMode, getCars, getOneCar, startEngine, stopEngine, SuccessDrive,
 } from '../../api/api';
 import createMyElement from '../../utils/HTML_Elements/createMyElement';
@@ -15,6 +16,7 @@ import {
 } from '../../utils/string-variables';
 import { activateUpdate } from './manageBlock';
 
+const carsColors: Map<number, SVGSVGElement> = new Map();
 const startPageNumber = 1;
 const trackButtons: HTMLElement[] = [];
 localStorage.setItem('current-page-number', startPageNumber.toString());
@@ -27,7 +29,8 @@ async function createTrack(parentElement: HTMLElement, page = 1): Promise<void> 
   const trackMainWrapper = document.querySelector('.track-main__wrapper');
   if (trackMainWrapper) trackMainWrapper.innerHTML = '';
   // page count
-  const totalPages = Math.ceil(Number((await getCars()).count) / 7) || 1;
+  const cars = await getCars() as AllCars;
+  const totalPages = Math.ceil(Number(cars.count) / 7) || 1;
   const currentPageNumber = localStorage.getItem('current-page-number');
   createMyElement(parentElement, {
     type: 'p',
@@ -46,7 +49,7 @@ async function createTrack(parentElement: HTMLElement, page = 1): Promise<void> 
     className: ['main__track', 'track'],
   });
 
-  const getAllCars = await getCars(7, page);
+  const getAllCars = await getCars(7, page) as AllCars;
   for (let i = 0; i < getAllCars.cars.length; i += 1) {
     const carId = getAllCars.cars[i].id;
     const cardColor = getAllCars.cars[i].color;
@@ -173,6 +176,11 @@ async function createTrackLine(parentElement: HTMLElement, id: number, randomCol
     className: ['car-img'],
   });
   const svgImage = createCarImage(randomColor, id);
+  const svgImageForWinners = createCarImage(randomColor, id);
+  if (carsColors.has(id)) {
+    carsColors.delete(id);
+  }
+  carsColors.set(id, svgImageForWinners);
   carImg.element.append(svgImage);
 
   const trackLineFlag = createMyElement(trackLineCarDrive.element, {
@@ -343,9 +351,11 @@ async function paginationListeners(event: MouseEvent) {
 export {
   createTrack,
   createTrackLine,
-  updateTrack,
+  createCarImage,
   stopAnimation,
   startDrive,
   stopDrive,
   trackButtons,
+  carsColors,
+  updateTrack,
 };

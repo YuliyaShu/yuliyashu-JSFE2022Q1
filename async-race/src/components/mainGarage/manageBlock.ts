@@ -2,7 +2,17 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-use-before-define */
 import {
-  Car, createCar, deleteCar, getCars, getOneCar, SuccessDrive, updateCar,
+  AllCars,
+  Car,
+  createCar,
+  createWinner,
+  deleteCar,
+  getCars,
+  getOneCar,
+  getOneWinner,
+  updateCar,
+  updateWinner,
+  Winner,
 } from '../../api/api';
 import generateRandomColor from '../../utils/generate-random-color';
 import createMyElement from '../../utils/HTML_Elements/createMyElement';
@@ -14,6 +24,7 @@ import {
   raceVar, removeAllVar,
   resetVar,
   updateCarVar,
+  winnerAlertExitVar,
   winnerAlertNameVar,
   winnerAlertTimeVar,
 } from '../../utils/string-variables';
@@ -23,6 +34,7 @@ import {
   trackButtons,
   updateTrack,
 } from './trackBlock';
+import createTableOfWinners from '../mainWinners/tableBlock';
 
 let createButton: HTMLElement;
 let updateButton: HTMLElement;
@@ -201,23 +213,33 @@ async function manageClickListeners(event: MouseEvent): Promise<void> {
     const currentPage = localStorage.getItem('current-page-number');
     if (currentPage) {
       const testArray: string[] = [];
-      const carsOnTrack = await getCars(7, +currentPage);
+      const carsOnTrack = await getCars(7, +currentPage) as AllCars;
       carsOnTrack.cars.forEach(async (car) => {
         const driveResult = await startDrive(car.id.toString());
         if (!(await driveResult.status instanceof Error)) {
           if (testArray.length === 0) {
             testArray.push(car.name);
-            console.log('🚀 carWinner', testArray);
-            const winnerAlert = createMyElement(document.body, {
+            createMyElement(document.body, {
               type: 'p',
               className: ['winner-alert'],
               innerText: `${winnerAlertNameVar}${car.name}.
-              ${winnerAlertTimeVar}${(driveResult.time / 1000).toFixed(2)}s`,
-            }).element;
-            console.log(winnerAlert instanceof HTMLElement);
-            // if (winnerAlert instanceof HTMLElement) {
-            //   setTimeout(() => winnerAlert.parentElement?.removeChild(winnerAlert), 5000);
-            // }
+            ${winnerAlertTimeVar}${(driveResult.time / 1000).toFixed(2)}s
+            ${winnerAlertExitVar}`,
+            });
+            const isWinner = await getOneWinner(car.id) as Winner;
+            if (isWinner.id) {
+              const newTime = (isWinner.time < driveResult.time)
+                ? isWinner.time
+                : driveResult.time;
+              await updateWinner(isWinner.id, isWinner.wins + 1, newTime);
+            } else {
+              await createWinner(car.id, 1, +(driveResult.time / 1000).toFixed(2));
+            }
+            const currentWinnersPageNumber = Number(localStorage.getItem('current-winners-page-number'));
+            const parentElementForWinners = document.querySelector('main__wrapper-winners');
+            if (parentElementForWinners instanceof HTMLElement) {
+              createTableOfWinners(parentElementForWinners, currentWinnersPageNumber);
+            }
           }
         }
       });
@@ -239,7 +261,7 @@ async function manageClickListeners(event: MouseEvent): Promise<void> {
     raceButton.removeAttribute('disabled');
     const currentPage = localStorage.getItem('current-page-number');
     if (currentPage) {
-      const carsOnTrack = await getCars(7, +currentPage);
+      const carsOnTrack = await getCars(7, +currentPage) as AllCars;
       carsOnTrack.cars.forEach(async (car) => {
         stopDrive(car.id.toString());
       });
@@ -270,7 +292,8 @@ async function manageClickListeners(event: MouseEvent): Promise<void> {
 
 // utils functions
 async function removeAll() {
-  const allCarsInGarage = (await getCars()).cars;
+  const cars = await getCars() as AllCars;
+  const allCarsInGarage = cars.cars;
   if (allCarsInGarage.length) {
     allCarsInGarage.forEach(async (car) => {
       await deleteCar(car.id);
