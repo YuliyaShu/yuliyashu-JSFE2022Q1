@@ -1,5 +1,5 @@
+// (approved by Valery)
 /* eslint-disable @typescript-eslint/lines-between-class-members */
-
 import ElementInterface from './ElementInterface';
 import ElementOptionsInterface from './ElementOptionsInterface';
 
@@ -66,43 +66,6 @@ class MyElement implements ElementInterface {
       }
     }
     return this;
-  }
-
-  removeElementFromDom(): this {
-    if (this.element && this.isVisible) {
-      this.parent.removeChild(this.element);
-      this.isVisible = false;
-    }
-    return this;
-  }
-
-  toggleClass(): this {
-    if (this.element && this.options.className) {
-      if (typeof this.options.className === 'string') {
-        this.element.classList.toggle(this.options.className);
-      } else if (Array.isArray(this.options.className)) {
-        this.options.className.forEach((e) => this.element.classList.toggle(e));
-      }
-    }
-    return this;
-  }
-
-  changeClass(classNameNew: string): this {
-    this.element.className = classNameNew;
-    return this;
-  }
-
-  changeInnerText(innerTextNew: string): this {
-    this.element.innerText = innerTextNew;
-    return this;
-  }
-
-  hide(): void {
-    this.element.style.display = 'none';
-  }
-
-  show(): void {
-    this.element.style.display = 'block';
   }
 }
 

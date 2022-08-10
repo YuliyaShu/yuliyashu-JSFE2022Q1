@@ -2,10 +2,10 @@ import createMyElement from '../../utils/HTML_Elements/createMyElement';
 import { authorDateVar, githubLinkVar, rsschoolLinkVar } from '../../utils/string-variables';
 import './footer.css';
 
-function Footer(): HTMLElement {
-  const footer = document.createElement('footer');
-  footer.classList.add('footer');
-  const container = createMyElement(footer, { type: 'div', className: ['footer__container', 'container'] });
+function footer(): HTMLElement {
+  const footerElement = document.createElement('footer');
+  footerElement.classList.add('footer');
+  const container = createMyElement(footerElement, { type: 'div', className: ['footer__container', 'container'] });
   const footerWrapper = createMyElement(container.element, { type: 'div', className: ['footer__wrapper'] });
 
   createMyElement(footerWrapper.element, {
@@ -26,7 +26,7 @@ function Footer(): HTMLElement {
     attributes: [['src', '../../assets/images/rs_school_js.svg'], ['alt', 'rsschool-logo']],
   });
 
-  return footer;
+  return footerElement;
 }
 
-export default Footer;
+export default footer;

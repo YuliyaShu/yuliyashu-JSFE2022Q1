@@ -30,4 +30,3 @@ export const columnCar = 'Car';
 export const columnName = 'Name';
 export const columnWins = 'Wins';
 export const columnTime = 'Best time, sec';
-// export const

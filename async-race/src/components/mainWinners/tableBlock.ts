@@ -1,4 +1,3 @@
-/* eslint-disable import/no-cycle */
 import { AllCars, getCars, getWinners } from '../../api/api';
 import createMyElement from '../../utils/HTML_Elements/createMyElement';
 import {
