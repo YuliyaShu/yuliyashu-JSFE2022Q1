@@ -1,3 +1,22 @@
+a link to YouTube video [https://youtu.be/ZnWgpBEo2Ss]
+a link to Reveal presentation's deploy [https://yuliyashu-presentation.netlify.app/]
+a link to the transcript of presentation [https://docs.google.com/document/d/1uJ9mPck_atHiZ_QRAu7_r0_3j9ArysJzcOv_EjJBGQw/edit?usp=sharing]
+(optional) your comments -
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <p align="center">
   <a href="https://revealjs.com">
   <img src="https://hakim-static.s3.amazonaws.com/reveal-js/logo/v1/reveal-black-text-sticker.png" alt="reveal.js" width="500">
