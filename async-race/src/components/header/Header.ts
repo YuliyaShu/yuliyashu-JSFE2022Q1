@@ -74,22 +74,32 @@ function switchPagesListeners(event: MouseEvent): void {
 
 function createWinnerPage() {
   localStorage.setItem('page', 'winners');
-  const headerElement = document.querySelector('header') as HTMLElement;
-  const garagePage = document.querySelector('.main') as HTMLElement;
-  const winnersPage = document.querySelector('.main__winners') as HTMLElement;
-  updateHeader(headerElement, mainTitleWinnersVar.toUpperCase(), false, true);
-  garagePage.style.display = 'none';
-  winnersPage.style.display = 'block';
+  const headerElement = document.querySelector('header');
+  const garagePage = document.querySelector('.main');
+  const winnersPage = document.querySelector('.main__winners');
+  if (headerElement instanceof HTMLElement
+    && garagePage instanceof HTMLElement
+    && winnersPage instanceof HTMLElement) {
+    updateHeader(headerElement, mainTitleWinnersVar.toUpperCase(), false, true);
+    garagePage.style.display = 'none';
+    winnersPage.style.display = 'block';
+  } else {
+    throw new Error('Element does not exist!');
+  }
 }
 
 function createGaragePage() {
   localStorage.setItem('page', 'garage');
-  const headerElement = document.querySelector('header') as HTMLElement;
-  const garagePage = document.querySelector('.main') as HTMLElement;
-  const winnersPage = document.querySelector('.main__winners') as HTMLElement;
-  updateHeader(headerElement, mainTitleGarageVar.toUpperCase(), true, false);
-  garagePage.style.display = 'block';
-  winnersPage.style.display = 'none';
+  const headerElement = document.querySelector('header');
+  const garagePage = document.querySelector('.main');
+  const winnersPage = document.querySelector('.main__winners');
+  if (headerElement instanceof HTMLElement
+    && garagePage instanceof HTMLElement
+    && winnersPage instanceof HTMLElement) {
+    updateHeader(headerElement, mainTitleGarageVar.toUpperCase(), true, false);
+    garagePage.style.display = 'block';
+    winnersPage.style.display = 'none';
+  }
 }
 
 export { header, createGaragePage, createWinnerPage };
