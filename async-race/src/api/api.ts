@@ -1,6 +1,3 @@
-// eslint-disable-next-line import/no-cycle
-import { stopAnimation } from '../components/mainGarage/trackBlock';
-
 const garage = 'http://127.0.0.1:3000/garage';
 const engine = 'http://127.0.0.1:3000/engine';
 const winners = 'http://127.0.0.1:3000/winners';
@@ -106,9 +103,6 @@ async function startEngine(id: number): Promise<CarEngine | unknown> {
     }
     return await response.json();
   } catch (error: unknown) {
-    // if (error instanceof Error) {
-
-    // }
     return error;
   }
 }
@@ -141,11 +135,6 @@ async function driveMode(id: number): Promise<SuccessDrive | unknown> {
     }
     return await response.json();
   } catch (error: unknown) {
-    if (error instanceof Error) {
-      if (error.message === 'Internal Server Error') {
-        stopAnimation(id);
-      }
-    }
     return error;
   }
 }

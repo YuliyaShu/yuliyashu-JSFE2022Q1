@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-use-before-define */
 import { AllCars, getCars } from '../../api/api';
 import createMyElement from '../../utils/HTML_Elements/createMyElement';
 import {
