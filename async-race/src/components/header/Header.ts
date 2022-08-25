@@ -72,7 +72,7 @@ function switchPagesListeners(event: MouseEvent): void {
   }
 }
 
-async function createWinnerPage() {
+function createWinnerPage() {
   localStorage.setItem('page', 'winners');
   const headerElement = document.querySelector('header') as HTMLElement;
   const garagePage = document.querySelector('.main') as HTMLElement;
