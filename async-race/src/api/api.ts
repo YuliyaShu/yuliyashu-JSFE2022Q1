@@ -1,14 +1,16 @@
-const garage = 'http://127.0.0.1:3000/garage';
-const engine = 'http://127.0.0.1:3000/engine';
-const winners = 'http://127.0.0.1:3000/winners';
+/* eslint-disable @typescript-eslint/comma-dangle */
+/* eslint-disable @typescript-eslint/quotes */
+const garage = "http://127.0.0.1:3001/garage";
+const engine = "http://127.0.0.1:3001/engine";
+const winners = "http://127.0.0.1:3001/winners";
 const DEFAULT_HEADERS = {
-  'Content-Type': 'application/json',
+  "Content-Type": "application/json",
 };
 
 export interface Car {
   name: string;
   color: string;
-  id: number
+  id: number;
 }
 
 export interface AllCars {
@@ -16,7 +18,7 @@ export interface AllCars {
   count: string | null;
 }
 
-async function getCars(limit = 7, page?: number):Promise<AllCars | unknown> {
+async function getCars(limit = 7, page?: number): Promise<AllCars | unknown> {
   try {
     const response = await fetch(`${garage}?_page=${page}&_limit=${limit}`);
     if (!response.ok) {
@@ -24,7 +26,7 @@ async function getCars(limit = 7, page?: number):Promise<AllCars | unknown> {
     }
     return {
       cars: await response.json(),
-      count: response.headers.get('x-total-count'),
+      count: response.headers.get("x-total-count"),
     };
   } catch (error: unknown) {
     return error;
@@ -43,9 +45,12 @@ async function getOneCar(id: number): Promise<Car | unknown> {
   }
 }
 
-async function createCar(color: string, name: string = 'Tesla Class'): Promise<Car> {
+async function createCar(
+  color: string,
+  name: string = "Tesla Class"
+): Promise<Car> {
   const response = await fetch(garage, {
-    method: 'POST',
+    method: "POST",
     body: JSON.stringify({
       name,
       color,
@@ -58,7 +63,7 @@ async function createCar(color: string, name: string = 'Tesla Class'): Promise<C
 async function deleteCar(id: number): Promise<{} | unknown> {
   try {
     const response = await fetch(`${garage}/${id}`, {
-      method: 'DELETE',
+      method: "DELETE",
     });
     if (!response.ok) {
       throw new Error(response.statusText);
@@ -69,10 +74,14 @@ async function deleteCar(id: number): Promise<{} | unknown> {
   }
 }
 
-async function updateCar(id: number, name: string, color: string): Promise<void | unknown> {
+async function updateCar(
+  id: number,
+  name: string,
+  color: string
+): Promise<void | unknown> {
   try {
     const response = await fetch(`${garage}/${id}`, {
-      method: 'PUT',
+      method: "PUT",
       body: JSON.stringify({
         name,
         color,
@@ -89,14 +98,14 @@ async function updateCar(id: number, name: string, color: string): Promise<void 
 }
 
 interface CarEngine {
-  velocity: number,
-  distance: number
+  velocity: number;
+  distance: number;
 }
 
 async function startEngine(id: number): Promise<CarEngine | unknown> {
   try {
     const response = await fetch(`${engine}?id=${id}&status=started`, {
-      method: 'PATCH',
+      method: "PATCH",
     });
     if (!response.ok) {
       throw new Error(response.statusText);
@@ -110,7 +119,7 @@ async function startEngine(id: number): Promise<CarEngine | unknown> {
 async function stopEngine(id: number): Promise<CarEngine | unknown> {
   try {
     const response = await fetch(`${engine}?id=${id}&status=stopped`, {
-      method: 'PATCH',
+      method: "PATCH",
     });
     if (!response.ok) {
       throw new Error(response.statusText);
@@ -122,13 +131,13 @@ async function stopEngine(id: number): Promise<CarEngine | unknown> {
 }
 
 interface SuccessDrive {
-  success: true,
+  success: true;
 }
 
 async function driveMode(id: number): Promise<SuccessDrive | unknown> {
   try {
     const response = await fetch(`${engine}?id=${id}&status=drive`, {
-      method: 'PATCH',
+      method: "PATCH",
     });
     if (!response.ok) {
       throw new Error(response.statusText);
@@ -140,29 +149,31 @@ async function driveMode(id: number): Promise<SuccessDrive | unknown> {
 }
 
 interface Winner {
-  id: number,
-  wins: number,
-  time: number
+  id: number;
+  wins: number;
+  time: number;
 }
 
 interface GetWinners {
-  winners: Winner[],
-  count: string | null
+  winners: Winner[];
+  count: string | null;
 }
 
 async function getWinners(
   page?: number,
-  sort?: 'id' | 'wins' | 'time',
-  order?: 'ASC' | 'DESC',
-  limit = 10,
+  sort?: "id" | "wins" | "time",
+  order?: "ASC" | "DESC",
+  limit = 10
 ): Promise<GetWinners> {
-  const response = await fetch(`${winners}?_page=${page}&_sort=${sort}&_order=${order}&_limit=${limit}`);
+  const response = await fetch(
+    `${winners}?_page=${page}&_sort=${sort}&_order=${order}&_limit=${limit}`
+  );
   if (!response.ok) {
     throw new Error(response.statusText);
   }
   return {
     winners: await response.json(),
-    count: response.headers.get('X-Total-Count'),
+    count: response.headers.get("X-Total-Count"),
   };
 }
 
@@ -181,11 +192,11 @@ async function getOneWinner(id: number): Promise<Winner | unknown> {
 async function createWinner(
   id: number,
   wins: number,
-  time: number,
+  time: number
 ): Promise<Winner | unknown> {
   try {
     const response = await fetch(winners, {
-      method: 'POST',
+      method: "POST",
       body: JSON.stringify({
         id,
         wins,
@@ -205,7 +216,7 @@ async function createWinner(
 async function deleteWinner(id: number): Promise<{} | unknown> {
   try {
     const response = await fetch(`${winners}/${id}`, {
-      method: 'DELETE',
+      method: "DELETE",
     });
     if (!response.ok) {
       throw new Error(response.statusText);
@@ -219,11 +230,11 @@ async function deleteWinner(id: number): Promise<{} | unknown> {
 async function updateWinner(
   id: number,
   wins: number,
-  time: number,
+  time: number
 ): Promise<Winner | unknown> {
   try {
     const response = await fetch(`${winners}/${id}`, {
-      method: 'PUT',
+      method: "PUT",
       body: JSON.stringify({
         wins,
         time,
