@@ -1,6 +1,3 @@
-# yuliyashu-JSFE2022Q1
-Private repository for @yuliyashu
-
 Self-introduction
 Yuliya Shulgan
 https://youtu.be/Zh8lp92Ap9U
