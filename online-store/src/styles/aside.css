@@ -1,0 +1,114 @@
+.aside {
+  position: fixed;
+  width: 25%;
+  height: calc(100vh - 200px);
+}
+
+.aside__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: solid 1px var(--dark-color);
+  border-radius: 10px;
+  padding: 5%;
+}
+
+.aside__name {
+  font-family: 'Montserrat';
+  font-size: 1.4vw;
+  color: var(--dark-color);
+  height: 10%;
+  margin-bottom: 10%;
+  text-align: center;
+  cursor: default;
+}
+
+.aside__filters-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.aside__filter {
+  font-family: 'Montserrat';
+  font-size: 1vw;
+  height: 10%;
+  color: var(--green-color);
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 5%;
+  text-align: center;
+  align-items: center;
+  cursor: default;
+}
+
+.aside__filter-range {
+  width: 15%;
+  background-color: var(--green-color);
+  color: var(--white-color);
+  margin-left: 5%;
+  border-radius: 10px;
+  padding: 2%;
+  opacity: 70%;
+}
+
+.aside__filter-range:hover {
+  cursor: default;
+}
+
+.aside__filter-slider {
+  margin-left: 5%;
+  width: 30%;
+}
+.noUi-connect {
+  background-color: var(--orange-color);
+  opacity: 70%;
+}
+
+.aside__filter button {
+  width: fit-content;
+  height: 80%;
+  font-size: 1vw;
+  background-color: var(--green-color);
+  color: var(--white-color);
+  border: none;
+  border-radius: 10px;
+  padding: 2%;
+  opacity: 70%;
+  margin-left: 5%;
+}
+
+.aside__filter button:hover {
+  transform: scale(1.005) translateZ(0);
+  box-shadow: 0px 0px 17px var(--green-color);
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.aside__reset-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.aside__reset-filters,
+.aside__reset-settings {
+  width: 16em;
+  background-color: var(--orange-color);
+  color: var(--white-color);
+  font-size: 0.5vw;
+  margin: 0px 5% 5%;
+  border: none;
+  border-radius: 10px;
+  padding: 5%;
+}
+.aside__reset-filters:hover,
+.aside__reset-settings:hover {
+  transform: scale(1.005) translateZ(0);
+  box-shadow: 0px 0px 17px var(--orange-color);
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.aside__filter .active-filter {
+  opacity: 100%;
+}

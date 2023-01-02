@@ -1,0 +1,828 @@
+{
+  
+  "bird": {
+    "url": "./assets/images/animals-bird.jpg",
+    "name": "bird",
+    "translate": "птица",
+    "category": "animals",
+    "year": "2012",
+    "quantity": "3",
+    "designer": "Eleven",
+    "color": "orange",
+    "size": "20x20",
+    "popularity": true,
+    "prize": "$20"
+  },
+
+  "cat": {
+    "url": "./assets/images/animals-cat.jpg",
+    "name": "cat",
+    "translate": "кот",
+    "category": "animals",
+    "year": "2017",
+    "quantity": "9",
+    "designer": "Peppy",
+    "color": "green",
+    "size": "20x20",
+    "popularity": true,
+    "prize": "$20"
+  },
+
+  "dog": {
+    "url": "./assets/images/animals-dog.jpg",
+    "name": "dog",
+    "translate": "собака",
+    "category": "animals",
+    "year": "2013",
+    "quantity": "2",
+    "designer": "Eleven",
+    "color": "orange",
+    "size": "20x20",
+    "popularity": true,
+    "prize": "$20"
+  },
+
+  "rabbit": {
+    "url": "./assets/images/animals-rabbit.jpg",
+    "name": "rabbit",
+    "translate": "кролик",
+    "category": "animals",
+    "year": "2015",
+    "quantity": "0",
+    "designer": "Eleven",
+    "color": "orange",
+    "size": "50x50",
+    "popularity": true,
+    "prize": "$50"
+  },
+
+  "horse": {
+    "url": "./assets/images/animals-horse.jpg",
+    "name": "horse",
+    "translate": "конь",
+    "category": "animals",
+    "year": "2020",
+    "quantity": "10",
+    "designer": "Eleven",
+    "color": "green",
+    "size": "50x50",
+    "popularity": false,
+    "prize": "$50"
+  },
+
+  "kangaroo": {
+    "url": "./assets/images/animals-kangaroo.jpg",
+    "name": "kangaroo",
+    "translate": "кенгуру",
+    "category": "animals",
+    "year": "2021",
+    "quantity": "4",
+    "designer": "Eleven",
+    "color": "orange",
+    "size": "20x20",
+    "popularity": false,
+    "prize": "$20"
+  },
+
+  "monkey": {
+    "url": "./assets/images/animals-monkey.jpg",
+    "name": "monkey",
+    "translate": "обезьяна",
+    "category": "animals",
+    "year": "2012",
+    "quantity": "7",
+    "designer": "Infinite_Jest",
+    "color": "green",
+    "size": "70x70",
+    "popularity": false,
+    "prize": "$70"
+  },
+
+  "pig": {
+    "url": "./assets/images/animals-pig.jpg",
+    "name": "pig",
+    "translate": "свинья",
+    "category": "animals",
+    "year": "2022",
+    "quantity": "5",
+    "designer": "Infinite_Jest",
+    "color": "orange",
+    "size": "70x70",
+    "popularity": false,
+    "prize": "$70"
+  },
+
+  "angel": {
+    "url": "./assets/images/christmas-angel.jpg",
+    "name": "angel",
+    "translate": "ангел",
+    "category": "christmas",
+    "year": "2012",
+    "quantity": "3",
+    "designer": "Eleven",
+    "color": "orange",
+    "size": "20x20",
+    "popularity": true,
+    "prize": "$20"
+  },
+
+  "drinks": {
+    "url": "./assets/images/christmas-drinks.jpg",
+    "name": "drinks",
+    "translate": "напитки",
+    "category": "christmas",
+    "year": "2017",
+    "quantity": "9",
+    "designer": "Peppy",
+    "color": "green",
+    "size": "20x20",
+    "popularity": true,
+    "prize": "$20"
+  },
+
+  "nutcracker": {
+    "url": "./assets/images/christmas-nutcracker.jpg",
+    "name": "nutcracker",
+    "translate": "щелкунчик",
+    "category": "christmas",
+    "year": "2013",
+    "quantity": "2",
+    "designer": "Eleven",
+    "color": "orange",
+    "size": "20x20",
+    "popularity": true,
+    "prize": "$20"
+  },
+
+  "santa": {
+    "url": "./assets/images/christmas-santa.jpg",
+    "name": "santa",
+    "translate": "санта",
+    "category": "christmas",
+    "year": "2015",
+    "quantity": "0",
+    "designer": "Eleven",
+    "color": "orange",
+    "size": "50x50",
+    "popularity": true,
+    "prize": "$50"
+  },
+
+  "snowball": {
+    "url": "./assets/images/christmas-snowball.jpg",
+    "name": "snowball",
+    "translate": "снежный шар",
+    "category": "christmas",
+    "year": "2020",
+    "quantity": "10",
+    "designer": "Eleven",
+    "color": "green",
+    "size": "50x50",
+    "popularity": false,
+    "prize": "$50"
+  },
+
+  "snowman": {
+    "url": "./assets/images/christmas-snowman.jpg",
+    "name": "snowman",
+    "translate": "снеговик",
+    "category": "christmas",
+    "year": "2012",
+    "quantity": "7",
+    "designer": "Infinite_Jest",
+    "color": "green",
+    "size": "70x70",
+    "popularity": false,
+    "prize": "$70"
+  },
+
+  "loneliness": {
+    "url": "./assets/images/emotions-loneliness.jpg",
+    "name": "loneliness",
+    "translate": "одиночество",
+    "category": "feelings",
+    "year": "2012",
+    "quantity": "3",
+    "designer": "Eleven",
+    "color": "orange",
+    "size": "20x20",
+    "popularity": true,
+    "prize": "$20"
+  },
+
+  "hesitance": {
+    "url": "./assets/images/emotions-hesitance.jpg",
+    "name": "hesitance",
+    "translate": "нерешительность",
+    "category": "feelings",
+    "year": "2017",
+    "quantity": "9",
+    "designer": "Peppy",
+    "color": "green",
+    "size": "20x20",
+    "popularity": true,
+    "prize": "$20"
+  },
+
+  "embarrassment": {
+    "url": "./assets/images/emotions-embarrassment.jpg",
+    "name": "embarrassment",
+    "translate": "смущение",
+    "category": "feelings",
+    "year": "2013",
+    "quantity": "2",
+    "designer": "Eleven",
+    "color": "orange",
+    "size": "20x20",
+    "popularity": true,
+    "prize": "$20"
+  },
+
+  "fear": {
+    "url": "./assets/images/emotions-fear.jpg",
+    "name": "fear",
+    "translate": "страх",
+    "category": "feelings",
+    "year": "2015",
+    "quantity": "0",
+    "designer": "Eleven",
+    "color": "orange",
+    "size": "50x50",
+    "popularity": true,
+    "prize": "$50"
+  },
+
+  "happiness": {
+    "url": "./assets/images/emotions-happiness.jpg",
+    "name": "happiness",
+    "translate": "счастье",
+    "category": "feelings",
+    "year": "2020",
+    "quantity": "10",
+    "designer": "Eleven",
+    "color": "green",
+    "size": "50x50",
+    "popularity": false,
+    "prize": "$50"
+  },
+
+  "love": {
+    "url": "./assets/images/emotions-love.jpg",
+    "name": "love",
+    "translate": "любовь",
+    "category": "feelings",
+    "year": "2012",
+    "quantity": "7",
+    "designer": "Infinite_Jest",
+    "color": "green",
+    "size": "70x70",
+    "popularity": false,
+    "prize": "$70"
+  },
+
+  "sadness": {
+    "url": "./assets/images/emotions-sadness.jpg",
+    "name": "sadness",
+    "translate": "грусть",
+    "category": "feelings",
+    "year": "2021",
+    "quantity": "4",
+    "designer": "Eleven",
+    "color": "orange",
+    "size": "20x20",
+    "popularity": false,
+    "prize": "$20"
+  },
+
+  "surprise": {
+    "url": "./assets/images/emotions-surprise.jpg",
+    "name": "surprise",
+    "translate": "удивление",
+    "category": "feelings",
+    "year": "2022",
+    "quantity": "5",
+    "designer": "Infinite_Jest",
+    "color": "orange",
+    "size": "70x70",
+    "popularity": false,
+    "prize": "$70"
+  },
+
+  "children": {
+    "url": "./assets/images/family-children.jpg",
+    "name": "children",
+    "translate": "дети",
+    "category": "family",
+    "year": "2012",
+    "quantity": "3",
+    "designer": "Eleven",
+    "color": "orange",
+    "size": "20x20",
+    "popularity": true,
+    "prize": "$20"
+  },
+
+  "daughter": {
+    "url": "./assets/images/family-daughter.jpg",
+    "name": "daughter",
+    "translate": "дочка",
+    "category": "family",
+    "year": "2017",
+    "quantity": "9",
+    "designer": "Peppy",
+    "color": "green",
+    "size": "20x20",
+    "popularity": true,
+    "prize": "$20"
+  },
+
+  "father": {
+    "url": "./assets/images/family-father.jpg",
+    "name": "father",
+    "translate": "папа",
+    "category": "family",
+    "year": "2013",
+    "quantity": "2",
+    "designer": "Eleven",
+    "color": "orange",
+    "size": "20x20",
+    "popularity": true,
+    "prize": "$20"
+  },
+
+  "grandma": {
+    "url": "./assets/images/family-grandma.jpg",
+    "name": "grandma",
+    "translate": "бабушка",
+    "category": "family",
+    "year": "2015",
+    "quantity": "0",
+    "designer": "Eleven",
+    "color": "orange",
+    "size": "50x50",
+    "popularity": true,
+    "prize": "$50"
+  },
+
+  "grandpa": {
+    "url": "./assets/images/family-grandpa.jpg",
+    "name": "grandpa",
+    "translate": "дедушка",
+    "category": "family",
+    "year": "2020",
+    "quantity": "10",
+    "designer": "Eleven",
+    "color": "green",
+    "size": "50x50",
+    "popularity": false,
+    "prize": "$50"
+  },
+
+  "mother": {
+    "url": "./assets/images/family-mother.jpg",
+    "name": "mother",
+    "translate": "мама",
+    "category": "family",
+    "year": "2012",
+    "quantity": "7",
+    "designer": "Infinite_Jest",
+    "color": "green",
+    "size": "70x70",
+    "popularity": false,
+    "prize": "$70"
+  },
+
+  "parents": {
+    "url": "./assets/images/family-parents.jpg",
+    "name": "parents",
+    "translate": "родители",
+    "category": "family",
+    "year": "2021",
+    "quantity": "4",
+    "designer": "Eleven",
+    "color": "orange",
+    "size": "20x20",
+    "popularity": false,
+    "prize": "$20"
+  },
+
+  "sister": {
+    "url": "./assets/images/family-sister.jpg",
+    "name": "sister",
+    "translate": "сестра",
+    "category": "family",
+    "year": "2022",
+    "quantity": "5",
+    "designer": "Infinite_Jest",
+    "color": "orange",
+    "size": "70x70",
+    "popularity": false,
+    "prize": "$70"
+  },
+
+  "bread": {
+    "url": "./assets/images/food-bread.jpg",
+    "name": "bread",
+    "translate": "хлеб",
+    "category": "food",
+    "year": "2012",
+    "quantity": "3",
+    "designer": "Eleven",
+    "color": "orange",
+    "size": "20x20",
+    "popularity": true,
+    "prize": "$20"
+  },
+  
+  "cake": {
+    "url": "./assets/images/food-cake.jpg",
+    "name": "cake",
+    "translate": "пирог",
+    "category": "food",
+    "year": "2017",
+    "quantity": "9",
+    "designer": "Peppy",
+    "color": "green",
+    "size": "20x20",
+    "popularity": true,
+    "prize": "$20"
+  },
+
+  "cookies": {
+    "url": "./assets/images/food-cookies.jpg",
+    "name": "cookies",
+    "translate": "печенье",
+    "category": "food",
+    "year": "2013",
+    "quantity": "2",
+    "designer": "Eleven",
+    "color": "orange",
+    "size": "20x20",
+    "popularity": true,
+    "prize": "$20"
+  },
+
+  "honey": {
+    "url": "./assets/images/food-honey.jpg",
+    "name": "honey",
+    "translate": "мёд",
+    "category": "food",
+    "year": "2015",
+    "quantity": "0",
+    "designer": "Eleven",
+    "color": "orange",
+    "size": "50x50",
+    "popularity": true,
+    "prize": "$50"
+  },
+
+  "pasta": {
+    "url": "./assets/images/food-pasta.jpg",
+    "name": "pasta",
+    "translate": "паста",
+    "category": "food",
+    "year": "2020",
+    "quantity": "10",
+    "designer": "Eleven",
+    "color": "green",
+    "size": "50x50",
+    "popularity": false,
+    "prize": "$50"
+  },
+
+  "peach": {
+    "url": "./assets/images/food-peach.jpg",
+    "name": "peach",
+    "translate": "персик",
+    "category": "food",
+    "year": "2012",
+    "quantity": "7",
+    "designer": "Infinite_Jest",
+    "color": "green",
+    "size": "70x70",
+    "popularity": false,
+    "prize": "$70"
+  },
+
+  "pineapple": {
+    "url": "./assets/images/food-pineapple.jpg",
+    "name": "pineapple",
+    "translate": "ананас",
+    "category": "food",
+    "year": "2021",
+    "quantity": "4",
+    "designer": "Eleven",
+    "color": "orange",
+    "size": "20x20",
+    "popularity": false,
+    "prize": "$20"
+  },
+
+  "pizza": {
+    "url": "./assets/images/food-pizza.jpg",
+    "name": "pizza",
+    "translate": "пицца",
+    "category": "food",
+    "year": "2022",
+    "quantity": "5",
+    "designer": "Infinite_Jest",
+    "color": "orange",
+    "size": "70x70",
+    "popularity": false,
+    "prize": "$70"
+  },
+
+  "collecting": {
+    "url": "./assets/images/hobby-collecting.jpg",
+    "name": "collecting",
+    "translate": "коллекционирование",
+    "category": "hobby",
+    "year": "2012",
+    "quantity": "3",
+    "designer": "Eleven",
+    "color": "orange",
+    "size": "20x20",
+    "popularity": true,
+    "prize": "$20"
+  },
+
+  "dancing": {
+    "url": "./assets/images/hobby-dancing.jpg",
+    "name": "dancing",
+    "translate": "танцы",
+    "category": "hobby",
+    "year": "2013",
+    "quantity": "2",
+    "designer": "Eleven",
+    "color": "orange",
+    "size": "20x20",
+    "popularity": true,
+    "prize": "$20"
+  },
+
+  "knitting": {
+    "url": "./assets/images/hobby-knitting.jpg",
+    "name": "knitting",
+    "translate": "вязание",
+    "category": "hobby",
+    "year": "2015",
+    "quantity": "0",
+    "designer": "Eleven",
+    "color": "orange",
+    "size": "50x50",
+    "popularity": true,
+    "prize": "$50"
+  },
+
+  "photo": {
+    "url": "./assets/images/hobby-photo.jpg",
+    "name": "photo",
+    "translate": "фотография",
+    "category": "hobby",
+    "year": "2020",
+    "quantity": "10",
+    "designer": "Eleven",
+    "color": "green",
+    "size": "50x50",
+    "popularity": false,
+    "prize": "$50"
+  },
+
+  "plants": {
+    "url": "./assets/images/hobby-plants.jpg",
+    "name": "plants",
+    "translate": "растения",
+    "category": "hobby",
+    "year": "2012",
+    "quantity": "7",
+    "designer": "Infinite_Jest",
+    "color": "green",
+    "size": "70x70",
+    "popularity": false,
+    "prize": "$70"
+  },
+
+  "reading": {
+    "url": "./assets/images/hobby-reading.jpg",
+    "name": "reading",
+    "translate": "чтение",
+    "category": "hobby",
+    "year": "2021",
+    "quantity": "4",
+    "designer": "Eleven",
+    "color": "orange",
+    "size": "20x20",
+    "popularity": false,
+    "prize": "$20"
+  },
+
+  "sewing": {
+    "url": "./assets/images/hobby-sewing.jpg",
+    "name": "sewing",
+    "translate": "шитье",
+    "category": "hobby",
+    "year": "2022",
+    "quantity": "5",
+    "designer": "Infinite_Jest",
+    "color": "orange",
+    "size": "70x70",
+    "popularity": false,
+    "prize": "$70"
+  },
+
+  "acorn": {
+    "url": "./assets/images/plants-acorn.jpg",
+    "name": "acorn",
+    "translate": "желудь",
+    "category": "plants",
+    "year": "2012",
+    "quantity": "3",
+    "designer": "Eleven",
+    "color": "orange",
+    "size": "20x20",
+    "popularity": true,
+    "prize": "$20"
+  },
+
+  "cactus": {
+    "url": "./assets/images/plants-cactus.jpg",
+    "name": "cactus",
+    "translate": "кактус",
+    "category": "plants",
+    "year": "2013",
+    "quantity": "2",
+    "designer": "Eleven",
+    "color": "orange",
+    "size": "20x20",
+    "popularity": true,
+    "prize": "$20"
+  },
+
+  "flowers": {
+    "url": "./assets/images/plants-flowers.jpg",
+    "name": "flowers",
+    "translate": "цветы",
+    "category": "plants",
+    "year": "2015",
+    "quantity": "0",
+    "designer": "Eleven",
+    "color": "orange",
+    "size": "50x50",
+    "popularity": true,
+    "prize": "$50"
+  },
+
+  "mushrooms": {
+    "url": "./assets/images/plants-mushrooms.jpg",
+    "name": "mushrooms",
+    "translate": "грибы",
+    "category": "plants",
+    "year": "2020",
+    "quantity": "10",
+    "designer": "Eleven",
+    "color": "green",
+    "size": "50x50",
+    "popularity": false,
+    "prize": "$50"
+  },
+
+  "rose": {
+    "url": "./assets/images/plants-rose.jpg",
+    "name": "rose",
+    "translate": "роза",
+    "category": "plants",
+    "year": "2021",
+    "quantity": "4",
+    "designer": "Eleven",
+    "color": "orange",
+    "size": "20x20",
+    "popularity": false,
+    "prize": "$20"
+  },
+
+  "tree": {
+    "url": "./assets/images/plants-tree.jpg",
+    "name": "tree",
+    "translate": "дерево",
+    "category": "plants",
+    "year": "2022",
+    "quantity": "5",
+    "designer": "Infinite_Jest",
+    "color": "orange",
+    "size": "70x70",
+    "popularity": false,
+    "prize": "$70"
+  },
+
+  "climbing": {
+    "url": "./assets/images/sport-climbing.jpg",
+    "name": "climbing",
+    "translate": "альпинизм",
+    "category": "sport",
+    "year": "2012",
+    "quantity": "3",
+    "designer": "Eleven",
+    "color": "orange",
+    "size": "20x20",
+    "popularity": true,
+    "prize": "$20"
+  },
+  
+  "cycling": {
+    "url": "./assets/images/sport-cycling.jpg",
+    "name": "cycling",
+    "translate": "велосипед",
+    "category": "sport",
+    "year": "2017",
+    "quantity": "9",
+    "designer": "Peppy",
+    "color": "green",
+    "size": "20x20",
+    "popularity": true,
+    "prize": "$20"
+  },
+
+  "fitness": {
+    "url": "./assets/images/sport-fitness.jpg",
+    "name": "fitness",
+    "translate": "фитнес",
+    "category": "sport",
+    "year": "2013",
+    "quantity": "2",
+    "designer": "Eleven",
+    "color": "orange",
+    "size": "20x20",
+    "popularity": true,
+    "prize": "$20"
+  },
+
+  "gymnastics": {
+    "url": "./assets/images/sport-gymnastics.jpg",
+    "name": "gymnastics",
+    "translate": "гимнастика",
+    "category": "sport",
+    "year": "2015",
+    "quantity": "0",
+    "designer": "Eleven",
+    "color": "orange",
+    "size": "50x50",
+    "popularity": true,
+    "prize": "$50"
+  },
+
+  "judo": {
+    "url": "./assets/images/sport-judo.jpg",
+    "name": "judo",
+    "translate": "дзюдо",
+    "category": "sport",
+    "year": "2020",
+    "quantity": "10",
+    "designer": "Eleven",
+    "color": "green",
+    "size": "50x50",
+    "popularity": false,
+    "prize": "$50"
+  },
+
+  "motorcycling": {
+    "url": "./assets/images/sport-motorcycling.jpg",
+    "name": "motorcycling",
+    "translate": "мотоспорт",
+    "category": "sport",
+    "year": "2012",
+    "quantity": "7",
+    "designer": "Infinite_Jest",
+    "color": "green",
+    "size": "70x70",
+    "popularity": false,
+    "prize": "$70"
+  },
+
+  "running": {
+    "url": "./assets/images/sport-running.jpg",
+    "name": "running",
+    "translate": "бег",
+    "category": "sport",
+    "year": "2021",
+    "quantity": "4",
+    "designer": "Eleven",
+    "color": "orange",
+    "size": "20x20",
+    "popularity": false,
+    "prize": "$20"
+  },
+
+  "skating": {
+    "url": "./assets/images/sport-skating.jpg",
+    "name": "skating",
+    "translate": "коньки",
+    "category": "sport",
+    "year": "2022",
+    "quantity": "5",
+    "designer": "Infinite_Jest",
+    "color": "orange",
+    "size": "70x70",
+    "popularity": false,
+    "prize": "$70"
+  }
+}
