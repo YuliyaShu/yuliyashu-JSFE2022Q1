@@ -1,0 +1,199 @@
+@import url('../../style.css');
+
+.main {
+  width: 100%;
+  height: auto;
+}
+
+.container__main {
+  display: flex;
+  flex-direction: row;
+  height: fit-content;
+  width: 100%;
+  align-items: flex-start
+}
+
+.main__wrapper,
+.track-main__wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.main__title {
+  font-family: 'Montserrat';
+  font-size: 20px;
+  color: var(--dark);
+  margin-bottom: 10px;
+  cursor: default;
+}
+
+.main__subblock {
+  margin-bottom: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.block-button,
+.block-input {
+  margin: 0 5px;
+  border: solid 1px var(--dark);
+  border-radius: 3px;
+}
+
+.actions-buttons__generate {
+  color: var(--white);
+  background-color: var(--green);
+}
+
+.actions-buttons__remove-all {
+  color: var(--white);
+  background-color: var(--red);
+}
+
+.block-button:hover {
+  transform: scale(1.005) translateZ(0);
+  box-shadow: 0px 0px 17px var(--red);
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.create-car__button {
+  background-color: var(--orange);
+}
+
+.update-car__button {
+  background-color: var(--yellow);
+}
+
+.actions-buttons__race {
+  background-color: var(--dark);
+  color: var(--white);
+}
+
+.actions-buttons__reset {
+  background-color: var(--red);
+  color: var(--white);
+}
+
+.inactive {
+  opacity: 50%;
+}
+
+.inactive:hover {
+  transform: none;
+  box-shadow: none;
+  transition: none;
+  cursor: default;
+}
+
+.main__page-counter,
+.car-name {
+  margin-top: 20px;
+}
+
+.main__track,
+.track-line__wrapper,
+.main__page-track-wrapper {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.track-line__car-panel {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: flex-start
+}
+
+.track-line__car-drive {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.track-line__car-manipulate {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: flex-start;
+  width: 80%;
+}
+
+.track-line__flag {
+  width: 20%;
+}
+
+.track-line__flag-img {
+  width: 30px;
+}
+
+.car-img {
+  display: flex;
+  position: relative;
+  width: 60px;
+}
+
+svg {
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100vw;
+}
+
+path {
+  transform: scale(0.06);
+}
+
+.dotted-line {
+  border:none;
+  border-top: 1px dashed var(--dark);
+  color: var(--white);
+  background-color: var(--white);
+  height: 1px;
+  width: 100%;
+}
+
+.main__pagination {
+  margin: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.prev-button {
+  background-color: var(--yellow);
+  z-index: 2;
+}
+
+.next-button {
+  background-color: var(--orange);
+  z-index: 2;
+}
+
+.winner-alert {
+  background-color: var(--dark);
+  color: var(--white);
+  position: absolute;
+  top: calc(100vh / 2);
+  left: calc((100vw / 2) - 170px);
+  cursor: default;
+  margin: 0px auto;
+  font-family: 'Montserrat';
+  font-size: 20px;
+  z-index: 5;
+  transform: scale(1.005) translateZ(0);
+  box-shadow: 0px 0px 17px var(--dark);
+  transition: 1s;
+  padding: 2%;
+  border-radius: 10px;
+  width: 350px;
+  text-align: center;
+}

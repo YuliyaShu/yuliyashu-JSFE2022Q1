@@ -1,0 +1,85 @@
+.main__winners {
+    width: 100%;
+    height: auto;
+}
+
+.main__wrapper-winners {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.main__title-winners {
+  font-family: 'Montserrat';
+  font-size: 20px;
+  color: var(--dark);
+  margin-bottom: 10px;
+  cursor: default;
+}
+
+.main__page-counter-winners {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.main__page-table-wrapper {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  background-color: var(--dark);
+  width: 70vw;
+}
+
+.table__headlines {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  width: 70vw;
+  font-size: 80%;
+}
+
+.cell,
+.cell-headers {
+  padding: 5%;
+  border: 1px solid var(--dark);
+  display: flex;
+  align-items: center;
+  background-color: var(--yellow);
+}
+
+.cell-headers {
+  background-color: var(--orange);
+}
+
+.cell-2 {
+  position: relative;
+  height: 50px;
+}
+
+.car-winner {
+  position: absolute;
+  width: 100%;
+  padding: 10px;
+}
+
+.winners__pagination {
+  margin: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.winners__prev-button {
+  background-color: var(--yellow);
+  z-index: 2;
+}
+
+.winners__next-button {
+  background-color: var(--orange);
+  z-index: 2;
+}
